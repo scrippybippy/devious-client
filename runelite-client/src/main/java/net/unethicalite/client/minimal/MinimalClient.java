@@ -93,7 +93,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 import static java.nio.file.StandardCopyOption.COPY_ATTRIBUTES;
-import static net.runelite.client.RuneLite.USER_AGENT;
+import static net.runelite.client.RuneLite.*;
 
 @Singleton
 @Slf4j
@@ -357,6 +357,7 @@ public class MinimalClient
 	{
 		Path from = Paths.get(System.getProperty("user.home"), "jagexcache");
 		Path to = Paths.get(Unethicalite.getCacheDirectory().getAbsolutePath(), "jagexcache");
+
 		if (Files.exists(to) || !Files.exists(from))
 		{
 			return;
@@ -405,7 +406,7 @@ public class MinimalClient
 			applet.setSize(Constants.GAME_FIXED_SIZE);
 
 			System.setProperty("jagex.disableBouncyCastle", "true");
-			System.setProperty("jagex.userhome", Unethicalite.getCacheDirectory().getAbsolutePath());
+			System.setProperty("jagex.userhome", new File(CLIENT_DIR + File.separator + TMP).getAbsolutePath());
 
 			applet.init();
 			applet.start();
