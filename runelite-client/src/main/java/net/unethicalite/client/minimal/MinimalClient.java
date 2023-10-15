@@ -93,6 +93,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 import static java.nio.file.StandardCopyOption.COPY_ATTRIBUTES;
+import static net.runelite.client.RuneLite.TMP;
 import static net.runelite.client.RuneLite.USER_AGENT;
 
 @Singleton
@@ -353,6 +354,51 @@ public class MinimalClient
 		}
 	}
 
+	private static void createRandomDat()
+	{
+		Path tmpPath = Paths.get(new File(CLIENT_DIR + File.separator + TMP).getAbsolutePath());
+
+		if (!Files.exists(tmpPath))
+		{
+			try
+			{
+				Files.createDirectory(tmpPath);
+			}
+			catch (IOException e)
+			{
+				throw new RuntimeException(e);
+			}
+		}
+
+		File randomDat = new File(tmpPath + "/random.dat");
+
+		try
+		{
+			if (randomDat.createNewFile())
+			{
+				System.out.println("File created: " + randomDat.getName());
+			}
+			else
+			{
+				System.out.println("File already exists.");
+			}
+		}
+		catch (IOException e)
+		{
+			log.info("Failed to create random.dat");
+			throw new RuntimeException(e);
+		}
+
+		if (randomDat.setReadOnly())
+		{
+			System.out.println("File set to read only: " + randomDat.getName());
+		}
+		else
+		{
+			System.out.println("Failed to set to read only.");
+		}
+	}
+
 	private static void copyJagexCache()
 	{
 		Path from = Paths.get(System.getProperty("user.home"), "jagexcache");
@@ -399,13 +445,14 @@ public class MinimalClient
 		// Start the applet
 		if (applet != null)
 		{
+			createRandomDat();
 			copyJagexCache();
 
 			// Client size must be set prior to init
 			applet.setSize(Constants.GAME_FIXED_SIZE);
 
 			System.setProperty("jagex.disableBouncyCastle", "true");
-			System.setProperty("jagex.userhome", Unethicalite.getCacheDirectory().getAbsolutePath());
+			System.setProperty("jagex.userhome", new File(CLIENT_DIR + File.separator + TMP).getAbsolutePath());
 
 			applet.init();
 			applet.start();

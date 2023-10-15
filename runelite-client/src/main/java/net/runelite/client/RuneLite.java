@@ -93,6 +93,7 @@ import net.runelite.client.util.WorldUtil;
 import net.runelite.http.api.RuneLiteAPI;
 import net.runelite.http.api.worlds.World;
 import net.runelite.http.api.worlds.WorldResult;
+import net.unethicalite.api.commons.Rand;
 import net.unethicalite.client.Unethicalite;
 import net.unethicalite.client.managers.SettingsManager;
 import okhttp3.Cache;
@@ -105,6 +106,8 @@ import org.slf4j.LoggerFactory;
 @Slf4j
 public class RuneLite
 {
+	public static final String TMP = "\\tmp_" + Rand.nextInt(0, Integer.MAX_VALUE);
+
 	public static final String OPENOSRS = ".openosrs";
 	public static final File RUNELITE_DIR = new File(System.getProperty("user.home"), OPENOSRS);
 	public static final File CACHE_DIR = new File(RUNELITE_DIR, "cache");
@@ -495,7 +498,7 @@ public class RuneLite
 			applet.setSize(Constants.GAME_FIXED_SIZE);
 
 			System.setProperty("jagex.disableBouncyCastle", "true");
-			System.setProperty("jagex.userhome", Unethicalite.getCacheDirectory().getAbsolutePath());
+			System.setProperty("jagex.userhome", new File(Unethicalite.CLIENT_DIR + File.separator + TMP).getAbsolutePath());
 
 			applet.init();
 			applet.start();
