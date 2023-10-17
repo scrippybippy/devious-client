@@ -44,6 +44,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import static java.nio.file.StandardCopyOption.COPY_ATTRIBUTES;
+import static net.unethicalite.client.Unethicalite.TMP_DIR;
+
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -444,10 +446,55 @@ public class RuneLite
 		}
 	}
 
+	private static void createRandomDat()
+	{
+		Path tmpPath = TMP_DIR.toPath();
+
+		if (!Files.exists(tmpPath))
+		{
+			try
+			{
+				Files.createDirectory(tmpPath);
+			}
+			catch (IOException e)
+			{
+				throw new RuntimeException(e);
+			}
+		}
+
+		File randomDat = new File(tmpPath + "/random.dat");
+
+		try
+		{
+			if (randomDat.createNewFile())
+			{
+				System.out.println("File created: " + randomDat.getName());
+			}
+			else
+			{
+				System.out.println("File already exists.");
+			}
+		}
+		catch (IOException e)
+		{
+			log.info("Failed to create random.dat");
+			throw new RuntimeException(e);
+		}
+
+		if (randomDat.setReadOnly())
+		{
+			System.out.println("File set to read only: " + randomDat.getName());
+		}
+		else
+		{
+			System.out.println("Failed to set to read only.");
+		}
+	}
+
 	private static void copyJagexCache()
 	{
 		Path from = Paths.get(System.getProperty("user.home"), "jagexcache");
-		Path to = Unethicalite.getCacheDirectory().getAbsoluteFile().toPath();
+		Path to = Unethicalite.getCacheDirectory().toPath();
 		if (Files.exists(to) || !Files.exists(from))
 		{
 			return;
@@ -492,13 +539,14 @@ public class RuneLite
 		// Start the applet
 		if (applet != null)
 		{
+			createRandomDat();
 			copyJagexCache();
 
 			// Client size must be set prior to init
 			applet.setSize(Constants.GAME_FIXED_SIZE);
 
 			System.setProperty("jagex.disableBouncyCastle", "true");
-			System.setProperty("jagex.userhome", new File(Unethicalite.CLIENT_DIR + File.separator + TMP).getAbsolutePath());
+			System.setProperty("jagex.userhome", Unethicalite.getCacheDirectory().getParent());
 
 			applet.init();
 			applet.start();
