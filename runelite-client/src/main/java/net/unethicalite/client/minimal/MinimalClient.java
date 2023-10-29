@@ -224,6 +224,8 @@ public class MinimalClient
 
 		final OptionSpec<Void> insecureWriteCredentials = parser.accepts("insecure-write-credentials", "Dump authentication tokens from the Jagex Launcher to a text file to be used for development");
 
+		final OptionSpec<Void> cachedRandomDat = parser.accepts("cached-random-dat", "Use cached random.dat data for each account");
+
 		Thread.setDefaultUncaughtExceptionHandler((thread, throwable) ->
 		{
 			log.error("Uncaught exception:", throwable);
@@ -265,7 +267,8 @@ public class MinimalClient
 					clientLoader,
 					options.valueOf(configfile),
 					options,
-				        options.has(insecureWriteCredentials)
+					options.has(insecureWriteCredentials),
+					options.has(cachedRandomDat)
 			)));
 
 			RuneLite.getInjector().getInstance(MinimalClient.class).start(options);
@@ -403,7 +406,6 @@ public class MinimalClient
 	{
 		Path from = Paths.get(System.getProperty("user.home"), "jagexcache");
 		Path to = Unethicalite.getCacheDirectory().toPath();
-
 		if (Files.exists(to) || !Files.exists(from))
 		{
 			return;

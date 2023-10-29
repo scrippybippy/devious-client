@@ -222,6 +222,8 @@ public class RuneLite
 
 		final OptionSpec<Void> insecureWriteCredentials = parser.accepts("insecure-write-credentials", "Dump authentication tokens from the Jagex Launcher to a text file to be used for development");
 
+		final OptionSpec<Void> cachedRandomDat = parser.accepts("cached-random-dat", "Use cached random.dat data for each account");
+
 		parser.accepts("help", "Show this text").forHelp();
 		OptionSet options = SettingsManager.parseArgs(parser, args);
 
@@ -325,7 +327,8 @@ public class RuneLite
 				options.valueOf(sessionfile),
 				options.valueOf(configfile),
 				options,
-				options.has(insecureWriteCredentials)
+				options.has(insecureWriteCredentials),
+				options.has(cachedRandomDat)
 			));
 
 			injector.getInstance(RuneLite.class).start(options);
