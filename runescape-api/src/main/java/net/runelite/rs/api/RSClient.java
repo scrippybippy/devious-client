@@ -1769,6 +1769,9 @@ public interface RSClient extends RSGameEngine, Client
 	@Override
 	void setLoginIndex(int index);
 
+	@Import("loginState")
+	int getRSLoginState();
+
 	@Construct
 	RSClientPacket createClientPacket(int opcode, int length);
 
@@ -1843,4 +1846,12 @@ public interface RSClient extends RSGameEngine, Client
 	java.util.Properties getCredentialsProperties();
 	boolean storeCredentials();
 	void writeCredentials();
+
+	/**
+	 * Cached random.dat
+	 */
+
+	byte[] getCachedRandomDatData(String username);
+	void writeCachedRandomDatData(String username, byte[] data);
+	boolean useCachedRandomDat();
 }
