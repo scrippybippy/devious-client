@@ -1205,7 +1205,7 @@ public final class ComponentID
 	/**
 	 * 160:30
 	 */
-	public static final int MINIGAMES_TELEPORT_BUTTON = 10485790;
+	public static final int MINIGAMES_TELEPORT_BUTTON = 4980766;
 
 	/**
 	 * 160:0
