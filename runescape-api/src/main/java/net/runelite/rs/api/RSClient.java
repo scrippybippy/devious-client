@@ -288,6 +288,12 @@ public interface RSClient extends RSGameEngine, Client
 	@Override
 	void setOtp(String otp);
 
+	@Import("setAuthenticationScheme")
+	void setAuthenticationScheme(boolean otp);
+
+	@Import("setLoginResponseString")
+	void setLoginResponseString(String var0, String var1, String var2);
+
 	@Import("xPadding")
 	int getLoginScreenXPadding();
 
@@ -1255,7 +1261,7 @@ public interface RSClient extends RSGameEngine, Client
 	RSNodeDeque newNodeDeque();
 
 	@Import("updateItemPile")
-	void updateItemPile(int localX, int localY);
+	void updateItemPile(int plane, int localX, int localY);
 
 	@Import("showMouseCross")
 	@Override
