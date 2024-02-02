@@ -14,7 +14,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ArrayUtils;
 import net.runelite.client.RuneLite;
 import static net.runelite.client.RuneLite.OPENOSRS;
-import static net.runelite.client.RuneLite.TMP;
 
 import net.unethicalite.client.minimal.MinimalClient;
 
@@ -22,7 +21,6 @@ import net.unethicalite.client.minimal.MinimalClient;
 public class Unethicalite
 {
 	public static final File CLIENT_DIR = new File(System.getProperty("user.home"), ".openosrs");
-	public static final File TMP_DIR = new File(CLIENT_DIR, TMP);
 
 	private static String[] getClientArgs()
 	{
@@ -85,7 +83,7 @@ public class Unethicalite
 		var dir = getCacheDir();
 		if (Objects.equals(dir, OPENOSRS))
 		{
-			return new File(TMP_DIR, "jagexcache");
+			return new File(CLIENT_DIR, "jagexcache");
 		}
 
 		var cacheDirs = new File(CLIENT_DIR, "custom-cache");

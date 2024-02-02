@@ -44,7 +44,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import static java.nio.file.StandardCopyOption.COPY_ATTRIBUTES;
-import static net.unethicalite.client.Unethicalite.TMP_DIR;
 
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
@@ -95,7 +94,6 @@ import net.runelite.client.util.WorldUtil;
 import net.runelite.http.api.RuneLiteAPI;
 import net.runelite.http.api.worlds.World;
 import net.runelite.http.api.worlds.WorldResult;
-import net.unethicalite.api.commons.Rand;
 import net.unethicalite.client.Unethicalite;
 import net.unethicalite.client.managers.SettingsManager;
 import okhttp3.Cache;
@@ -108,8 +106,6 @@ import org.slf4j.LoggerFactory;
 @Slf4j
 public class RuneLite
 {
-	public static final String TMP = "\\tmp_" + Rand.nextInt(0, Integer.MAX_VALUE);
-
 	public static final String OPENOSRS = ".openosrs";
 	public static final File RUNELITE_DIR = new File(System.getProperty("user.home"), OPENOSRS);
 	public static final File CACHE_DIR = new File(RUNELITE_DIR, "cache");
@@ -451,51 +447,6 @@ public class RuneLite
 		}
 	}
 
-	private static void createRandomDat()
-	{
-		Path tmpPath = TMP_DIR.toPath();
-
-		if (!Files.exists(tmpPath))
-		{
-			try
-			{
-				Files.createDirectory(tmpPath);
-			}
-			catch (IOException e)
-			{
-				throw new RuntimeException(e);
-			}
-		}
-
-		File randomDat = new File(tmpPath + "/random.dat");
-
-		try
-		{
-			if (randomDat.createNewFile())
-			{
-				System.out.println("File created: " + randomDat.getName());
-			}
-			else
-			{
-				System.out.println("File already exists.");
-			}
-		}
-		catch (IOException e)
-		{
-			log.info("Failed to create random.dat");
-			throw new RuntimeException(e);
-		}
-
-		if (randomDat.setReadOnly())
-		{
-			System.out.println("File set to read only: " + randomDat.getName());
-		}
-		else
-		{
-			System.out.println("Failed to set to read only.");
-		}
-	}
-
 	private static void copyJagexCache()
 	{
 		Path from = Paths.get(System.getProperty("user.home"), "jagexcache");
@@ -544,7 +495,6 @@ public class RuneLite
 		// Start the applet
 		if (applet != null)
 		{
-			createRandomDat();
 			copyJagexCache();
 
 			// Client size must be set prior to init
