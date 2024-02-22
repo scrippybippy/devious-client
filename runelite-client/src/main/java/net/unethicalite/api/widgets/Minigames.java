@@ -85,7 +85,7 @@ public class Minigames
 			return;
 		}
 
-		Widget minigamesTeleportButton = Widgets.get(WidgetInfo.MINIGAME_TELEPORT_BUTTON);
+		Widget minigamesTeleportButton = Widgets.get(76, 30);
 		List<Integer> teleportGraphics = List.of(800, 802, 803, 804);
 		if (isOpen() && minigamesTeleportButton != null)
 		{
@@ -135,7 +135,7 @@ public class Minigames
 
 	public static boolean isOpen()
 	{
-		return Widgets.isVisible(Widgets.get(WidgetInfo.MINIGAME_TELEPORT_BUTTON));
+		return Widgets.isVisible(Widgets.get(76, 30));
 	}
 
 	public static boolean isTabOpen()
