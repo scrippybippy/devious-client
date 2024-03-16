@@ -6,12 +6,16 @@ import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.EquipmentInventorySlot;
 import net.runelite.api.Item;
 import net.runelite.api.ItemID;
+import net.runelite.api.Tile;
+import net.runelite.api.WallObject;
 import net.runelite.api.coords.WorldArea;
 import net.runelite.api.coords.WorldPoint;
 import net.unethicalite.api.items.Equipment;
 import net.unethicalite.api.items.Inventory;
 import net.unethicalite.api.movement.pathfinder.model.CharterShipLocation;
+import net.unethicalite.api.movement.pathfinder.model.IgnoredDoor;
 import net.unethicalite.api.movement.pathfinder.model.Transport;
+import net.unethicalite.api.scene.Tiles;
 import net.unethicalite.client.Static;
 
 import java.util.ArrayList;
@@ -31,6 +35,7 @@ public class Pathfinder implements Callable<List<WorldPoint>>
 {
 	final CollisionMap map;
 	final Map<WorldPoint, List<Transport>> transports;
+	private List<IgnoredDoor> ignoredDoors;
 	private List<Node> start;
 	private WorldArea target;
 	private List<WorldPoint> targetTiles;
@@ -62,7 +67,6 @@ public class Pathfinder implements Callable<List<WorldPoint>>
 		return false;
 	}
 
-
 	public Pathfinder(CollisionMap collisionMap, Map<WorldPoint, List<Transport>> transports, List<WorldPoint> start, WorldPoint target, boolean avoidWilderness)
 	{
 		this(collisionMap, transports, start, target.toWorldArea(), avoidWilderness);
@@ -74,6 +78,7 @@ public class Pathfinder implements Callable<List<WorldPoint>>
 		this.transports = transports;
 		this.target = target;
 		this.targetTiles = target.toWorldPointList();
+		this.ignoredDoors = new IgnoredDoorLoader().getIgnoredDoors();
 		this.start = new ArrayList<>();
 		this.nearest = null;
 		this.avoidWilderness = avoidWilderness;
@@ -88,7 +93,18 @@ public class Pathfinder implements Callable<List<WorldPoint>>
 		this.targetsInWilderness = targetTiles.stream().anyMatch(Pathfinder::isInWilderness);
 		if (targetTiles.stream().allMatch(collisionMap::fullBlock))
 		{
-			log.warn("Walking to a {}, pathfinder will be slow", targetTiles.size() == 1 ? "blocked tile" : "fully blocked area");
+			WorldPoint nearestWalkableTile = Walker.nearestWalkableTile(targetTiles.get(0));
+			if (nearestWalkableTile != null)
+			{
+				log.warn("Target {} is fully blocked, walking to nearest walkable tile {}",
+					targetTiles.size() == 1 ? "tile" : "area", nearestWalkableTile);
+				this.target = nearestWalkableTile.toWorldArea();
+				this.targetTiles = this.target.toWorldPointList();
+			}
+			else
+			{
+				log.warn("Walking to a fully blocked area, pathfinder will be slow");
+			}
 		}
 	}
 
@@ -149,6 +165,17 @@ public class Pathfinder implements Callable<List<WorldPoint>>
 		if (avoidWilderness && isInWilderness(neighbor) && !isInWilderness(node.position) && !targetsInWilderness)
 		{
 			return;
+		}
+		Tile tile = Tiles.getAt(neighbor);
+		if (tile != null)
+		{
+			WallObject door = tile.getWallObject();
+			if (door != null && ignoredDoors.stream().anyMatch(ignoredDoor -> ignoredDoor.getLocation().equals(neighbor) &&
+				ignoredDoor.getId() == door.getId() &&
+				ignoredDoor.getRequirements().fulfilled()))
+			{
+				return;
+			}
 		}
 		int cost = CharterShipLocation.getCharterShipCost(node.position, neighbor, ringOfCharosEquipped);
 		if (useCharterShips && cost > node.goldAvailable)
