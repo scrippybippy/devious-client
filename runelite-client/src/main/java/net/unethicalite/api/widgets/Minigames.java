@@ -87,7 +87,8 @@ public class Minigames
 
 		Widget minigamesTeleportButton = Widgets.get(76, 30);
 		List<Integer> teleportGraphics = List.of(800, 802, 803, 804);
-		if (isOpen() && minigamesTeleportButton != null)
+
+		if (isTabOpen() && isOpen() && minigamesTeleportButton != null)
 		{
 			if (Destination.getCurrent() != destination)
 			{
