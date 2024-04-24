@@ -25,6 +25,7 @@
 package net.runelite.client.plugins.grounditems;
 
 import java.awt.Color;
+import java.time.Duration;
 import java.time.Instant;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -51,6 +52,9 @@ class GroundItem
 	@Nullable
 	private Instant spawnTime;
 	private boolean stackable;
+	private Duration despawnTime;
+	@Nullable
+	private Duration visibleTime;
 
 	// cached values derived from config
 	boolean highlighted;
