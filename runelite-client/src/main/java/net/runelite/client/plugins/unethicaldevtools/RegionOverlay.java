@@ -6,6 +6,7 @@ import net.runelite.api.MenuAction;
 import net.runelite.api.Point;
 import net.runelite.api.Tile;
 import net.runelite.api.coords.WorldPoint;
+import net.runelite.api.events.ConfigButtonClicked;
 import net.runelite.api.events.MenuOpened;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
@@ -13,7 +14,6 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
-import net.runelite.client.ui.overlay.OverlayPriority;
 import net.unethicalite.api.movement.pathfinder.GlobalCollisionMap;
 import net.unethicalite.api.movement.pathfinder.TransportLoader;
 import net.unethicalite.api.movement.pathfinder.Walker;
@@ -61,8 +61,20 @@ public class RegionOverlay extends Overlay
 		this.executorService = executorService;
 
 		setPosition(OverlayPosition.DYNAMIC);
-		setLayer(OverlayLayer.ABOVE_WIDGETS);
-		setPriority(OverlayPriority.LOW);
+		setLayer(OverlayLayer.ABOVE_SCENE);
+		setPriority(Overlay.PRIORITY_LOW);
+	}
+
+	public void swapLayer()
+	{
+		if (getLayer() == OverlayLayer.ABOVE_SCENE)
+		{
+			setLayer(OverlayLayer.ABOVE_WIDGETS);
+		}
+		else
+		{
+			setLayer(OverlayLayer.ABOVE_SCENE);
+		}
 	}
 
 	@Override
@@ -73,7 +85,6 @@ public class RegionOverlay extends Overlay
 		{
 			Rectangle mapBounds = worldMap.getBounds();
 			graphics.setClip(mapBounds);
-
 			if (config.transportsOverlay())
 			{
 				List<Transport> transports = TransportLoader.buildTransports();
@@ -180,6 +191,42 @@ public class RegionOverlay extends Overlay
 			}
 			generateMenu(clickPoint);
 		}
+	}
+
+	@Subscribe
+	public void onConfigButtonClicked(ConfigButtonClicked e)
+	{
+		if (!e.getGroup().equals("unethicaldevtools") && !e.getKey().equals("pathDebugButton"))
+		{
+			return;
+		}
+		WorldPoint location = getConfigLocation();
+		if (location == null)
+		{
+			return;
+		}
+		if (startTile == null)
+		{
+			executorService.execute(() -> path = Walker.calculatePath(location));
+		}
+		else
+		{
+			LinkedHashMap<WorldPoint, Teleport> teleports = buildTeleportLinks(location.toWorldArea());
+			List<WorldPoint> startPoints = new ArrayList<>(teleports.keySet());
+			startPoints.add(startTile);
+			executorService.execute(() -> path = Walker.calculatePath(
+				startPoints, location));
+		}
+	}
+
+	private WorldPoint getConfigLocation()
+	{
+		String[] split = config.pathDebugLocation().split(" ");
+		if (split.length != 3)
+		{
+			return null;
+		}
+		return new WorldPoint(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]));
 	}
 
 	private void generateMenu(WorldPoint clickPoint)

@@ -4,38 +4,38 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("pa")
+@ObfuscatedName("pw")
 @Implements("IterableNodeDequeDescendingIterator")
 public class IterableNodeDequeDescendingIterator implements Iterator {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Lph;"
+		descriptor = "Lps;"
 	)
 	@Export("deque")
 	IterableNodeDeque deque;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "Lse;"
+		descriptor = "Ltl;"
 	)
-	Node field4476;
-	@ObfuscatedName("af")
+	Node field4631;
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "Lse;"
+		descriptor = "Ltl;"
 	)
 	@Export("last")
 	Node last;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lph;)V"
+		descriptor = "(Lps;)V"
 	)
 	IterableNodeDequeDescendingIterator(IterableNodeDeque var1) {
 		this.last = null;
 		this.setDeque(var1);
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Lph;)V"
+		descriptor = "(Lps;)V"
 	)
 	@Export("setDeque")
 	void setDeque(IterableNodeDeque var1) {
@@ -43,20 +43,20 @@ public class IterableNodeDequeDescendingIterator implements Iterator {
 		this.start();
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@Export("start")
 	void start() {
-		this.field4476 = this.deque != null ? this.deque.sentinel.previous : null;
+		this.field4631 = this.deque != null ? this.deque.sentinel.previous : null;
 		this.last = null;
 	}
 
 	public Object next() {
-		Node var1 = this.field4476;
+		Node var1 = this.field4631;
 		if (var1 == this.deque.sentinel) {
 			var1 = null;
-			this.field4476 = null;
+			this.field4631 = null;
 		} else {
-			this.field4476 = var1.previous;
+			this.field4631 = var1.previous;
 		}
 
 		this.last = var1;
@@ -64,11 +64,15 @@ public class IterableNodeDequeDescendingIterator implements Iterator {
 	}
 
 	public boolean hasNext() {
-		return this.deque.sentinel != this.field4476 && this.field4476 != null;
+		return this.deque.sentinel != this.field4631 && this.field4631 != null;
 	}
 
 	public void remove() {
-		this.last.remove();
-		this.last = null;
+		if (this.last == null) {
+			throw new IllegalStateException();
+		} else {
+			this.last.remove();
+			this.last = null;
+		}
 	}
 }

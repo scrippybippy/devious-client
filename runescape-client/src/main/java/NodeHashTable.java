@@ -3,31 +3,31 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ts")
+@ObfuscatedName("tx")
 @Implements("NodeHashTable")
 public final class NodeHashTable {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@Export("size")
 	int size;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "[Lse;"
+		descriptor = "[Ltl;"
 	)
 	@Export("buckets")
 	Node[] buckets;
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "Lse;"
+		descriptor = "Ltl;"
 	)
 	@Export("currentGet")
 	Node currentGet;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "Lse;"
+		descriptor = "Ltl;"
 	)
 	@Export("current")
 	Node current;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@Export("index")
 	int index;
 
@@ -44,9 +44,9 @@ public final class NodeHashTable {
 
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(J)Lse;"
+		descriptor = "(J)Ltl;"
 	)
 	@Export("get")
 	public Node get(long var1) {
@@ -64,8 +64,8 @@ public final class NodeHashTable {
 		return null;
 	}
 
-	@ObfuscatedName("ap")
-	public int method9091() {
+	@ObfuscatedName("al")
+	public int method9356() {
 		int var1 = 0;
 
 		for (int var2 = 0; var2 < this.size; ++var2) {
@@ -79,9 +79,9 @@ public final class NodeHashTable {
 		return var1;
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(Lse;J)V"
+		descriptor = "(Ltl;J)V"
 	)
 	@Export("put")
 	public void put(Node var1, long var2) {
@@ -97,9 +97,9 @@ public final class NodeHashTable {
 		var1.key = var2;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "()Lse;"
+		descriptor = "()Ltl;"
 	)
 	@Export("first")
 	public Node first() {
@@ -107,9 +107,9 @@ public final class NodeHashTable {
 		return this.next();
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@ObfuscatedSignature(
-		descriptor = "()Lse;"
+		descriptor = "()Ltl;"
 	)
 	@Export("next")
 	public Node next() {

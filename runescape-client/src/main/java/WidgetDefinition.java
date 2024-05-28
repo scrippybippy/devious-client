@@ -5,109 +5,109 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("np")
+@ObfuscatedName("nk")
 @Implements("WidgetDefinition")
 public class WidgetDefinition {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Low;"
+		descriptor = "Lor;"
 	)
 	@Export("widgetArchive")
 	AbstractArchive widgetArchive;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "Low;"
+		descriptor = "Lor;"
 	)
-	AbstractArchive field3617;
-	@ObfuscatedName("af")
-	@ObfuscatedSignature(
-		descriptor = "Low;"
-	)
-	AbstractArchive field3607;
+	AbstractArchive field3717;
 	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "Low;"
+		descriptor = "Lor;"
 	)
-	AbstractArchive field3608;
-	@ObfuscatedName("aq")
+	AbstractArchive field3723;
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "Low;"
+		descriptor = "Lor;"
 	)
-	AbstractArchive field3613;
-	@ObfuscatedName("ar")
+	AbstractArchive field3719;
+	@ObfuscatedName("af")
 	@ObfuscatedSignature(
-		descriptor = "[[Lnn;"
+		descriptor = "Lor;"
+	)
+	AbstractArchive field3720;
+	@ObfuscatedName("aa")
+	@ObfuscatedSignature(
+		descriptor = "[[Lnb;"
 	)
 	@Export("Widget_interfaceComponents")
 	public Widget[][] Widget_interfaceComponents;
-	@ObfuscatedName("ao")
-	Map field3611;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ab")
+	Map field3722;
+	@ObfuscatedName("ac")
 	@ObfuscatedSignature(
-		descriptor = "Llq;"
+		descriptor = "Llm;"
 	)
 	@Export("Widget_cachedSprites")
 	EvictingDualNodeHashTable Widget_cachedSprites;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
-		descriptor = "Llq;"
+		descriptor = "Llm;"
 	)
 	@Export("Widget_cachedModels")
 	EvictingDualNodeHashTable Widget_cachedModels;
-	@ObfuscatedName("au")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "Llq;"
+		descriptor = "Llm;"
 	)
 	@Export("Widget_cachedFonts")
 	EvictingDualNodeHashTable Widget_cachedFonts;
-	@ObfuscatedName("an")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "Llq;"
+		descriptor = "Llm;"
 	)
 	@Export("Widget_cachedSpriteMasks")
 	EvictingDualNodeHashTable Widget_cachedSpriteMasks;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "Lqj;"
+		descriptor = "Lry;"
 	)
-	class439 field3615;
-	@ObfuscatedName("ax")
+	class460 field3728;
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lqj;"
+		descriptor = "Lry;"
 	)
-	class439 field3605;
+	class460 field3716;
 
 	@ObfuscatedSignature(
-		descriptor = "(Low;Low;Low;Low;Low;)V"
+		descriptor = "(Lor;Lor;Lor;Lor;Lor;)V"
 	)
 	public WidgetDefinition(AbstractArchive var1, AbstractArchive var2, AbstractArchive var3, AbstractArchive var4, AbstractArchive var5) {
-		this.field3611 = new HashMap();
+		this.field3722 = new HashMap();
 		this.Widget_cachedSprites = new EvictingDualNodeHashTable(200);
 		this.Widget_cachedModels = new EvictingDualNodeHashTable(50);
 		this.Widget_cachedFonts = new EvictingDualNodeHashTable(20);
 		this.Widget_cachedSpriteMasks = new EvictingDualNodeHashTable(8);
-		this.field3615 = new class439(10, class437.field4677);
-		this.field3605 = new class439(10, class437.field4677);
+		this.field3728 = new class460(10, class458.field4877);
+		this.field3716 = new class460(10, class458.field4877);
 		int var6 = 0;
 		if (var1 != null) {
 			this.widgetArchive = var1;
-			this.field3607 = var2;
-			this.field3608 = var3;
-			this.field3613 = var4;
-			this.field3617 = var5;
+			this.field3723 = var2;
+			this.field3719 = var3;
+			this.field3720 = var4;
+			this.field3717 = var5;
 			var6 = this.widgetArchive.getGroupCount();
 		}
 
 		this.Widget_interfaceComponents = new Widget[var6][];
-		Skills.field3912 = new boolean[var6];
+		class155.field1748 = new boolean[var6];
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(IB)Lnn;",
-		garbageValue = "108"
+		descriptor = "(IB)Lnb;",
+		garbageValue = "7"
 	)
-	public Widget method6348(int var1) {
+	public Widget method6536(int var1) {
 		int var2 = var1 >> 16;
 		int var3 = var1 & 65535;
 		if (this.Widget_interfaceComponents[var2] == null || this.Widget_interfaceComponents[var2][var3] == null) {
@@ -120,14 +120,14 @@ public class WidgetDefinition {
 		return this.Widget_interfaceComponents[var2][var3];
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(III)Lnn;",
-		garbageValue = "-477809652"
+		descriptor = "(III)Lnb;",
+		garbageValue = "-1640217063"
 	)
 	@Export("getWidgetChild")
 	public Widget getWidgetChild(int var1, int var2) {
-		Widget var3 = this.method6348(var1);
+		Widget var3 = this.method6536(var1);
 		if (var2 == -1) {
 			return var3;
 		} else {
@@ -135,21 +135,21 @@ public class WidgetDefinition {
 		}
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(II)Z",
-		garbageValue = "356565951"
+		descriptor = "(IB)Z",
+		garbageValue = "39"
 	)
 	@Export("loadInterface")
 	public boolean loadInterface(int var1) {
-		if (Skills.field3912[var1]) {
+		if (class155.field1748[var1]) {
 			return true;
 		} else if (!this.widgetArchive.tryLoadGroup(var1)) {
 			return false;
 		} else {
 			int var2 = this.widgetArchive.getGroupFileCount(var1);
 			if (var2 == 0) {
-				Skills.field3912[var1] = true;
+				class155.field1748[var1] = true;
 				return true;
 			} else {
 				if (this.Widget_interfaceComponents[var1] == null) {
@@ -168,31 +168,31 @@ public class WidgetDefinition {
 								this.Widget_interfaceComponents[var1][var3].decodeLegacy(new Buffer(var4));
 							}
 
-							if (this.field3617 != null) {
-								byte[] var5 = this.field3617.takeFile(var1, var3);
+							if (this.field3717 != null) {
+								byte[] var5 = this.field3717.takeFile(var1, var3);
 								if (var5 != null && var5.length > 0) {
-									this.Widget_interfaceComponents[var1][var3].method6690(new Buffer(var5));
-									this.field3611.put(this.Widget_interfaceComponents[var1][var3].field3702, var1);
+									this.Widget_interfaceComponents[var1][var3].method6911(new Buffer(var5));
+									this.field3722.put(this.Widget_interfaceComponents[var1][var3].field3816, var1);
 								}
 							}
 						}
 					}
 				}
 
-				Skills.field3912[var1] = true;
+				class155.field1748[var1] = true;
 				return true;
 			}
 		}
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(IB)V",
-		garbageValue = "-6"
+		descriptor = "(II)V",
+		garbageValue = "-1534297254"
 	)
-	public void method6346(int var1) {
+	public void method6540(int var1) {
 		if (var1 != -1) {
-			if (Skills.field3912[var1]) {
+			if (class155.field1748[var1]) {
 				this.widgetArchive.clearFilesGroup(var1);
 				if (this.Widget_interfaceComponents[var1] != null) {
 					for (int var2 = 0; var2 < this.Widget_interfaceComponents[var1].length; ++var2) {
@@ -202,21 +202,82 @@ public class WidgetDefinition {
 					}
 
 					this.Widget_interfaceComponents[var1] = null;
-					Skills.field3912[var1] = false;
+					class155.field1748[var1] = false;
 				}
 			}
 		}
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "323588621"
+		garbageValue = "-1315845158"
 	)
-	public void method6349() {
+	public void method6550() {
 		this.Widget_cachedSprites.clear();
 		this.Widget_cachedModels.clear();
 		this.Widget_cachedFonts.clear();
 		this.Widget_cachedSpriteMasks.clear();
+	}
+
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "(IS)J",
+		garbageValue = "180"
+	)
+	public static long method6548(int var0) {
+		if (var0 > 63) {
+			throw new class426("Cannot generate max unsigned value for more than 63 bits as this is greater than the boundaries of a java long. Value provided: %d", new Object[]{var0});
+		} else {
+			return (long)Math.pow(2.0D, (double)var0) - 1L;
+		}
+	}
+
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "(Lnb;I[B[BI)V",
+		garbageValue = "-1795281107"
+	)
+	@Export("Widget_setKey")
+	static final void Widget_setKey(Widget var0, int var1, byte[] var2, byte[] var3) {
+		if (var0.field3891 == null) {
+			if (var2 == null) {
+				return;
+			}
+
+			var0.field3891 = new byte[11][];
+			var0.field3873 = new byte[11][];
+			var0.field3835 = new int[11];
+			var0.field3894 = new int[11];
+		}
+
+		var0.field3891[var1] = var2;
+		if (var2 != null) {
+			var0.field3868 = true;
+		} else {
+			var0.field3868 = false;
+
+			for (int var4 = 0; var4 < var0.field3891.length; ++var4) {
+				if (var0.field3891[var4] != null) {
+					var0.field3868 = true;
+					break;
+				}
+			}
+		}
+
+		var0.field3873[var1] = var3;
+	}
+
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "(Ldt;IIIB)I",
+		garbageValue = "-1"
+	)
+	static int method6546(WorldView var0, int var1, int var2, int var3) {
+		if ((var0.tileSettings[var1][var2][var3] & 8) != 0) {
+			return 0;
+		} else {
+			return var1 > 0 && (var0.tileSettings[1][var2][var3] & 2) != 0 ? var1 - 1 : var1;
+		}
 	}
 }

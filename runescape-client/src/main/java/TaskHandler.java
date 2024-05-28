@@ -7,30 +7,31 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ij")
+@ObfuscatedName("gz")
 @Implements("TaskHandler")
 public class TaskHandler implements Runnable {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ak")
+	@Export("javaVendor")
+	public static String javaVendor;
+	@ObfuscatedName("al")
 	@Export("javaVersion")
 	public static String javaVersion;
-	@ObfuscatedName("ae")
-	static int[] field2295;
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "Lil;"
+		descriptor = "Lhe;"
 	)
 	@Export("current")
 	Task current;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "Lil;"
+		descriptor = "Lhe;"
 	)
 	@Export("task")
 	Task task;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@Export("thread")
 	Thread thread;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("aa")
 	@Export("isClosed")
 	boolean isClosed;
 
@@ -38,11 +39,11 @@ public class TaskHandler implements Runnable {
 		this.current = null;
 		this.task = null;
 		this.isClosed = false;
-		class233.javaVendor = "Unknown";
+		javaVendor = "Unknown";
 		javaVersion = "1.6";
 
 		try {
-			class233.javaVendor = System.getProperty("java.vendor");
+			javaVendor = System.getProperty("java.vendor");
 			javaVersion = System.getProperty("java.version");
 		} catch (Exception var2) {
 		}
@@ -54,10 +55,10 @@ public class TaskHandler implements Runnable {
 		this.thread.start();
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1884535240"
+		descriptor = "(B)V",
+		garbageValue = "100"
 	)
 	@Export("close")
 	public final void close() {
@@ -73,10 +74,10 @@ public class TaskHandler implements Runnable {
 
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(IIILjava/lang/Object;B)Lil;",
-		garbageValue = "-106"
+		descriptor = "(IIILjava/lang/Object;B)Lhe;",
+		garbageValue = "69"
 	)
 	@Export("newTask")
 	final Task newTask(int var1, int var2, int var3, Object var4) {
@@ -97,20 +98,20 @@ public class TaskHandler implements Runnable {
 		}
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;II)Lil;",
-		garbageValue = "1422970877"
+		descriptor = "(Ljava/lang/String;II)Lhe;",
+		garbageValue = "-1934928312"
 	)
 	@Export("newSocketTask")
 	public final Task newSocketTask(String var1, int var2) {
 		return this.newTask(1, var2, 0, var1);
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/Runnable;II)Lil;",
-		garbageValue = "-257477270"
+		descriptor = "(Ljava/lang/Runnable;II)Lhe;",
+		garbageValue = "-956665670"
 	)
 	@Export("newThreadTask")
 	public final Task newThreadTask(Runnable var1, int var2) {
@@ -162,6 +163,58 @@ public class TaskHandler implements Runnable {
 			} catch (Throwable var7) {
 				var1.status = 2;
 			}
+		}
+	}
+
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(II)Ldm;",
+		garbageValue = "-1734966590"
+	)
+	@Export("getScript")
+	static Script getScript(int var0) {
+		Script var1 = (Script)Script.Script_cached.get((long)var0);
+		if (var1 != null) {
+			return var1;
+		} else {
+			byte[] var2 = class438.archive12.takeFile(var0, 0);
+			if (var2 == null) {
+				return null;
+			} else {
+				var1 = LoginScreenAnimation.newScript(var2);
+				Script.Script_cached.put(var1, (long)var0);
+				return var1;
+			}
+		}
+	}
+
+	@ObfuscatedName("al")
+	@ObfuscatedSignature(
+		descriptor = "(II)I",
+		garbageValue = "-168591578"
+	)
+	@Export("Widget_unpackTargetMask")
+	public static int Widget_unpackTargetMask(int var0) {
+		return var0 >> 11 & 63;
+	}
+
+	@ObfuscatedName("nh")
+	@ObfuscatedSignature(
+		descriptor = "(II)V",
+		garbageValue = "-171453005"
+	)
+	static final void method3581(int var0) {
+		if (AsyncRestClient.widgetDefinition.loadInterface(var0)) {
+			Widget[] var1 = AsyncRestClient.widgetDefinition.Widget_interfaceComponents[var0];
+
+			for (int var2 = 0; var2 < var1.length; ++var2) {
+				Widget var3 = var1[var2];
+				if (var3 != null) {
+					var3.modelFrame = 0;
+					var3.modelFrameCycle = 0;
+				}
+			}
+
 		}
 	}
 }

@@ -1,66 +1,55 @@
-import java.lang.management.GarbageCollectorMXBean;
-import java.lang.management.ManagementFactory;
-import java.util.Date;
-import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("ge")
+@ObfuscatedName("ho")
 @Implements("KitDefinition")
 public class KitDefinition extends DualNode {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Low;"
+		descriptor = "Lor;"
 	)
 	@Export("KitDefinition_archive")
 	public static AbstractArchive KitDefinition_archive;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "Low;"
-	)
-	@Export("KitDefinition_modelsArchive")
-	public static AbstractArchive KitDefinition_modelsArchive;
-	@ObfuscatedName("af")
-	@ObfuscatedGetter(
-		intValue = -1269534839
-	)
-	@Export("KitDefinition_fileCount")
-	public static int KitDefinition_fileCount;
-	@ObfuscatedName("aj")
-	@ObfuscatedSignature(
-		descriptor = "Llq;"
+		descriptor = "Llm;"
 	)
 	@Export("KitDefinition_cached")
-	static EvictingDualNodeHashTable KitDefinition_cached;
-	@ObfuscatedName("aq")
+	public static EvictingDualNodeHashTable KitDefinition_cached;
+	@ObfuscatedName("sp")
+	@ObfuscatedSignature(
+		descriptor = "Lgc;"
+	)
+	@Export("guestClanSettings")
+	static ClanSettings guestClanSettings;
+	@ObfuscatedName("af")
 	@ObfuscatedGetter(
-		intValue = 142413103
+		intValue = -1514514101
 	)
 	@Export("bodypartID")
 	public int bodypartID;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("aa")
 	@Export("models2")
 	int[] models2;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("at")
 	@Export("recolorFrom")
 	short[] recolorFrom;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ab")
 	@Export("recolorTo")
 	short[] recolorTo;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ac")
 	@Export("retextureFrom")
 	short[] retextureFrom;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ao")
 	@Export("retextureTo")
 	short[] retextureTo;
-	@ObfuscatedName("au")
+	@ObfuscatedName("ah")
 	@Export("models")
 	int[] models;
-	@ObfuscatedName("an")
+	@ObfuscatedName("av")
 	@Export("nonSelectable")
 	public boolean nonSelectable;
 
@@ -74,10 +63,10 @@ public class KitDefinition extends DualNode {
 		this.nonSelectable = false;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(Luk;I)V",
-		garbageValue = "244058044"
+		descriptor = "(Lua;I)V",
+		garbageValue = "1860250283"
 	)
 	@Export("decode")
 	void decode(Buffer var1) {
@@ -91,10 +80,10 @@ public class KitDefinition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(Luk;II)V",
-		garbageValue = "-1818382900"
+		descriptor = "(Lua;II)V",
+		garbageValue = "1615055212"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
@@ -137,10 +126,10 @@ public class KitDefinition extends DualNode {
 
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(I)Z",
-		garbageValue = "-1083492398"
+		descriptor = "(B)Z",
+		garbageValue = "-66"
 	)
 	@Export("ready")
 	public boolean ready() {
@@ -150,7 +139,7 @@ public class KitDefinition extends DualNode {
 			boolean var1 = true;
 
 			for (int var2 = 0; var2 < this.models2.length; ++var2) {
-				if (!KitDefinition_modelsArchive.tryLoadFile(this.models2[var2], 0)) {
+				if (!class156.KitDefinition_modelsArchive.tryLoadFile(this.models2[var2], 0)) {
 					var1 = false;
 				}
 			}
@@ -159,10 +148,10 @@ public class KitDefinition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@ObfuscatedSignature(
-		descriptor = "(I)Lkm;",
-		garbageValue = "-552136609"
+		descriptor = "(I)Ljb;",
+		garbageValue = "1605515774"
 	)
 	@Export("getModelData")
 	public ModelData getModelData() {
@@ -172,7 +161,7 @@ public class KitDefinition extends DualNode {
 			ModelData[] var1 = new ModelData[this.models2.length];
 
 			for (int var2 = 0; var2 < this.models2.length; ++var2) {
-				var1[var2] = ModelData.ModelData_get(KitDefinition_modelsArchive, this.models2[var2], 0);
+				var1[var2] = ModelData.ModelData_get(class156.KitDefinition_modelsArchive, this.models2[var2], 0);
 			}
 
 			ModelData var4;
@@ -199,16 +188,16 @@ public class KitDefinition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("ar")
+	@ObfuscatedName("aa")
 	@ObfuscatedSignature(
 		descriptor = "(I)Z",
-		garbageValue = "1199111363"
+		garbageValue = "2026407683"
 	)
-	public boolean method3665() {
+	public boolean method3874() {
 		boolean var1 = true;
 
 		for (int var2 = 0; var2 < 5; ++var2) {
-			if (this.models[var2] != -1 && !KitDefinition_modelsArchive.tryLoadFile(this.models[var2], 0)) {
+			if (this.models[var2] != -1 && !class156.KitDefinition_modelsArchive.tryLoadFile(this.models[var2], 0)) {
 				var1 = false;
 			}
 		}
@@ -216,10 +205,10 @@ public class KitDefinition extends DualNode {
 		return var1;
 	}
 
-	@ObfuscatedName("ag")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(B)Lkm;",
-		garbageValue = "0"
+		descriptor = "(I)Ljb;",
+		garbageValue = "-938751037"
 	)
 	@Export("getKitDefinitionModels")
 	public ModelData getKitDefinitionModels() {
@@ -228,7 +217,7 @@ public class KitDefinition extends DualNode {
 
 		for (int var3 = 0; var3 < 5; ++var3) {
 			if (this.models[var3] != -1) {
-				var1[var2++] = ModelData.ModelData_get(KitDefinition_modelsArchive, this.models[var3], 0);
+				var1[var2++] = ModelData.ModelData_get(class156.KitDefinition_modelsArchive, this.models[var3], 0);
 			}
 		}
 
@@ -249,245 +238,295 @@ public class KitDefinition extends DualNode {
 		return var5;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ac")
 	@ObfuscatedSignature(
-		descriptor = "(B)Lia;",
-		garbageValue = "1"
+		descriptor = "(IIIZIIB)J",
+		garbageValue = "3"
 	)
-	public static class217 method3664() {
-		return class217.field2340;
-	}
-
-	@ObfuscatedName("am")
-	public static String method3654(long var0) {
-		Calendar.Calendar_calendar.setTime(new Date(var0));
-		int var2 = Calendar.Calendar_calendar.get(7);
-		int var3 = Calendar.Calendar_calendar.get(5);
-		int var4 = Calendar.Calendar_calendar.get(2);
-		int var5 = Calendar.Calendar_calendar.get(1);
-		int var6 = Calendar.Calendar_calendar.get(11);
-		int var7 = Calendar.Calendar_calendar.get(12);
-		int var8 = Calendar.Calendar_calendar.get(13);
-		return Calendar.DAYS_OF_THE_WEEK[var2 - 1] + ", " + var3 / 10 + var3 % 10 + "-" + Calendar.MONTH_NAMES_ENGLISH_GERMAN[0][var4] + "-" + var5 + " " + var6 / 10 + var6 % 10 + ":" + var7 / 10 + var7 % 10 + ":" + var8 / 10 + var8 % 10 + " GMT";
-	}
-
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/CharSequence;IZI)I",
-		garbageValue = "-795878581"
-	)
-	public static int method3666(CharSequence var0, int var1, boolean var2) {
-		if (var1 >= 2 && var1 <= 36) {
-			boolean var3 = false;
-			boolean var4 = false;
-			int var5 = 0;
-			int var6 = var0.length();
-
-			for (int var7 = 0; var7 < var6; ++var7) {
-				char var8 = var0.charAt(var7);
-				if (var7 == 0) {
-					if (var8 == '-') {
-						var3 = true;
-						continue;
-					}
-
-					if (var8 == '+') {
-						continue;
-					}
-				}
-
-				int var10;
-				if (var8 >= '0' && var8 <= '9') {
-					var10 = var8 - '0';
-				} else if (var8 >= 'A' && var8 <= 'Z') {
-					var10 = var8 - '7';
-				} else {
-					if (var8 < 'a' || var8 > 'z') {
-						throw new NumberFormatException();
-					}
-
-					var10 = var8 - 'W';
-				}
-
-				if (var10 >= var1) {
-					throw new NumberFormatException();
-				}
-
-				if (var3) {
-					var10 = -var10;
-				}
-
-				int var9 = var5 * var1 + var10;
-				if (var9 / var1 != var5) {
-					throw new NumberFormatException();
-				}
-
-				var5 = var9;
-				var4 = true;
-			}
-
-			if (!var4) {
-				throw new NumberFormatException();
-			} else {
-				return var5;
-			}
-		} else {
-			throw new IllegalArgumentException("" + var1);
+	@Export("calculateTag")
+	public static long calculateTag(int var0, int var1, int var2, boolean var3, int var4, int var5) {
+		long var6 = (long)((var0 & 127) << 0 | (var1 & 127) << 7 | (var2 & 3) << 14) | ((long)var4 & 4294967295L) << 17 | ((long)var5 & 2047L) << 49;
+		if (var3) {
+			var6 |= 65536L;
 		}
+
+		return var6;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ie")
 	@ObfuscatedSignature(
-		descriptor = "(IIIII)V",
-		garbageValue = "493796599"
+		descriptor = "(B)V",
+		garbageValue = "-20"
 	)
-	static void method3668(int var0, int var1, int var2, int var3) {
-		for (ObjectSound var4 = (ObjectSound)ObjectSound.objectSounds.last(); var4 != null; var4 = (ObjectSound)ObjectSound.objectSounds.previous()) {
-			if (var4.soundEffectId != -1 || var4.soundEffectIds != null) {
-				int var5 = 0;
-				if (var1 > var4.maxX * 16384) {
-					var5 += var1 - var4.maxX * 16384;
-				} else if (var1 < var4.x * 16384) {
-					var5 += var4.x * 16384 - var1;
+	@Export("logOut")
+	static final void logOut() {
+		Client.packetWriter.close();
+		class13.clear();
+		class358.topLevelWorldView.clear();
+		Client.field552.method4379();
+		System.gc();
+		Skills.method7123(0, 0);
+		SoundSystem.method851();
+		Client.playingJingle = false;
+		class151.method3270();
+		class105.updateGameState(10);
+		Client.serverCycle = 0;
+		MilliClock.method3646().method3660();
+		MilliClock.method3646().method3663();
+	}
+
+	@ObfuscatedName("kw")
+	@ObfuscatedSignature(
+		descriptor = "(Lmn;I)V",
+		garbageValue = "-984863006"
+	)
+	static final void method3899(class319 var0) {
+		PacketBuffer var1 = Client.packetWriter.packetBuffer;
+		int var3;
+		int var4;
+		int var6;
+		int var7;
+		int var8;
+		int var9;
+		int var10;
+		int var23;
+		int var24;
+		if (class319.field3384 == var0) {
+			var23 = var1.readUnsignedByteNeg();
+			var3 = (var23 >> 4 & 7) + HttpRequestTask.field96;
+			var4 = (var23 & 7) + class323.field3544;
+			var24 = var1.readUnsignedByteAdd() & 31;
+			var6 = var1.readUnsignedByte();
+			var7 = var1.readUnsignedByteNeg();
+			var8 = var1.readUnsignedByteAdd();
+			var9 = var1.readUnsignedShortLE();
+			if (var3 >= 0 && var4 >= 0 && var3 < ModeWhere.worldView.sizeX && var4 < ModeWhere.worldView.sizeY) {
+				var10 = var24 + 1;
+				if (class17.localPlayer.pathX[0] >= var3 - var10 && class17.localPlayer.pathX[0] <= var3 + var10 && class17.localPlayer.pathY[0] >= var4 - var10 && class17.localPlayer.pathY[0] <= var4 + var10 && class459.clientPreferences.getAreaSoundEffectsVolume() != 0 && var8 > 0 && Client.soundEffectCount < 50) {
+					Client.soundEffectIds[Client.soundEffectCount] = var9;
+					Client.soundEffects[Client.soundEffectCount] = null;
+					Client.soundLocations[Client.soundEffectCount] = var24 + (var4 << 8) + (var3 << 16);
+					Client.queuedSoundEffectLoops[Client.soundEffectCount] = var8;
+					Client.queuedSoundEffectDelays[Client.soundEffectCount] = var7;
+					Client.field785[Client.soundEffectCount] = var6;
+					++Client.soundEffectCount;
+				}
+			}
+
+		} else {
+			int var12;
+			int var13;
+			int var14;
+			int var15;
+			if (class319.field3382 == var0) {
+				byte var2 = var1.readByteAdd();
+				var3 = var1.readUnsignedShortAdd();
+				var4 = var1.readUnsignedShortAdd();
+				byte var5 = var1.readByteNeg();
+				var6 = var1.readUnsignedShortAdd();
+				var7 = var1.readUnsignedByte();
+				var8 = var7 >> 2;
+				var9 = var7 & 3;
+				var10 = Client.field604[var8];
+				byte var11 = var1.readByteSub();
+				var12 = var1.readUnsignedByteAdd();
+				var13 = (var12 >> 4 & 7) + HttpRequestTask.field96;
+				var14 = (var12 & 7) + class323.field3544;
+				var15 = var1.readUnsignedShortAddLE();
+				byte var16 = var1.readByteAdd();
+				Player var17;
+				if (var15 == Client.localPlayerIndex) {
+					var17 = class17.localPlayer;
+				} else {
+					var17 = ModeWhere.worldView.players[var15];
 				}
 
-				if (var2 > var4.maxY * 16384) {
-					var5 += var2 - var4.maxY * 16384;
-				} else if (var2 < var4.y * 128) {
-					var5 += var4.y * 128 - var2;
+				if (var17 != null) {
+					int var18 = Client.field753 == -1 ? ModeWhere.worldView.plane : Client.field753;
+					class142.method3197(var18, var13, var14, var8, var9, var10, var3, var6, var4, var5, var11, var2, var16, var17);
+				}
+			}
+
+			int var27;
+			if (class319.field3375 == var0) {
+				var23 = var1.readUnsignedByte();
+				var3 = var1.readUnsignedByteAdd();
+				var4 = (var3 >> 4 & 7) + HttpRequestTask.field96;
+				var24 = (var3 & 7) + class323.field3544;
+				var6 = var1.readUnsignedByteAdd();
+				var7 = var6 >> 2;
+				var8 = var6 & 3;
+				var9 = Client.field604[var7];
+				var10 = var1.readUnsignedShortAdd();
+				if (var4 >= 0 && var24 >= 0 && var4 < ModeWhere.worldView.sizeX && var24 < ModeWhere.worldView.sizeY) {
+					var27 = Client.field753 == -1 ? ModeWhere.worldView.plane : Client.field753;
+					class162.method3417(ModeWhere.worldView, var27, var4, var24, var9, var10, var7, var8, var23, 0, -1);
 				}
 
-				if (var5 - 64 <= var4.field844 && class93.clientPreferences.getAreaSoundEffectsVolume() != 0 && var0 == var4.plane) {
-					var5 -= 64;
-					if (var5 < 0) {
-						var5 = 0;
+			} else if (class319.field3378 == var0) {
+				var23 = var1.readUnsignedShort();
+				var3 = var1.readUnsignedByteAdd();
+				var4 = (var3 >> 4 & 7) + HttpRequestTask.field96;
+				var24 = (var3 & 7) + class323.field3544;
+				var6 = var1.readUnsignedByteNeg();
+				var7 = var6 >> 2;
+				var8 = var6 & 3;
+				var9 = Client.field604[var7];
+				if (var4 >= 0 && var24 >= 0 && var4 < 103 && var24 < 103) {
+					var10 = Client.field753 == -1 ? ModeWhere.worldView.plane : Client.field753;
+					PendingSpawn var21 = class177.method3603(ModeWhere.worldView, var10, var4, var24, var9);
+					if (var21 != null) {
+						ObjectComposition var22 = HitSplatDefinition.getObjectDefinition(var21.field1193);
+						if (var22.field2315) {
+							var21.field1190 = var23;
+							return;
+						}
 					}
 
-					int var6 = (var4.field844 - var5) * class93.clientPreferences.getAreaSoundEffectsVolume() / var4.field844;
-					if (var4.stream1 == null) {
-						if (var4.soundEffectId >= 0) {
-							SoundEffect var7 = SoundEffect.readSoundEffect(HttpContentType.field4844, var4.soundEffectId, 0);
-							if (var7 != null) {
-								RawSound var8 = var7.toRawSound().resample(UrlRequest.decimator);
-								RawPcmStream var9 = RawPcmStream.createRawPcmStream(var8, 100, var6);
-								var9.setNumLoops(-1);
-								ClanSettings.pcmStreamMixer.addSubStream(var9);
-								var4.stream1 = var9;
+					boolean var28 = class59.method1147(var10, var4, var24, var7, var8, var9, var23);
+					if (var28) {
+						return;
+					}
+
+					if (var21 != null) {
+						var21.field1190 = var23;
+					}
+				}
+
+			} else if (class319.field3379 == var0) {
+				var23 = var1.readUnsignedShortLE();
+				var3 = var1.readUnsignedShort();
+				var4 = var1.method9313();
+				var24 = var1.readUnsignedByteSub();
+				var6 = var1.readUnsignedByteSub() * 4;
+				byte var26 = var1.readByteNeg();
+				var8 = var1.method9313();
+				var9 = var1.readUnsignedByteNeg();
+				var10 = (var9 >> 4 & 7) + HttpRequestTask.field96;
+				var27 = (var9 & 7) + class323.field3544;
+				var12 = var1.readUnsignedByteNeg() * 4;
+				var13 = var1.readUnsignedShort();
+				var14 = var1.readUnsignedShort();
+				byte var29 = var1.readByte();
+				var7 = var26 + var10;
+				var15 = var29 + var27;
+				if (var10 >= 0 && var27 >= 0 && var10 < ModeWhere.worldView.sizeX && var27 < ModeWhere.worldView.sizeY && var7 >= 0 && var15 >= 0 && var7 < ModeWhere.worldView.sizeX && var15 < ModeWhere.worldView.sizeY && var3 != 65535) {
+					int var30 = Client.field753 == -1 ? ModeWhere.worldView.plane : Client.field753;
+					WorldMapEvent.method6096(var30, var10, var27, var7, var15, var4, var3, var6, var12, var14, var13, var24, var23, var8);
+				}
+
+			} else if (class319.field3383 == var0) {
+				var23 = var1.readUnsignedByteSub();
+				var3 = (var23 >> 4 & 7) + HttpRequestTask.field96;
+				var4 = (var23 & 7) + class323.field3544;
+				var24 = var1.readUnsignedIntME();
+				var6 = var1.readUnsignedShortAddLE();
+				var7 = var1.readUnsignedIntME();
+				if (var3 >= 0 && var4 >= 0 && var3 < ModeWhere.worldView.sizeX && var4 < ModeWhere.worldView.sizeY) {
+					var8 = Client.field753 == -1 ? ModeWhere.worldView.plane : Client.field753;
+					class136.method3128(var8, var3, var4, var6, var7, var24);
+				}
+
+			} else {
+				if (class319.field3387 == var0) {
+					var23 = var1.readUnsignedShort();
+					var3 = var1.readUnsignedByteNeg();
+					var4 = var1.readUnsignedByteAdd();
+					var24 = (var4 >> 4 & 7) + HttpRequestTask.field96;
+					var6 = (var4 & 7) + class323.field3544;
+					var7 = ModeWhere.worldView.plane;
+					if (var24 >= 0 && var6 >= 0 && var24 < ModeWhere.worldView.sizeX && var6 < ModeWhere.worldView.sizeY) {
+						NodeDeque var19 = ModeWhere.worldView.groundItems[var7][var24][var6];
+						if (var19 != null) {
+							for (TileItem var31 = (TileItem)var19.last(); var31 != null; var31 = (TileItem)var19.previous()) {
+								if ((var23 & 32767) == var31.id) {
+									var31.setFlag(var3);
+									break;
+								}
 							}
 						}
-					} else {
-						var4.stream1.method958(var6);
-					}
 
-					if (var4.stream2 == null) {
-						if (var4.soundEffectIds != null && (var4.field842 -= var3) <= 0) {
-							int var11 = (int)(Math.random() * (double)var4.soundEffectIds.length);
-							SoundEffect var12 = SoundEffect.readSoundEffect(HttpContentType.field4844, var4.soundEffectIds[var11], 0);
-							if (var12 != null) {
-								RawSound var13 = var12.toRawSound().resample(UrlRequest.decimator);
-								RawPcmStream var10 = RawPcmStream.createRawPcmStream(var13, 100, var6);
-								var10.setNumLoops(0);
-								ClanSettings.pcmStreamMixer.addSubStream(var10);
-								var4.stream2 = var10;
-								var4.field842 = var4.field834 + (int)(Math.random() * (double)(var4.field840 - var4.field834));
-							}
+						if (var24 >= 0 && var6 >= 0 && var24 < ModeWhere.worldView.sizeX && var6 < ModeWhere.worldView.sizeY) {
+							var9 = Client.field753 == -1 ? ModeWhere.worldView.plane : Client.field753;
+							class140.method3146(var9, var24, var6, var23, var3);
 						}
-					} else {
-						var4.stream2.method958(var6);
-						if (!var4.stream2.hasNext()) {
-							var4.stream2 = null;
-						}
-					}
-				} else {
-					if (var4.stream1 != null) {
-						ClanSettings.pcmStreamMixer.removeSubStream(var4.stream1);
-						var4.stream1 = null;
-					}
 
-					if (var4.stream2 != null) {
-						ClanSettings.pcmStreamMixer.removeSubStream(var4.stream2);
-						var4.stream2 = null;
+						return;
 					}
 				}
-			}
-		}
 
-	}
+				if (class319.field3377 == var0) {
+					var23 = var1.readUnsignedShort();
+					var3 = var1.readUnsignedShortAdd();
+					var4 = var1.readUnsignedIntLE();
+					var24 = var1.readUnsignedShortAdd();
+					var6 = var1.readUnsignedByte();
+					boolean var25 = var1.readUnsignedByte() == 1;
+					var8 = var1.readUnsignedByteSub();
+					var9 = (var8 >> 4 & 7) + HttpRequestTask.field96;
+					var10 = (var8 & 7) + class323.field3544;
+					var27 = var1.readUnsignedByteSub();
+					if (var9 >= 0 && var10 >= 0 && var9 < ModeWhere.worldView.sizeX && var10 < ModeWhere.worldView.sizeY) {
+						var12 = Client.field753 == -1 ? ModeWhere.worldView.plane : Client.field753;
+						WorldMapID.addTileItemToGroundItems(var12, var9, var10, var24, var4, var27, var23, var3, var6, var25);
+					}
 
-	@ObfuscatedName("ay")
-	@ObfuscatedSignature(
-		descriptor = "(ILdd;ZI)I",
-		garbageValue = "643950659"
-	)
-	static int method3640(int var0, Script var1, boolean var2) {
-		Widget var3 = var2 ? class31.scriptDotWidget : class185.scriptActiveWidget;
-		if (var0 == ScriptOpcodes.CC_GETTARGETMASK) {
-			Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = class155.Widget_unpackTargetMask(class405.getWidgetFlags(var3));
-			return 1;
-		} else if (var0 != ScriptOpcodes.CC_GETOP) {
-			if (var0 == ScriptOpcodes.CC_GETOPBASE) {
-				if (var3.dataText == null) {
-					Interpreter.Interpreter_stringStack[++class211.Interpreter_stringStackSize - 1] = "";
-				} else {
-					Interpreter.Interpreter_stringStack[++class211.Interpreter_stringStackSize - 1] = var3.dataText;
+				} else if (class319.field3380 == var0) {
+					var23 = var1.readUnsignedByteNeg();
+					var3 = var23 >> 2;
+					var4 = var23 & 3;
+					var24 = Client.field604[var3];
+					var6 = var1.readUnsignedByte();
+					var7 = (var6 >> 4 & 7) + HttpRequestTask.field96;
+					var8 = (var6 & 7) + class323.field3544;
+					if (var7 >= 0 && var8 >= 0 && var7 < ModeWhere.worldView.sizeX && var8 < ModeWhere.worldView.sizeY) {
+						var9 = Client.field753 == -1 ? ModeWhere.worldView.plane : Client.field753;
+						class162.method3417(ModeWhere.worldView, var9, var7, var8, var24, -1, var3, var4, 31, 0, -1);
+					}
+
+				} else if (class319.field3388 == var0) {
+					var23 = var1.readUnsignedByteSub();
+					var3 = (var23 >> 4 & 7) + HttpRequestTask.field96;
+					var4 = (var23 & 7) + class323.field3544;
+					var24 = var1.readUnsignedShortLE();
+					var6 = var1.readUnsignedByteSub();
+					var7 = var1.readUnsignedShort();
+					if (var3 >= 0 && var4 >= 0 && var3 < ModeWhere.worldView.sizeX && var4 < ModeWhere.worldView.sizeY) {
+						var3 = var3 * 128 + 64;
+						var4 = var4 * 128 + 64;
+						var8 = Client.field753 == -1 ? ModeWhere.worldView.plane : Client.field753;
+						GraphicsObject var20 = new GraphicsObject(var24, var8, var3, var4, SoundSystem.getTileHeight(ModeWhere.worldView, var3, var4, var8) - var6, var7, Client.cycle);
+						ModeWhere.worldView.graphicsObjects.addFirst(var20);
+					}
+
+				} else if (class319.field3385 == var0) {
+					var23 = var1.readUnsignedByteSub();
+					var3 = (var23 >> 4 & 7) + HttpRequestTask.field96;
+					var4 = (var23 & 7) + class323.field3544;
+					var24 = var1.readUnsignedIntME();
+					var6 = var1.readUnsignedShortAddLE();
+					var7 = ModeWhere.worldView.plane;
+					if (var3 >= 0 && var4 >= 0 && var3 < 104 && var4 < 104) {
+						var8 = Client.field753 == -1 ? var7 : Client.field753;
+						Coord.method6523(var8, var3, var4, var6, var24);
+					}
+
 				}
-
-				return 1;
-			} else {
-				return 2;
 			}
-		} else {
-			int var4 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-			--var4;
-			if (var3.actions != null && var4 < var3.actions.length && var3.actions[var4] != null) {
-				Interpreter.Interpreter_stringStack[++class211.Interpreter_stringStackSize - 1] = var3.actions[var4];
-			} else {
-				Interpreter.Interpreter_stringStack[++class211.Interpreter_stringStackSize - 1] = "";
-			}
-
-			return 1;
 		}
 	}
 
-	@ObfuscatedName("bw")
+	@ObfuscatedName("ps")
 	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "-1687144963"
+		descriptor = "(IB)Lum;",
+		garbageValue = "55"
 	)
-	@Export("getGcDuration")
-	protected static int getGcDuration() {
-		int var0 = 0;
-		if (HttpMethod.garbageCollector == null || !HttpMethod.garbageCollector.isValid()) {
-			try {
-				Iterator var1 = ManagementFactory.getGarbageCollectorMXBeans().iterator();
-
-				while (var1.hasNext()) {
-					GarbageCollectorMXBean var2 = (GarbageCollectorMXBean)var1.next();
-					if (var2.isValid()) {
-						HttpMethod.garbageCollector = var2;
-						GameEngine.garbageCollectorLastCheckTimeMs = -1L;
-						GameEngine.garbageCollectorLastCollectionTime = -1L;
-					}
-				}
-			} catch (Throwable var11) {
-			}
+	static DbTable method3898(int var0) {
+		DbTable var1 = (DbTable)Client.archive11.get((long)var0);
+		if (var1 == null) {
+			var1 = new DbTable(HealthBar.field1357, var0);
 		}
 
-		if (HttpMethod.garbageCollector != null) {
-			long var9 = UserComparator9.method2973();
-			long var3 = HttpMethod.garbageCollector.getCollectionTime();
-			if (-1L != GameEngine.garbageCollectorLastCollectionTime) {
-				long var5 = var3 - GameEngine.garbageCollectorLastCollectionTime;
-				long var7 = var9 - GameEngine.garbageCollectorLastCheckTimeMs;
-				if (0L != var7) {
-					var0 = (int)(100L * var5 / var7);
-				}
-			}
-
-			GameEngine.garbageCollectorLastCollectionTime = var3;
-			GameEngine.garbageCollectorLastCheckTimeMs = var9;
-		}
-
-		return var0;
+		return var1;
 	}
 }

@@ -1,125 +1,74 @@
 import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("en")
-public class class108 {
-	@ObfuscatedName("am")
+@ObfuscatedName("eh")
+final class class108 implements class347 {
+	@ObfuscatedName("sa")
 	@ObfuscatedSignature(
-		descriptor = "Len;"
+		descriptor = "Lro;"
 	)
-	static final class108 field1377;
-	@ObfuscatedName("ap")
+	@Export("friendsChat")
+	static FriendsChat friendsChat;
+	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Len;"
+		descriptor = "Lnb;"
 	)
-	static final class108 field1363;
-	@ObfuscatedName("af")
-	@ObfuscatedSignature(
-		descriptor = "Len;"
-	)
-	static final class108 field1368;
-	@ObfuscatedName("aj")
-	@ObfuscatedSignature(
-		descriptor = "Len;"
-	)
-	static final class108 field1382;
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "Len;"
-	)
-	static final class108 field1376;
-	@ObfuscatedName("ar")
-	@ObfuscatedSignature(
-		descriptor = "Len;"
-	)
-	static final class108 field1365;
-	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "Len;"
-	)
-	static final class108 field1362;
-	@ObfuscatedName("ao")
-	@ObfuscatedSignature(
-		descriptor = "Len;"
-	)
-	static final class108 field1369;
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "Len;"
-	)
-	static final class108 field1370;
-	@ObfuscatedName("aa")
-	@ObfuscatedSignature(
-		descriptor = "Len;"
-	)
-	static final class108 field1371;
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "Len;"
-	)
-	static final class108 field1372;
-	@ObfuscatedName("an")
-	@ObfuscatedSignature(
-		descriptor = "Len;"
-	)
-	static final class108 field1373;
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "Len;"
-	)
-	static final class108 field1374;
-	@ObfuscatedName("ax")
-	@ObfuscatedSignature(
-		descriptor = "Len;"
-	)
-	@Export("field1390")
-	static final class108 field1390;
-	@ObfuscatedName("aw")
-	@ObfuscatedSignature(
-		descriptor = "Len;"
-	)
-	static final class108 field1375;
-	@ObfuscatedName("az")
-	@ObfuscatedSignature(
-		descriptor = "Len;"
-	)
-	static final class108 field1364;
-	@ObfuscatedName("ak")
-	@ObfuscatedGetter(
-		intValue = 666612395
-	)
-	static int field1381;
-	@ObfuscatedName("ah")
-	@Export("osName")
-	static String osName;
-	@ObfuscatedName("av")
-	@ObfuscatedGetter(
-		intValue = -383475633
-	)
-	int field1378;
+	final Widget val$cc;
 
-	static {
-		field1377 = new class108(0);
-		field1363 = new class108(1);
-		field1368 = new class108(2);
-		field1382 = new class108(3);
-		field1376 = new class108(4);
-		field1365 = new class108(5);
-		field1362 = new class108(6);
-		field1369 = new class108(7);
-		field1370 = new class108(8);
-		field1371 = new class108(9);
-		field1372 = new class108(10);
-		field1373 = new class108(11);
-		field1374 = new class108(12);
-		field1390 = new class108(13);
-		field1375 = new class108(14);
-		field1364 = new class108(15);
+	@ObfuscatedSignature(
+		descriptor = "(Lnb;)V"
+	)
+	class108(Widget var1) {
+		this.val$cc = var1;
 	}
 
-	class108(int var1) {
-		this.field1378 = var1;
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "652965052"
+	)
+	public void vmethod6534() {
+		if (this.val$cc != null && this.val$cc.method6945().field3749 != null) {
+			ScriptEvent var1 = new ScriptEvent();
+			var1.method2327(this.val$cc);
+			var1.setArgs(this.val$cc.method6945().field3749);
+			class47.method887().addFirst(var1);
+		}
+
+	}
+
+	@ObfuscatedName("az")
+	@ObfuscatedSignature(
+		descriptor = "(I)[Log;",
+		garbageValue = "451650860"
+	)
+	@Export("PlayerType_values")
+	public static PlayerType[] PlayerType_values() {
+		return new PlayerType[]{PlayerType.field4428, PlayerType.PlayerType_hardcoreIronman, PlayerType.field4423, PlayerType.PlayerType_jagexModerator, PlayerType.PlayerType_ironman, PlayerType.field4430, PlayerType.field4424, PlayerType.field4425, PlayerType.field4422, PlayerType.field4414, PlayerType.field4427, PlayerType.PlayerType_normal, PlayerType.field4418, PlayerType.PlayerType_ultimateIronman, PlayerType.PlayerType_playerModerator, PlayerType.field4412, PlayerType.field4419};
+	}
+
+	@ObfuscatedName("az")
+	@ObfuscatedSignature(
+		descriptor = "(I)[Lie;",
+		garbageValue = "598529502"
+	)
+	static VerticalAlignment[] method2768() {
+		return new VerticalAlignment[]{VerticalAlignment.VerticalAlignment_centered, VerticalAlignment.field2169, VerticalAlignment.field2171};
+	}
+
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "(Lor;IIS)Z",
+		garbageValue = "-22821"
+	)
+	public static boolean method2769(AbstractArchive var0, int var1, int var2) {
+		byte[] var3 = var0.takeFile(var1, var2);
+		if (var3 == null) {
+			return false;
+		} else {
+			class185.SpriteBuffer_decode(var3);
+			return true;
+		}
 	}
 }

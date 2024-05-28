@@ -3,91 +3,109 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("cs")
+@ObfuscatedName("ci")
 public class class60 {
-	@ObfuscatedName("gg")
-	@Export("characterId")
-	static String characterId;
-	@ObfuscatedName("ok")
-	@ObfuscatedGetter(
-		intValue = -2095567381
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "Lby;"
 	)
-	@Export("menuHeight")
-	static int menuHeight;
-	@ObfuscatedName("pq")
+	@Export("pcmPlayerProvider")
+	static class51 pcmPlayerProvider;
+	@ObfuscatedName("ak")
+	byte[] field436;
+	@ObfuscatedName("al")
 	@ObfuscatedGetter(
-		intValue = 931534025
+		intValue = 68677859
 	)
-	@Export("selectedSpellFlags")
-	static int selectedSpellFlags;
-	@ObfuscatedName("am")
-	byte[] field430;
-	@ObfuscatedName("ap")
+	int field435;
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = 95763601
+		intValue = -1695656625
 	)
-	int field433;
-	@ObfuscatedName("af")
-	@ObfuscatedGetter(
-		intValue = -1089651909
-	)
-	int field432;
+	int field438;
 
 	class60() {
-		this.field430 = null;
-		this.field433 = 0;
-		this.field432 = 0;
+		this.field436 = null;
+		this.field435 = 0;
+		this.field438 = 0;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
 		descriptor = "(II)I",
-		garbageValue = "-1595212669"
+		garbageValue = "208697388"
 	)
-	int method1188(int var1) {
+	int method1158(int var1) {
 		int var2 = 0;
 
 		int var3;
 		int var4;
-		for (var3 = 0; var1 >= 8 - this.field432; var1 -= var4) {
-			var4 = 8 - this.field432;
+		for (var3 = 0; var1 >= 8 - this.field438; var1 -= var4) {
+			var4 = 8 - this.field438;
 			int var5 = (1 << var4) - 1;
-			var2 += (this.field430[this.field433] >> this.field432 & var5) << var3;
-			this.field432 = 0;
-			++this.field433;
+			var2 += (this.field436[this.field435] >> this.field438 & var5) << var3;
+			this.field438 = 0;
+			++this.field435;
 			var3 += var4;
 		}
 
 		if (var1 > 0) {
 			var4 = (1 << var1) - 1;
-			var2 += (this.field430[this.field433] >> this.field432 & var4) << var3;
-			this.field432 += var1;
+			var2 += (this.field436[this.field435] >> this.field438 & var4) << var3;
+			this.field438 += var1;
 		}
 
 		return var2;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "705214862"
+		garbageValue = "-873724104"
 	)
-	int method1189() {
-		int var1 = this.field430[this.field433] >> this.field432 & 1;
-		++this.field432;
-		this.field433 += this.field432 >> 3;
-		this.field432 &= 7;
+	int method1153() {
+		int var1 = this.field436[this.field435] >> this.field438 & 1;
+		++this.field438;
+		this.field435 += this.field438 >> 3;
+		this.field438 &= 7;
 		return var1;
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
 		descriptor = "([BII)V",
-		garbageValue = "176102354"
+		garbageValue = "-1030739921"
 	)
-	void method1187(byte[] var1, int var2) {
-		this.field430 = var1;
-		this.field433 = var2;
-		this.field432 = 0;
+	void method1151(byte[] var1, int var2) {
+		this.field436 = var1;
+		this.field435 = var2;
+		this.field438 = 0;
+	}
+
+	@ObfuscatedName("hl")
+	@ObfuscatedSignature(
+		descriptor = "(IIB)V",
+		garbageValue = "-79"
+	)
+	static void method1150(int var0, int var1) {
+		int[] var2 = new int[9];
+
+		for (int var3 = 0; var3 < var2.length; ++var3) {
+			int var4 = var3 * 32 + 15 + 128;
+			int var5 = var4 * 3 + 600;
+			int var7 = Rasterizer3D.Rasterizer3D_sine[var4];
+			int var9 = var1 - 334;
+			if (var9 < 0) {
+				var9 = 0;
+			} else if (var9 > 100) {
+				var9 = 100;
+			}
+
+			int var10 = (Client.zoomWidth - Client.zoomHeight) * var9 / 100 + Client.zoomHeight;
+			int var8 = var10 * var5 / 256;
+			var2[var3] = var7 * var8 >> 16;
+		}
+
+		class358.topLevelWorldView.scene.method4901(var2, 500, 800, var0 * 334 / var1, 334);
 	}
 }

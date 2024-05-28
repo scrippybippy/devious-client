@@ -4,30 +4,33 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("tl")
+@ObfuscatedName("th")
 @Implements("WorldMapArchiveLoader")
 public class WorldMapArchiveLoader {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("jv")
+	@Export("regionMapArchives")
+	static byte[][] regionMapArchives;
+	@ObfuscatedName("af")
 	@Export("cacheName")
 	String cacheName;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("aa")
 	@ObfuscatedSignature(
-		descriptor = "Low;"
+		descriptor = "Lor;"
 	)
 	@Export("archive")
 	AbstractArchive archive;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 1963735355
+		intValue = 795081315
 	)
 	@Export("percentLoaded")
 	int percentLoaded;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ab")
 	@Export("loaded")
 	boolean loaded;
 
 	@ObfuscatedSignature(
-		descriptor = "(Low;)V"
+		descriptor = "(Lor;)V"
 	)
 	WorldMapArchiveLoader(AbstractArchive var1) {
 		this.percentLoaded = 0;
@@ -35,10 +38,10 @@ public class WorldMapArchiveLoader {
 		this.archive = var1;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
 		descriptor = "(Ljava/lang/String;I)V",
-		garbageValue = "2000005480"
+		garbageValue = "-2036486610"
 	)
 	@Export("reset")
 	void reset(String var1) {
@@ -52,10 +55,10 @@ public class WorldMapArchiveLoader {
 		}
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(B)I",
-		garbageValue = "3"
+		descriptor = "(I)I",
+		garbageValue = "-379504320"
 	)
 	@Export("load")
 	int load() {
@@ -64,7 +67,7 @@ public class WorldMapArchiveLoader {
 			this.loaded = true;
 		} else {
 			if (this.percentLoaded < 33) {
-				if (!this.archive.tryLoadFileByNames(WorldMapCacheName.field2671.name, this.cacheName)) {
+				if (!this.archive.tryLoadFileByNames(WorldMapCacheName.field3233.name, this.cacheName)) {
 					return this.percentLoaded;
 				}
 
@@ -72,7 +75,7 @@ public class WorldMapArchiveLoader {
 			}
 
 			if (this.percentLoaded == 33) {
-				if (this.archive.isValidFileName(WorldMapCacheName.field2670.name, this.cacheName) && !this.archive.tryLoadFileByNames(WorldMapCacheName.field2670.name, this.cacheName)) {
+				if (this.archive.isValidFileName(WorldMapCacheName.field3234.name, this.cacheName) && !this.archive.tryLoadFileByNames(WorldMapCacheName.field3234.name, this.cacheName)) {
 					return this.percentLoaded;
 				}
 
@@ -80,7 +83,7 @@ public class WorldMapArchiveLoader {
 			}
 
 			if (this.percentLoaded == 66) {
-				if (!this.archive.tryLoadFileByNames(this.cacheName, WorldMapCacheName.field2672.name)) {
+				if (!this.archive.tryLoadFileByNames(this.cacheName, WorldMapCacheName.field3232.name)) {
 					return this.percentLoaded;
 				}
 
@@ -92,23 +95,54 @@ public class WorldMapArchiveLoader {
 		return this.percentLoaded;
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(B)Z",
-		garbageValue = "25"
+		descriptor = "(I)Z",
+		garbageValue = "-1716150719"
 	)
 	@Export("isLoaded")
 	boolean isLoaded() {
 		return this.loaded;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
 		descriptor = "(B)I",
-		garbageValue = "50"
+		garbageValue = "1"
 	)
 	@Export("getPercentLoaded")
 	int getPercentLoaded() {
 		return this.percentLoaded;
+	}
+
+	@ObfuscatedName("aw")
+	@ObfuscatedSignature(
+		descriptor = "(Lcl;I)V",
+		garbageValue = "1000234341"
+	)
+	@Export("changeWorld")
+	static void changeWorld(World var0) {
+		if (var0.isMembersOnly() != Client.isMembersWorld) {
+			Client.isMembersWorld = var0.isMembersOnly();
+			boolean var1 = var0.isMembersOnly();
+			if (var1 != WorldMapCacheName.ItemDefinition_inMembersWorld) {
+				ItemComposition.ItemDefinition_cached.clear();
+				ItemComposition.ItemDefinition_cachedModels.clear();
+				ItemComposition.ItemDefinition_cachedSprites.clear();
+				WorldMapCacheName.ItemDefinition_inMembersWorld = var1;
+			}
+		}
+
+		if (var0.properties != Client.worldProperties) {
+			UrlRequester.method2917(class177.archive8, var0.properties);
+		}
+
+		class11.worldHost = var0.host;
+		Client.worldId = var0.id;
+		Client.worldProperties = var0.properties;
+		class375.field4075 = var0.field832;
+		ApproximateRouteStrategy.worldPort = Client.gameBuild == 0 ? 43594 : var0.id + 40000;
+		class294.js5Port = Client.gameBuild == 0 ? 443 : var0.id + 50000;
+		WorldMapLabelSize.currentPort = ApproximateRouteStrategy.worldPort;
 	}
 }

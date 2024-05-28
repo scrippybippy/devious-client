@@ -8,28 +8,34 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("aw")
+@ObfuscatedName("ae")
 @Implements("AsyncRestClient")
 public class AsyncRestClient {
-	@ObfuscatedName("gc")
-	@ObfuscatedGetter(
-		intValue = 721426513
+	@ObfuscatedName("eh")
+	@ObfuscatedSignature(
+		descriptor = "Lnk;"
 	)
-	@Export("js5Port")
-	static int js5Port;
-	@ObfuscatedName("am")
+	@Export("widgetDefinition")
+	static WidgetDefinition widgetDefinition;
+	@ObfuscatedName("jl")
+	@ObfuscatedSignature(
+		descriptor = "[Lvl;"
+	)
+	@Export("mapSceneSprites")
+	static IndexedSprite[] mapSceneSprites;
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = 2075666285
+		intValue = -476345029
 	)
 	@Export("workQueueCapacity")
 	final int workQueueCapacity;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@Export("threadNamePrefix")
 	final String threadNamePrefix;
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@Export("threadFactory")
 	final ThreadFactory threadFactory;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@Export("threadPoolExecutor")
 	final ThreadPoolExecutor threadPoolExecutor;
 
@@ -40,20 +46,20 @@ public class AsyncRestClient {
 		this.threadPoolExecutor = this.createThreadPoolExecutor(var3);
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(IS)Ljava/util/concurrent/ThreadPoolExecutor;",
-		garbageValue = "6509"
+		descriptor = "(II)Ljava/util/concurrent/ThreadPoolExecutor;",
+		garbageValue = "-731679817"
 	)
 	@Export("createThreadPoolExecutor")
 	final ThreadPoolExecutor createThreadPoolExecutor(int var1) {
 		return new ThreadPoolExecutor(var1, var1, 0L, TimeUnit.MILLISECONDS, new ArrayBlockingQueue(this.workQueueCapacity), this.threadFactory);
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(Lau;B)Lay;",
-		garbageValue = "-79"
+		descriptor = "(Lah;I)Las;",
+		garbageValue = "951994192"
 	)
 	@Export("submitRequest")
 	public AsyncHttpResponse submitRequest(HttpRequest var1) {
@@ -66,10 +72,10 @@ public class AsyncRestClient {
 		}
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(S)V",
-		garbageValue = "6524"
+		descriptor = "(B)V",
+		garbageValue = "-84"
 	)
 	@Export("shutdown")
 	public final void shutdown() {
@@ -81,12 +87,27 @@ public class AsyncRestClient {
 
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "([BI)Ljo;",
-		garbageValue = "567576594"
+		descriptor = "(IIII)Ldm;",
+		garbageValue = "2019892851"
 	)
-	static WorldMapSprite method182(byte[] var0) {
-		return var0 == null ? new WorldMapSprite() : new WorldMapSprite(class181.method3691(var0).pixels);
+	@Export("getWorldMapScript")
+	static Script getWorldMapScript(int var0, int var1, int var2) {
+		int var3 = GameObject.shift8LeftAndAdd(var1, var0);
+		Script var4 = ObjectSound.getScript(var3, var0);
+		if (var4 != null) {
+			return var4;
+		} else {
+			var3 = class160.method3394(var2, var0);
+			var4 = ObjectSound.getScript(var3, var0);
+			if (var4 != null) {
+				return var4;
+			} else {
+				var3 = WorldMapArea.method5628(var0);
+				var4 = ObjectSound.getScript(var3, var0);
+				return var4 != null ? var4 : null;
+			}
+		}
 	}
 }

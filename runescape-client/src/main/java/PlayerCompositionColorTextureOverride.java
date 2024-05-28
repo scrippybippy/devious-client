@@ -1,114 +1,76 @@
+import java.awt.datatransfer.Clipboard;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gb")
+@ObfuscatedName("ha")
 @Implements("PlayerCompositionColorTextureOverride")
 public class PlayerCompositionColorTextureOverride {
-	@ObfuscatedName("rv")
-	@ObfuscatedSignature(
-		descriptor = "Lip;"
-	)
-	@Export("mouseWheel")
-	static MouseWheel mouseWheel;
-	@ObfuscatedName("af")
+	@ObfuscatedName("ac")
+	@Export("SpriteBuffer_pixels")
+	public static byte[][] SpriteBuffer_pixels;
+	@ObfuscatedName("aj")
 	@Export("playerCompositionRecolorTo")
 	public short[] playerCompositionRecolorTo;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@Export("playerCompositionRetextureTo")
 	public short[] playerCompositionRetextureTo;
 
-	PlayerCompositionColorTextureOverride(int var1) {
-		ItemComposition var2 = class341.ItemDefinition_get(var1);
-		if (var2.method4001()) {
+	public PlayerCompositionColorTextureOverride(int var1) {
+		ItemComposition var2 = KeyHandler.ItemDefinition_get(var1);
+		if (var2.method4249()) {
 			this.playerCompositionRecolorTo = new short[var2.recolorTo.length];
 			System.arraycopy(var2.recolorTo, 0, this.playerCompositionRecolorTo, 0, this.playerCompositionRecolorTo.length);
 		}
 
-		if (var2.method3990()) {
+		if (var2.method4250()) {
 			this.playerCompositionRetextureTo = new short[var2.retextureTo.length];
 			System.arraycopy(var2.retextureTo, 0, this.playerCompositionRetextureTo, 0, this.playerCompositionRetextureTo.length);
 		}
 
 	}
 
-	@ObfuscatedName("ny")
+	@ObfuscatedName("nl")
 	@ObfuscatedSignature(
-		descriptor = "([Lnn;IB)V",
-		garbageValue = "-39"
+		descriptor = "(II)Z",
+		garbageValue = "-1613433714"
 	)
-	@Export("drawModelComponents")
-	static final void drawModelComponents(Widget[] var0, int var1) {
-		for (int var2 = 0; var2 < var0.length; ++var2) {
-			Widget var3 = var0[var2];
-			if (var3 != null && var3.parentId == var1 && (!var3.isIf3 || !class59.isComponentHidden(var3))) {
-				if (var3.type == 0) {
-					if (!var3.isIf3 && class59.isComponentHidden(var3) && var3 != class433.mousedOverWidgetIf1) {
-						continue;
-					}
+	static boolean method3776(int var0) {
+		for (int var1 = 0; var1 < Client.field765; ++var1) {
+			if (Client.field767[var1] == var0) {
+				return true;
+			}
+		}
 
-					drawModelComponents(var0, var3.id);
-					if (var3.children != null) {
-						drawModelComponents(var3.children, var3.id);
-					}
+		return false;
+	}
 
-					InterfaceParent var4 = (InterfaceParent)Client.interfaceParents.get((long)var3.id);
-					if (var4 != null) {
-						class401.method7505(var4.group);
-					}
-				}
+	@ObfuscatedName("pl")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "1311417839"
+	)
+	static void method3777() {
+		if (Decimator.field413 != null) {
+			Client.field823 = Client.cycle;
+			Decimator.field413.method7456();
 
-				if (var3.type == 6) {
-					int var5;
-					if (var3.sequenceId != -1 || var3.sequenceId2 != -1) {
-						boolean var8 = class345.runCs1(var3);
-						if (var8) {
-							var5 = var3.sequenceId2;
-						} else {
-							var5 = var3.sequenceId;
-						}
-
-						if (var5 != -1) {
-							SequenceDefinition var6 = HttpMethod.SequenceDefinition_get(var5);
-							if (!var6.isCachedModelIdSet()) {
-								for (var3.modelFrameCycle += Client.graphicsCycle; var3.modelFrameCycle > var6.frameLengths[var3.modelFrame]; FaceNormal.invalidateWidget(var3)) {
-									var3.modelFrameCycle -= var6.frameLengths[var3.modelFrame];
-									++var3.modelFrame;
-									if (var3.modelFrame >= var6.frameIds.length) {
-										var3.modelFrame -= var6.frameCount;
-										if (var3.modelFrame < 0 || var3.modelFrame >= var6.frameIds.length) {
-											var3.modelFrame = 0;
-										}
-									}
-								}
-							} else {
-								var3.modelFrame += Client.graphicsCycle;
-								int var7 = var6.method4106();
-								if (var3.modelFrame >= var7) {
-									var3.modelFrame -= var6.frameCount;
-									if (var3.modelFrame < 0 || var3.modelFrame >= var7) {
-										var3.modelFrame = 0;
-									}
-								}
-
-								FaceNormal.invalidateWidget(var3);
-							}
-						}
-					}
-
-					if (var3.field3758 != 0 && !var3.isIf3) {
-						int var9 = var3.field3758 >> 16;
-						var5 = var3.field3758 << 16 >> 16;
-						var9 *= Client.graphicsCycle;
-						var5 *= Client.graphicsCycle;
-						var3.modelAngleX = var9 + var3.modelAngleX & 2047;
-						var3.modelAngleY = var5 + var3.modelAngleY & 2047;
-						FaceNormal.invalidateWidget(var3);
-					}
+			for (int var0 = 0; var0 < class358.topLevelWorldView.players.length; ++var0) {
+				if (class358.topLevelWorldView.players[var0] != null) {
+					Decimator.field413.method7443((class358.topLevelWorldView.players[var0].x >> 7) + class358.topLevelWorldView.baseX, (class358.topLevelWorldView.players[var0].y >> 7) + class358.topLevelWorldView.baseY);
 				}
 			}
 		}
 
+	}
+
+	@ObfuscatedName("pq")
+	@ObfuscatedSignature(
+		descriptor = "(B)Ljava/awt/datatransfer/Clipboard;",
+		garbageValue = "0"
+	)
+	public static Clipboard method3778() {
+		return class188.client.method482();
 	}
 }

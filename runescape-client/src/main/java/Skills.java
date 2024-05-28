@@ -1,29 +1,28 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ny")
+@ObfuscatedName("op")
 @Implements("Skills")
 public class Skills {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@Export("Skills_enabled")
 	public static final boolean[] Skills_enabled;
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@Export("Skills_experienceTable")
 	public static int[] Skills_experienceTable;
-	@ObfuscatedName("ag")
-	static boolean[] field3912;
-	@ObfuscatedName("cm")
-	@ObfuscatedGetter(
-		intValue = -1485031115
+	@ObfuscatedName("da")
+	@ObfuscatedSignature(
+		descriptor = "[Lvl;"
 	)
-	static int field3911;
+	@Export("worldSelectStars")
+	static IndexedSprite[] worldSelectStars;
 
 	static {
-		Skills_enabled = new boolean[]{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false};
+		Skills_enabled = new boolean[]{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false};
 		Skills_experienceTable = new int[99];
 		int var0 = 0;
 
@@ -36,42 +35,30 @@ public class Skills {
 
 	}
 
-	@ObfuscatedName("in")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/util/ArrayList;IIIII)V",
-		garbageValue = "1951977903"
+		descriptor = "(III)V",
+		garbageValue = "-838227477"
 	)
-	static void method6928(ArrayList var0, int var1, int var2, int var3, int var4) {
-		if (!var0.isEmpty()) {
-			int var5 = (Integer)var0.get(0);
-			if (var5 == -1 && !Client.playingJingle) {
-				Actor.method2488(0, 0);
-			} else if (var5 != -1) {
-				boolean var6;
-				if (class319.field3466.isEmpty()) {
-					var6 = false;
-				} else {
-					MusicSong var7 = (MusicSong)class319.field3466.get(0);
-					var6 = var7 != null && var5 == var7.musicTrackGroupId;
-				}
+	public static void method7123(int var0, int var1) {
+		class146.method3226(var0, var1, 0, 0);
+		class329.field3579.clear();
+		class329.field3581.clear();
+		if (class329.musicSongs.isEmpty() || var0 == 0 && var1 == 0) {
+			LoginScreenAnimation.method2471();
+		} else {
+			class329.field3581.add(new DelayFadeTask((SongTask)null, class329.musicPlayerStatus));
+			class329.field3581.add(new FadeOutTask((SongTask)null, 0, false, class329.field3584));
+			ArrayList var3 = new ArrayList();
+			Iterator var4 = class329.musicSongs.iterator();
 
-				if (!var6 && class93.clientPreferences.getMusicVolume() != 0) {
-					ArrayList var9 = new ArrayList();
-
-					for (int var8 = 0; var8 < var0.size(); ++var8) {
-						var9.add(new MusicSong(WorldMapSection0.archive6, (Integer)var0.get(var8), 0, class93.clientPreferences.getMusicVolume(), false));
-					}
-
-					if (Client.playingJingle) {
-						class319.field3466.clear();
-						class319.field3466.addAll(var9);
-						WorldMapRectangle.method5019(var1, var2, var3, var4);
-					} else {
-						LoginScreenAnimation.method2528(var9, var1, var2, var3, var4, false);
-					}
-				}
+			while (var4.hasNext()) {
+				MusicSong var5 = (MusicSong)var4.next();
+				var3.add(var5);
 			}
 
+			class329.field3581.add(new class438((SongTask)null, var3));
 		}
+
 	}
 }

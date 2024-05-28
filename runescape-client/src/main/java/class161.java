@@ -1,68 +1,43 @@
-import java.security.SecureRandom;
-import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gq")
-public class class161 extends class143 {
-	@ObfuscatedName("iy")
-	static SecureRandom field1753;
-	@ObfuscatedName("am")
+@ObfuscatedName("gn")
+public class class161 extends class147 {
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = 200672307
+		intValue = 748264935
 	)
-	int field1754;
-	@ObfuscatedName("ap")
-	@ObfuscatedGetter(
-		intValue = -1919202733
-	)
-	int field1752;
+	int field1798;
 	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lfm;"
+		descriptor = "Lfu;"
 	)
-	final class146 this$0;
+	final class150 this$0;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lfm;)V"
+		descriptor = "(Lfu;)V"
 	)
-	class161(class146 var1) {
+	class161(class150 var1) {
 		this.this$0 = var1;
+		this.field1798 = -1;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Luk;I)V",
-		garbageValue = "-411371469"
+		descriptor = "(Lua;I)V",
+		garbageValue = "1738227110"
 	)
-	void vmethod3531(Buffer var1) {
-		this.field1754 = var1.readInt();
-		this.field1752 = var1.readInt();
+	void vmethod3486(Buffer var1) {
+		this.field1798 = var1.readUnsignedShort();
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(Lfn;I)V",
-		garbageValue = "1048713263"
+		descriptor = "(Lgc;B)V",
+		garbageValue = "100"
 	)
-	void vmethod3529(ClanSettings var1) {
-		var1.method3352(this.field1754, this.field1752);
-	}
-
-	@ObfuscatedName("pn")
-	@ObfuscatedSignature(
-		descriptor = "(IB)Luq;",
-		garbageValue = "-30"
-	)
-	@Export("getDbTable")
-	static DbTable getDbTable(int var0) {
-		DbTable var1 = (DbTable)Client.DBTableIndex_cache.get((long)var0);
-		if (var1 == null) {
-			var1 = new DbTable(AsyncHttpResponse.field80, RouteStrategy.method4509(var0), JagexCache.method4249(var0));
-			Client.DBTableIndex_cache.put(var1, (long)var0);
-		}
-
-		return var1;
+	void vmethod3490(ClanSettings var1) {
+		var1.method3329(this.field1798);
 	}
 }

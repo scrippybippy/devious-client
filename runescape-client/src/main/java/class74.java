@@ -1,29 +1,54 @@
 import java.math.BigInteger;
 import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("cf")
+@ObfuscatedName("cv")
 public class class74 {
-	@ObfuscatedName("am")
-	static final BigInteger field898;
-	@ObfuscatedName("ap")
-	static final BigInteger field902;
-	@ObfuscatedName("ag")
-	@ObfuscatedGetter(
-		intValue = 1131751743
-	)
-	public static int field897;
-	@ObfuscatedName("of")
+	@ObfuscatedName("af")
+	static final BigInteger field920;
+	@ObfuscatedName("aa")
+	static final BigInteger field918;
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "Lcj;"
+		descriptor = "[Luh;"
 	)
-	@Export("tempMenuAction")
-	static MenuAction tempMenuAction;
+	@Export("JagexCache_idxFiles")
+	public static BufferedFile[] JagexCache_idxFiles;
 
 	static {
-		field898 = new BigInteger("10001", 16);
-		field902 = new BigInteger("c843d4b9c13df5b3989705ee204fd85fa0467478b2736fc79f40daf8bc99e3acf83d8a1a83d5a68f52e8c4c7de6ebaae9b723248193c5df6d4e73b2ebfe25ff2072ac5ef2817566f99f132e7ebae74dd854e30fff1f30c5e2644cf506b7efd35a407bda1bf156312a3085e776ce6202b4ba3b31d0a671ad6040f91bd36048c69", 16);
+		field920 = new BigInteger("80782894952180643741752986186714059433953886149239752893425047584684715842049");
+		field918 = new BigInteger("7237300117305667488707183861728052766358166655052137727439795191253340127955075499635575104901523446809299097934591732635674173519120047404024393881551683");
+	}
+
+	@ObfuscatedName("af")
+	public static boolean method2110(long var0) {
+		return (int)(var0 >>> 16 & 1L) == 1;
+	}
+
+	@ObfuscatedName("ad")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "-33239390"
+	)
+	static void method2113() {
+		if (class392.loadWorlds()) {
+			Login.worldSelectOpen = true;
+			Login.worldSelectPage = 0;
+			Login.worldSelectPagesCount = 0;
+		}
+
+	}
+
+	@ObfuscatedName("jn")
+	@ObfuscatedSignature(
+		descriptor = "(Ldt;I)V",
+		garbageValue = "-1284123860"
+	)
+	static void method2114(WorldView var0) {
+		if (Client.renderSelf) {
+			class425.addPlayerToScene(var0, Client.localPlayerIndex, false);
+		}
+
 	}
 }

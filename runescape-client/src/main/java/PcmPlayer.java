@@ -1,204 +1,203 @@
-import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ThreadPoolExecutor;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("bb")
+@ObfuscatedName("bd")
 @Implements("PcmPlayer")
 public class PcmPlayer {
-	@ObfuscatedName("ao")
-	@Export("soundSystemExecutor")
-	public static ScheduledExecutorService soundSystemExecutor;
-	@ObfuscatedName("aa")
-	@ObfuscatedSignature(
-		descriptor = "Lbw;"
+	@ObfuscatedName("ab")
+	static ThreadPoolExecutor field279;
+	@ObfuscatedName("ah")
+	public static short[] field294;
+	@ObfuscatedName("mw")
+	@ObfuscatedGetter(
+		intValue = 601850613
 	)
-	@Export("soundSystem")
-	public static SoundSystem soundSystem;
-	@ObfuscatedName("ax")
+	static int field296;
+	@ObfuscatedName("ap")
 	@Export("samples")
-	public int[] samples;
-	@ObfuscatedName("aw")
+	protected int[] samples;
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "Lbl;"
+		descriptor = "Lba;"
 	)
 	@Export("stream")
 	PcmStream stream;
-	@ObfuscatedName("az")
+	@ObfuscatedName("ax")
 	@ObfuscatedGetter(
-		intValue = 544795385
+		intValue = -927893663
 	)
-	int field295;
-	@ObfuscatedName("av")
+	int field281;
+	@ObfuscatedName("ay")
 	@ObfuscatedGetter(
-		longValue = 2923713038662853309L
+		longValue = -6124916407686776029L
 	)
 	@Export("timeMs")
 	long timeMs;
-	@ObfuscatedName("ak")
+	@ObfuscatedName("au")
 	@ObfuscatedGetter(
-		intValue = 1811234521
+		intValue = -781092137
 	)
 	@Export("capacity")
-	public int capacity;
-	@ObfuscatedName("ay")
-	@ObfuscatedGetter(
-		intValue = -700999465
-	)
-	public int field288;
+	int capacity;
 	@ObfuscatedName("as")
 	@ObfuscatedGetter(
-		intValue = 1061162499
+		intValue = 779817765
 	)
-	int field289;
-	@ObfuscatedName("ab")
+	int field284;
+	@ObfuscatedName("aw")
 	@ObfuscatedGetter(
-		longValue = -3737012796057226807L
-	)
-	long field281;
-	@ObfuscatedName("ah")
-	@ObfuscatedGetter(
-		intValue = -1556259401
-	)
-	int field291;
-	@ObfuscatedName("ai")
-	@ObfuscatedGetter(
-		intValue = 761147211
-	)
-	int field292;
-	@ObfuscatedName("ac")
-	@ObfuscatedGetter(
-		intValue = -1186639275
-	)
-	int field293;
-	@ObfuscatedName("al")
-	@ObfuscatedGetter(
-		longValue = 5892979677882615623L
-	)
-	long field294;
-	@ObfuscatedName("at")
-	boolean field284;
-	@ObfuscatedName("ba")
-	@ObfuscatedGetter(
-		intValue = 810684273
+		intValue = -63177569
 	)
 	int field285;
-	@ObfuscatedName("bk")
+	@ObfuscatedName("ad")
+	@ObfuscatedGetter(
+		longValue = 3619051364314954007L
+	)
+	long field282;
+	@ObfuscatedName("ai")
+	@ObfuscatedGetter(
+		intValue = 1635881985
+	)
+	int field287;
+	@ObfuscatedName("an")
+	@ObfuscatedGetter(
+		intValue = -117889257
+	)
+	int field288;
+	@ObfuscatedName("am")
+	@ObfuscatedGetter(
+		intValue = 317305953
+	)
+	int field289;
+	@ObfuscatedName("ar")
+	@ObfuscatedGetter(
+		longValue = 3397901339844606541L
+	)
+	long field290;
+	@ObfuscatedName("ag")
+	boolean field286;
+	@ObfuscatedName("bn")
+	@ObfuscatedGetter(
+		intValue = -1098020825
+	)
+	int field293;
+	@ObfuscatedName("bw")
 	@ObfuscatedSignature(
-		descriptor = "[Lbl;"
+		descriptor = "[Lba;"
+	)
+	PcmStream[] field295;
+	@ObfuscatedName("bl")
+	@ObfuscatedSignature(
+		descriptor = "[Lba;"
 	)
 	PcmStream[] field298;
-	@ObfuscatedName("bn")
-	@ObfuscatedSignature(
-		descriptor = "[Lbl;"
-	)
-	PcmStream[] field283;
 
-	public PcmPlayer() {
-		this.field295 = 32;
-		this.timeMs = UserComparator9.method2973();
-		this.field281 = 0L;
-		this.field291 = 0;
-		this.field292 = 0;
+	protected PcmPlayer() {
+		this.field281 = 32;
+		this.timeMs = class129.method3033();
+		this.field282 = 0L;
+		this.field287 = 0;
+		this.field288 = 0;
+		this.field289 = 0;
+		this.field290 = 0L;
+		this.field286 = true;
 		this.field293 = 0;
-		this.field294 = 0L;
-		this.field284 = true;
-		this.field285 = 0;
+		this.field295 = new PcmStream[8];
 		this.field298 = new PcmStream[8];
-		this.field283 = new PcmStream[8];
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(S)V",
-		garbageValue = "128"
+		descriptor = "(B)V",
+		garbageValue = "0"
 	)
 	@Export("init")
-	public void init() throws Exception {
+	protected void init() throws Exception {
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
 		descriptor = "(IB)V",
-		garbageValue = "-81"
+		garbageValue = "-85"
 	)
 	@Export("open")
-	public void open(int var1) throws Exception {
+	protected void open(int var1) throws Exception {
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(B)I",
-		garbageValue = "-95"
+		descriptor = "(I)I",
+		garbageValue = "-1902302382"
 	)
 	@Export("position")
 	protected int position() throws Exception {
 		return this.capacity;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@Export("write")
 	protected void write() throws Exception {
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "1232699455"
+		garbageValue = "1417939230"
 	)
 	@Export("close")
 	protected void close() {
 	}
 
-	@ObfuscatedName("ar")
+	@ObfuscatedName("aa")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "1520596872"
+		descriptor = "(B)V",
+		garbageValue = "107"
 	)
 	@Export("discard")
 	protected void discard() throws Exception {
 	}
 
-	@ObfuscatedName("ah")
+	@ObfuscatedName("bo")
 	@ObfuscatedSignature(
-		descriptor = "(Lbl;B)V",
-		garbageValue = "22"
+		descriptor = "(Lba;I)V",
+		garbageValue = "-1441154437"
 	)
 	@Export("setStream")
 	public final synchronized void setStream(PcmStream var1) {
 		this.stream = var1;
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("bi")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "2034283035"
+		garbageValue = "-1372508670"
 	)
 	@Export("run")
 	public final synchronized void run() {
 		if (this.samples != null) {
-			long var1 = UserComparator9.method2973();
+			long var1 = class129.method3033();
 
 			try {
-				if (this.field281 != 0L) {
-					if (var1 < this.field281) {
+				if (this.field282 != 0L) {
+					if (var1 < this.field282) {
 						return;
 					}
 
 					this.open(this.capacity);
-					this.field281 = 0L;
-					this.field284 = true;
+					this.field282 = 0L;
+					this.field286 = true;
 				}
 
 				int var3 = this.position();
-				if (this.field293 - var3 > this.field291) {
-					this.field291 = this.field293 - var3;
+				if (this.field289 - var3 > this.field287) {
+					this.field287 = this.field289 - var3;
 				}
 
-				int var4 = this.field289 + this.field288;
+				int var4 = this.field285 + this.field284;
 				if (var4 + 256 > 16384) {
 					var4 = 16128;
 				}
@@ -212,10 +211,10 @@ public class PcmPlayer {
 					this.close();
 					this.open(this.capacity);
 					var3 = 0;
-					this.field284 = true;
+					this.field286 = true;
 					if (var4 + 256 > this.capacity) {
 						var4 = this.capacity - 256;
-						this.field289 = var4 - this.field288;
+						this.field285 = var4 - this.field284;
 					}
 				}
 
@@ -225,38 +224,38 @@ public class PcmPlayer {
 					var3 += 256;
 				}
 
-				if (var1 > this.field294) {
-					if (!this.field284) {
-						if (this.field291 == 0 && this.field292 == 0) {
+				if (var1 > this.field290) {
+					if (!this.field286) {
+						if (this.field287 == 0 && this.field288 == 0) {
 							this.close();
-							this.field281 = 2000L + var1;
+							this.field282 = var1 + 2000L;
 							return;
 						}
 
-						this.field289 = Math.min(this.field292, this.field291);
-						this.field292 = this.field291;
+						this.field285 = Math.min(this.field288, this.field287);
+						this.field288 = this.field287;
 					} else {
-						this.field284 = false;
+						this.field286 = false;
 					}
 
-					this.field291 = 0;
-					this.field294 = var1 + 2000L;
+					this.field287 = 0;
+					this.field290 = var1 + 2000L;
 				}
 
-				this.field293 = var3;
+				this.field289 = var3;
 			} catch (Exception var7) {
 				this.close();
-				this.field281 = var1 + 2000L;
+				this.field282 = var1 + 2000L;
 			}
 
 			try {
-				if (var1 > this.timeMs + 500000L) {
+				if (var1 > 500000L + this.timeMs) {
 					var1 = this.timeMs;
 				}
 
-				while (var1 > 5000L + this.timeMs) {
+				while (var1 > this.timeMs + 5000L) {
 					this.skip(256);
-					this.timeMs += (long)(256000 / (class189.field1993 * 22050));
+					this.timeMs += (long)(256000 / UserComparator5.field1508);
 				}
 			} catch (Exception var6) {
 				this.timeMs = var1;
@@ -265,57 +264,57 @@ public class PcmPlayer {
 		}
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("bt")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "246556055"
+		garbageValue = "-1636072353"
 	)
-	public final void method845() {
-		this.field284 = true;
+	public final void method779() {
+		this.field286 = true;
 	}
 
-	@ObfuscatedName("al")
+	@ObfuscatedName("bn")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "-1777076574"
+		garbageValue = "-1304127248"
 	)
 	@Export("tryDiscard")
 	public final synchronized void tryDiscard() {
-		this.field284 = true;
+		this.field286 = true;
 
 		try {
 			this.discard();
 		} catch (Exception var2) {
 			this.close();
-			this.field281 = UserComparator9.method2973() + 2000L;
+			this.field282 = class129.method3033() + 2000L;
 		}
 
 	}
 
-	@ObfuscatedName("at")
+	@ObfuscatedName("bw")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1331387146"
+		descriptor = "(B)V",
+		garbageValue = "1"
 	)
 	@Export("shutdown")
 	public final synchronized void shutdown() {
-		if (soundSystem != null) {
+		if (HttpMethod.soundSystem != null) {
 			boolean var1 = true;
 
 			for (int var2 = 0; var2 < 2; ++var2) {
-				if (this == soundSystem.players[var2]) {
-					soundSystem.players[var2] = null;
+				if (this == HttpMethod.soundSystem.players[var2]) {
+					HttpMethod.soundSystem.players[var2] = null;
 				}
 
-				if (soundSystem.players[var2] != null) {
+				if (HttpMethod.soundSystem.players[var2] != null) {
 					var1 = false;
 				}
 			}
 
 			if (var1) {
-				soundSystemExecutor.shutdownNow();
-				soundSystemExecutor = null;
-				soundSystem = null;
+				class213.soundSystemExecutor.shutdownNow();
+				class213.soundSystemExecutor = null;
+				HttpMethod.soundSystem = null;
 			}
 		}
 
@@ -323,16 +322,16 @@ public class PcmPlayer {
 		this.samples = null;
 	}
 
-	@ObfuscatedName("bj")
+	@ObfuscatedName("bl")
 	@ObfuscatedSignature(
-		descriptor = "(IB)V",
-		garbageValue = "-32"
+		descriptor = "(II)V",
+		garbageValue = "-1578944058"
 	)
 	@Export("skip")
 	final void skip(int var1) {
-		this.field285 -= var1;
-		if (this.field285 < 0) {
-			this.field285 = 0;
+		this.field293 -= var1;
+		if (this.field293 < 0) {
+			this.field293 = 0;
 		}
 
 		if (this.stream != null) {
@@ -341,20 +340,20 @@ public class PcmPlayer {
 
 	}
 
-	@ObfuscatedName("bd")
+	@ObfuscatedName("be")
 	@Export("fill")
 	final void fill(int[] var1, int var2) {
 		int var3 = var2;
-		if (class462.PcmPlayer_stereo) {
+		if (JagexCache.PcmPlayer_stereo) {
 			var3 = var2 << 1;
 		}
 
-		class425.clearIntArray(var1, 0, var3);
-		this.field285 -= var2;
-		if (this.stream != null && this.field285 <= 0) {
-			this.field285 += class189.field1993 * 22050 >> 4;
-			FloorOverlayDefinition.PcmStream_disable(this.stream);
-			this.method814(this.stream, this.stream.vmethod1061());
+		class446.clearIntArray(var1, 0, var3);
+		this.field293 -= var2;
+		if (this.stream != null && this.field293 <= 0) {
+			this.field293 += UserComparator5.field1508 >> 4;
+			ObjectSound.PcmStream_disable(this.stream);
+			this.method784(this.stream, this.stream.vmethod1030());
 			int var4 = 0;
 			int var5 = 255;
 
@@ -376,7 +375,7 @@ public class PcmPlayer {
 					if ((var9 & 1) != 0) {
 						var5 &= ~(1 << var7);
 						var10 = null;
-						PcmStream var11 = this.field298[var7];
+						PcmStream var11 = this.field295[var7];
 
 						label102:
 						while (true) {
@@ -392,33 +391,33 @@ public class PcmPlayer {
 									var11 = var11.after;
 								} else {
 									var11.active = true;
-									int var13 = var11.vmethod6281();
+									int var13 = var11.vmethod6454();
 									var4 += var13;
 									if (var12 != null) {
 										var12.position += var13;
 									}
 
-									if (var4 >= this.field295) {
+									if (var4 >= this.field281) {
 										break label108;
 									}
 
 									PcmStream var14 = var11.firstSubStream();
 									if (var14 != null) {
-										for (int var15 = var11.field353; var14 != null; var14 = var11.nextSubStream()) {
-											this.method814(var14, var15 * var14.vmethod1061() >> 8);
+										for (int var15 = var11.field355; var14 != null; var14 = var11.nextSubStream()) {
+											this.method784(var14, var15 * var14.vmethod1030() >> 8);
 										}
 									}
 
 									PcmStream var18 = var11.after;
 									var11.after = null;
 									if (var10 == null) {
-										this.field298[var7] = var18;
+										this.field295[var7] = var18;
 									} else {
 										var10.after = var18;
 									}
 
 									if (var18 == null) {
-										this.field283[var7] = var10;
+										this.field298[var7] = var10;
 									}
 
 									var11 = var18;
@@ -433,9 +432,9 @@ public class PcmPlayer {
 			}
 
 			for (var6 = 0; var6 < 8; ++var6) {
-				PcmStream var16 = this.field298[var6];
-				PcmStream[] var17 = this.field298;
-				this.field283[var6] = null;
+				PcmStream var16 = this.field295[var6];
+				PcmStream[] var17 = this.field295;
+				this.field298[var6] = null;
 
 				for (var17[var6] = null; var16 != null; var16 = var10) {
 					var10 = var16.after;
@@ -444,272 +443,53 @@ public class PcmPlayer {
 			}
 		}
 
-		if (this.field285 < 0) {
-			this.field285 = 0;
+		if (this.field293 < 0) {
+			this.field293 = 0;
 		}
 
 		if (this.stream != null) {
 			this.stream.fill(var1, 0, var2);
 		}
 
-		this.timeMs = UserComparator9.method2973();
+		this.timeMs = class129.method3033();
 	}
 
-	@ObfuscatedName("bt")
+	@ObfuscatedName("bu")
 	@ObfuscatedSignature(
-		descriptor = "(Lbl;II)V",
-		garbageValue = "429153206"
+		descriptor = "(Lba;II)V",
+		garbageValue = "282838317"
 	)
-	final void method814(PcmStream var1, int var2) {
+	final void method784(PcmStream var1, int var2) {
 		int var3 = var2 >> 5;
-		PcmStream var4 = this.field283[var3];
+		PcmStream var4 = this.field298[var3];
 		if (var4 == null) {
-			this.field298[var3] = var1;
+			this.field295[var3] = var1;
 		} else {
 			var4.after = var1;
 		}
 
-		this.field283[var3] = var1;
-		var1.field353 = var2;
+		this.field298[var3] = var1;
+		var1.field355 = var2;
 	}
 
-	@ObfuscatedName("bk")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(ILdd;ZI)I",
-		garbageValue = "-1767711937"
+		descriptor = "(Lor;Lor;ZI)V",
+		garbageValue = "2097756368"
 	)
-	static int method860(int var0, Script var1, boolean var2) {
-		int var3;
-		if (var0 == ScriptOpcodes.STOCKMARKET_GETOFFERTYPE) {
-			var3 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-			Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = Client.grandExchangeOffers[var3].type();
-			return 1;
-		} else if (var0 == ScriptOpcodes.STOCKMARKET_GETOFFERITEM) {
-			var3 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-			Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = Client.grandExchangeOffers[var3].id;
-			return 1;
-		} else if (var0 == ScriptOpcodes.STOCKMARKET_GETOFFERPRICE) {
-			var3 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-			Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = Client.grandExchangeOffers[var3].unitPrice;
-			return 1;
-		} else if (var0 == ScriptOpcodes.STOCKMARKET_GETOFFERCOUNT) {
-			var3 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-			Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = Client.grandExchangeOffers[var3].totalQuantity;
-			return 1;
-		} else if (var0 == ScriptOpcodes.STOCKMARKET_GETOFFERCOMPLETEDCOUNT) {
-			var3 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-			Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = Client.grandExchangeOffers[var3].currentQuantity;
-			return 1;
-		} else if (var0 == ScriptOpcodes.STOCKMARKET_GETOFFERCOMPLETEDGOLD) {
-			var3 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-			Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = Client.grandExchangeOffers[var3].currentPrice;
-			return 1;
-		} else {
-			int var13;
-			if (var0 == ScriptOpcodes.STOCKMARKET_ISOFFEREMPTY) {
-				var3 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-				var13 = Client.grandExchangeOffers[var3].status();
-				Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = var13 == 0 ? 1 : 0;
-				return 1;
-			} else if (var0 == ScriptOpcodes.STOCKMARKET_ISOFFERSTABLE) {
-				var3 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-				var13 = Client.grandExchangeOffers[var3].status();
-				Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = var13 == 2 ? 1 : 0;
-				return 1;
-			} else if (var0 == ScriptOpcodes.STOCKMARKET_ISOFFERFINISHED) {
-				var3 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-				var13 = Client.grandExchangeOffers[var3].status();
-				Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = var13 == 5 ? 1 : 0;
-				return 1;
-			} else if (var0 == ScriptOpcodes.STOCKMARKET_ISOFFERADDING) {
-				var3 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-				var13 = Client.grandExchangeOffers[var3].status();
-				Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = var13 == 1 ? 1 : 0;
-				return 1;
-			} else {
-				boolean var12;
-				if (var0 == ScriptOpcodes.TRADINGPOST_SORTBY_NAME) {
-					var12 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize] == 1;
-					if (class380.grandExchangeEvents != null) {
-						class380.grandExchangeEvents.sort(GrandExchangeEvents.GrandExchangeEvents_nameComparator, var12);
-					}
-
-					return 1;
-				} else if (var0 == ScriptOpcodes.TRADINGPOST_SORTBY_PRICE) {
-					var12 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize] == 1;
-					if (class380.grandExchangeEvents != null) {
-						class380.grandExchangeEvents.sort(GrandExchangeEvents.GrandExchangeEvents_priceComparator, var12);
-					}
-
-					return 1;
-				} else if (var0 == ScriptOpcodes.TRADINGPOST_SORTFILTERBY_WORLD) {
-					UserComparator6.Interpreter_intStackSize -= 2;
-					var12 = Interpreter.Interpreter_intStack[UserComparator6.Interpreter_intStackSize] == 1;
-					boolean var11 = Interpreter.Interpreter_intStack[UserComparator6.Interpreter_intStackSize + 1] == 1;
-					if (class380.grandExchangeEvents != null) {
-						Client.GrandExchangeEvents_worldComparator.filterWorlds = var11;
-						class380.grandExchangeEvents.sort(Client.GrandExchangeEvents_worldComparator, var12);
-					}
-
-					return 1;
-				} else if (var0 == ScriptOpcodes.TRADINGPOST_SORTBY_AGE) {
-					var12 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize] == 1;
-					if (class380.grandExchangeEvents != null) {
-						class380.grandExchangeEvents.sort(GrandExchangeEvents.GrandExchangeEvents_ageComparator, var12);
-					}
-
-					return 1;
-				} else if (var0 == ScriptOpcodes.TRADINGPOST_SORTBY_COUNT) {
-					var12 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize] == 1;
-					if (class380.grandExchangeEvents != null) {
-						class380.grandExchangeEvents.sort(GrandExchangeEvents.GrandExchangeEvents_quantityComparator, var12);
-					}
-
-					return 1;
-				} else if (var0 == ScriptOpcodes.TRADINGPOST_GETTOTALOFFERS) {
-					Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = class380.grandExchangeEvents == null ? 0 : class380.grandExchangeEvents.events.size();
-					return 1;
-				} else {
-					GrandExchangeEvent var4;
-					if (var0 == ScriptOpcodes.TRADINGPOST_GETOFFERWORLD) {
-						var3 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-						var4 = (GrandExchangeEvent)class380.grandExchangeEvents.events.get(var3);
-						Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = var4.world;
-						return 1;
-					} else if (var0 == ScriptOpcodes.TRADINGPOST_GETOFFERNAME) {
-						var3 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-						var4 = (GrandExchangeEvent)class380.grandExchangeEvents.events.get(var3);
-						Interpreter.Interpreter_stringStack[++class211.Interpreter_stringStackSize - 1] = var4.getOfferName();
-						return 1;
-					} else if (var0 == ScriptOpcodes.TRADINGPOST_GETOFFERPREVIOUSNAME) {
-						var3 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-						var4 = (GrandExchangeEvent)class380.grandExchangeEvents.events.get(var3);
-						Interpreter.Interpreter_stringStack[++class211.Interpreter_stringStackSize - 1] = var4.getPreviousOfferName();
-						return 1;
-					} else if (var0 == ScriptOpcodes.TRADINGPOST_GETOFFERAGE) {
-						var3 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-						var4 = (GrandExchangeEvent)class380.grandExchangeEvents.events.get(var3);
-						long var5 = UserComparator9.method2973() - class17.field74 - var4.age;
-						int var7 = (int)(var5 / 3600000L);
-						int var8 = (int)((var5 - (long)(var7 * 3600000)) / 60000L);
-						int var9 = (int)((var5 - (long)(var7 * 3600000) - (long)(var8 * 60000)) / 1000L);
-						String var10 = var7 + ":" + var8 / 10 + var8 % 10 + ":" + var9 / 10 + var9 % 10;
-						Interpreter.Interpreter_stringStack[++class211.Interpreter_stringStackSize - 1] = var10;
-						return 1;
-					} else if (var0 == ScriptOpcodes.TRADINGPOST_GETOFFERCOUNT) {
-						var3 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-						var4 = (GrandExchangeEvent)class380.grandExchangeEvents.events.get(var3);
-						Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = var4.grandExchangeOffer.totalQuantity;
-						return 1;
-					} else if (var0 == ScriptOpcodes.TRADINGPOST_GETOFFERPRICE) {
-						var3 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-						var4 = (GrandExchangeEvent)class380.grandExchangeEvents.events.get(var3);
-						Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = var4.grandExchangeOffer.unitPrice;
-						return 1;
-					} else if (var0 == ScriptOpcodes.TRADINGPOST_GETOFFERITEM) {
-						var3 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-						var4 = (GrandExchangeEvent)class380.grandExchangeEvents.events.get(var3);
-						Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = var4.grandExchangeOffer.id;
-						return 1;
-					} else if (var0 == 3939) {
-						var3 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-						Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = class341.ItemDefinition_get(var3).isTradable ? 1 : 0;
-						return 1;
-					} else {
-						return 2;
-					}
-				}
-			}
-		}
+	public static void method838(AbstractArchive var0, AbstractArchive var1, boolean var2) {
+		ObjectComposition.ObjectDefinition_archive = var0;
+		class4.ObjectDefinition_modelsArchive = var1;
+		ObjectComposition.ObjectDefinition_isLowDetail = var2;
 	}
 
-	@ObfuscatedName("ln")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(IIIIIIIIIZI)V",
-		garbageValue = "-1536525774"
+		descriptor = "(IB)Lco;",
+		garbageValue = "13"
 	)
-	static void method859(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, boolean var9) {
-		TileItem var10 = new TileItem();
-		var10.id = var3;
-		var10.quantity = var4;
-		var10.method2750(var5);
-		if (Client.groundItems[var0][var1][var2] == null) {
-			Client.groundItems[var0][var1][var2] = new NodeDeque();
-		}
-
-		Client.groundItems[var0][var1][var2].addFirst(var10);
-		class134.updateItemPile(var0, var1, var2);
-	}
-
-	@ObfuscatedName("le")
-	@ObfuscatedSignature(
-		descriptor = "(Luo;B)V",
-		garbageValue = "84"
-	)
-	static final void method846(PacketBuffer var0) {
-		var0.importIndex();
-		int var1 = var0.readBits(8);
-		int var2;
-		if (var1 < Client.npcCount) {
-			for (var2 = var1; var2 < Client.npcCount; ++var2) {
-				Client.field625[++Client.field708 - 1] = Client.npcIndices[var2];
-			}
-		}
-
-		if (var1 > Client.npcCount) {
-			throw new RuntimeException("");
-		} else {
-			Client.npcCount = 0;
-
-			for (var2 = 0; var2 < var1; ++var2) {
-				int var3 = Client.npcIndices[var2];
-				NPC var4 = Client.npcs[var3];
-				int var5 = var0.readBits(1);
-				if (var5 == 0) {
-					Client.npcIndices[++Client.npcCount - 1] = var3;
-					var4.npcCycle = Client.cycle;
-				} else {
-					int var6 = var0.readBits(2);
-					if (var6 == 0) {
-						Client.npcIndices[++Client.npcCount - 1] = var3;
-						var4.npcCycle = Client.cycle;
-						Client.field603[++Client.field549 - 1] = var3;
-					} else {
-						int var7;
-						int var8;
-						if (var6 == 1) {
-							Client.npcIndices[++Client.npcCount - 1] = var3;
-							var4.npcCycle = Client.cycle;
-							var7 = var0.readBits(3);
-							var4.method2661(var7, class231.field2458);
-							var8 = var0.readBits(1);
-							if (var8 == 1) {
-								Client.field603[++Client.field549 - 1] = var3;
-							}
-						} else if (var6 == 2) {
-							Client.npcIndices[++Client.npcCount - 1] = var3;
-							var4.npcCycle = Client.cycle;
-							if (var0.readBits(1) == 1) {
-								var7 = var0.readBits(3);
-								var4.method2661(var7, class231.field2459);
-								var8 = var0.readBits(3);
-								var4.method2661(var8, class231.field2459);
-							} else {
-								var7 = var0.readBits(3);
-								var4.method2661(var7, class231.field2456);
-							}
-
-							var7 = var0.readBits(1);
-							if (var7 == 1) {
-								Client.field603[++Client.field549 - 1] = var3;
-							}
-						} else if (var6 == 3) {
-							Client.field625[++Client.field708 - 1] = var3;
-						}
-					}
-				}
-			}
-
-		}
+	@Export("Messages_getMessage")
+	static Message Messages_getMessage(int var0) {
+		return (Message)Messages.Messages_hashTable.get((long)var0);
 	}
 }

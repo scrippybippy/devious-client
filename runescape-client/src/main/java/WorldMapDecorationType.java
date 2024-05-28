@@ -4,134 +4,128 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("nx")
+@ObfuscatedName("oi")
 @Implements("WorldMapDecorationType")
 public enum WorldMapDecorationType implements Enum {
-	@ObfuscatedName("am")
-	@ObfuscatedSignature(
-		descriptor = "Lnx;"
-	)
-	field3894(0, 0),
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "Lnx;"
-	)
-	field3885(1, 0),
-	@ObfuscatedName("af")
-	@ObfuscatedSignature(
-		descriptor = "Lnx;"
-	)
-	field3886(2, 0),
-	@ObfuscatedName("aj")
-	@ObfuscatedSignature(
-		descriptor = "Lnx;"
-	)
-	field3887(3, 0),
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "Lnx;"
-	)
-	field3884(9, 2),
-	@ObfuscatedName("ar")
-	@ObfuscatedSignature(
-		descriptor = "Lnx;"
-	)
-	field3889(4, 1),
-	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "Lnx;"
-	)
-	field3900(5, 1),
-	@ObfuscatedName("ao")
-	@ObfuscatedSignature(
-		descriptor = "Lnx;"
-	)
-	field3891(6, 1),
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "Lnx;"
-	)
-	field3892(7, 1),
-	@ObfuscatedName("aa")
-	@ObfuscatedSignature(
-		descriptor = "Lnx;"
-	)
-	field3898(8, 1),
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "Lnx;"
-	)
-	field3908(12, 2),
-	@ObfuscatedName("an")
-	@ObfuscatedSignature(
-		descriptor = "Lnx;"
-	)
-	field3895(13, 2),
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "Lnx;"
-	)
-	field3893(14, 2),
-	@ObfuscatedName("ax")
-	@ObfuscatedSignature(
-		descriptor = "Lnx;"
-	)
-	field3897(15, 2),
-	@ObfuscatedName("aw")
-	@ObfuscatedSignature(
-		descriptor = "Lnx;"
-	)
-	field3903(16, 2),
-	@ObfuscatedName("az")
-	@ObfuscatedSignature(
-		descriptor = "Lnx;"
-	)
-	field3899(17, 2),
-	@ObfuscatedName("av")
-	@ObfuscatedSignature(
-		descriptor = "Lnx;"
-	)
-	field3896(18, 2),
 	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Lnx;"
+		descriptor = "Loi;"
 	)
-	field3901(19, 2),
-	@ObfuscatedName("ay")
+	field4010(0, 0),
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "Lnx;"
+		descriptor = "Loi;"
 	)
-	field3902(20, 2),
-	@ObfuscatedName("as")
+	field3994(1, 0),
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "Lnx;"
+		descriptor = "Loi;"
 	)
-	field3907(21, 2),
+	field3995(2, 0),
+	@ObfuscatedName("az")
+	@ObfuscatedSignature(
+		descriptor = "Loi;"
+	)
+	field4008(3, 0),
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "Loi;"
+	)
+	field3997(9, 2),
+	@ObfuscatedName("aa")
+	@ObfuscatedSignature(
+		descriptor = "Loi;"
+	)
+	field4004(4, 1),
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "Loi;"
+	)
+	field4002(5, 1),
 	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
-		descriptor = "Lnx;"
+		descriptor = "Loi;"
 	)
-	field3904(10, 2),
+	field4000(6, 1),
+	@ObfuscatedName("ac")
+	@ObfuscatedSignature(
+		descriptor = "Loi;"
+	)
+	field3998(7, 1),
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "Loi;"
+	)
+	field3996(8, 1),
 	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "Lnx;"
+		descriptor = "Loi;"
 	)
-	field3905(11, 2),
+	field3993(12, 2),
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "Loi;"
+	)
+	field4003(13, 2),
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "Loi;"
+	)
+	field4001(14, 2),
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "Loi;"
+	)
+	field4006(15, 2),
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "Loi;"
+	)
+	field4007(16, 2),
+	@ObfuscatedName("ax")
+	@ObfuscatedSignature(
+		descriptor = "Loi;"
+	)
+	field3999(17, 2),
+	@ObfuscatedName("ay")
+	@ObfuscatedSignature(
+		descriptor = "Loi;"
+	)
+	field4009(18, 2),
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "Loi;"
+	)
+	field4005(19, 2),
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "Loi;"
+	)
+	field4011(20, 2),
+	@ObfuscatedName("aw")
+	@ObfuscatedSignature(
+		descriptor = "Loi;"
+	)
+	field4012(21, 2),
+	@ObfuscatedName("ad")
+	@ObfuscatedSignature(
+		descriptor = "Loi;"
+	)
+	field4013(10, 2),
 	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
-		descriptor = "Lnx;"
+		descriptor = "Loi;"
 	)
-	field3906(22, 3);
-
-	@ObfuscatedName("fa")
+	field4014(11, 2),
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "Loz;"
+		descriptor = "Loi;"
 	)
-	@Export("archive12")
-	static Archive archive12;
-	@ObfuscatedName("ac")
+	field4015(22, 3);
+
+	@ObfuscatedName("am")
 	@ObfuscatedGetter(
-		intValue = 1372693611
+		intValue = -1516079251
 	)
 	@Export("id")
 	public final int id;
@@ -144,10 +138,10 @@ public enum WorldMapDecorationType implements Enum {
 		this.id = var3;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "-884190501"
+		garbageValue = "-311400525"
 	)
 	@Export("rsOrdinal")
 	public int rsOrdinal() {

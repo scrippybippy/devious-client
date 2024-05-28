@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
@@ -6,22 +7,16 @@ import net.runelite.mapping.ObfuscatedSignature;
 @ObfuscatedName("da")
 @Implements("ItemContainer")
 public class ItemContainer extends Node {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Lts;"
+		descriptor = "Ltx;"
 	)
 	@Export("itemContainers")
 	static NodeHashTable itemContainers;
-	@ObfuscatedName("me")
-	@ObfuscatedSignature(
-		descriptor = "Lkj;"
-	)
-	@Export("textureProvider")
-	static TextureProvider textureProvider;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@Export("ids")
 	int[] ids;
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@Export("quantities")
 	int[] quantities;
 
@@ -34,50 +29,56 @@ public class ItemContainer extends Node {
 		this.quantities = new int[]{0};
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;B)V",
-		garbageValue = "-37"
+		descriptor = "(Lor;Lor;ZLqb;B)V",
+		garbageValue = "-97"
 	)
-	@Export("addChatMessage")
-	static void addChatMessage(int var0, String var1, String var2, String var3) {
-		ChatChannel var4 = (ChatChannel)Messages.Messages_channels.get(var0);
-		if (var4 == null) {
-			var4 = new ChatChannel();
-			Messages.Messages_channels.put(var0, var4);
+	public static void method2314(AbstractArchive var0, AbstractArchive var1, boolean var2, Font var3) {
+		ItemComposition.ItemDefinition_archive = var0;
+		ItemComposition.ItemDefinition_modelArchive = var1;
+		WorldMapCacheName.ItemDefinition_inMembersWorld = var2;
+		class157.ItemDefinition_fileCount = ItemComposition.ItemDefinition_archive.getGroupFileCount(10);
+		VarbitComposition.ItemDefinition_fontPlain11 = var3;
+	}
+
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(IB)Z",
+		garbageValue = "56"
+	)
+	@Export("isWorldMapEvent")
+	public static boolean isWorldMapEvent(int var0) {
+		return var0 == 10 || var0 == 11 || var0 == 12 || var0 == 13 || var0 == 14 || var0 == 15 || var0 == 16 || var0 == 17;
+	}
+
+	@ObfuscatedName("mu")
+	@ObfuscatedSignature(
+		descriptor = "(IIIZI)V",
+		garbageValue = "-1780844085"
+	)
+	static final void method2304(int var0, int var1, int var2, boolean var3) {
+		if (AsyncRestClient.widgetDefinition.loadInterface(var0)) {
+			HitSplatDefinition.resizeInterface(AsyncRestClient.widgetDefinition.Widget_interfaceComponents[var0], -1, var1, var2, var3);
 		}
-
-		Message var5 = var4.addMessage(var0, var1, var2, var3);
-		Messages.Messages_hashTable.put(var5, (long)var5.count);
-		Messages.Messages_queue.add(var5);
-		Client.chatCycle = Client.cycleCntr;
 	}
 
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "(IB)I",
-		garbageValue = "-23"
-	)
-	public static int method2347(int var0) {
-		--var0;
-		var0 |= var0 >>> 1;
-		var0 |= var0 >>> 2;
-		var0 |= var0 >>> 4;
-		var0 |= var0 >>> 8;
-		var0 |= var0 >>> 16;
-		return var0 + 1;
-	}
-
-	@ObfuscatedName("as")
+	@ObfuscatedName("ou")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "-335792914"
+		garbageValue = "50913129"
 	)
-	static void method2350() {
-		if (class281.loadWorlds()) {
-			Login.worldSelectOpen = true;
-			Login.worldSelectPage = 0;
-			Login.worldSelectPagesCount = 0;
+	@Export("FriendSystem_invalidateIgnoreds")
+	static final void FriendSystem_invalidateIgnoreds() {
+		Iterator var0 = Messages.Messages_hashTable.iterator();
+
+		while (var0.hasNext()) {
+			Message var1 = (Message)var0.next();
+			var1.clearIsFromIgnored();
+		}
+
+		if (class108.friendsChat != null) {
+			class108.friendsChat.invalidateIgnoreds();
 		}
 
 	}

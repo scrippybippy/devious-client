@@ -1,24 +1,35 @@
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("tz")
-public class class509 {
-	@ObfuscatedName("af")
-	static final char[] field5074;
-	@ObfuscatedName("aj")
-	static final char[] field5076;
+@ObfuscatedName("ty")
+public class class509 extends class511 {
+	@ObfuscatedName("ak")
+	@ObfuscatedGetter(
+		intValue = 1151427827
+	)
+	int field5103;
+	@ObfuscatedName("al")
+	@ObfuscatedGetter(
+		intValue = -2076905609
+	)
+	int field5104;
 
-	static {
-		field5074 = new char[]{' ', ' ', '_', '-', 'à', 'á', 'â', 'ä', 'ã', 'À', 'Á', 'Â', 'Ä', 'Ã', 'è', 'é', 'ê', 'ë', 'È', 'É', 'Ê', 'Ë', 'í', 'î', 'ï', 'Í', 'Î', 'Ï', 'ò', 'ó', 'ô', 'ö', 'õ', 'Ò', 'Ó', 'Ô', 'Ö', 'Õ', 'ù', 'ú', 'û', 'ü', 'Ù', 'Ú', 'Û', 'Ü', 'ç', 'Ç', 'ÿ', 'Ÿ', 'ñ', 'Ñ', 'ß'};
-		field5076 = new char[]{'[', ']', '#'};
+	public class509(int var1, int var2, int var3, int var4) {
+		super(var3, var4);
+		this.field5103 = 0;
+		this.field5104 = 0;
+		this.field5103 = var1;
+		this.field5104 = var2;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(II)I",
-		garbageValue = "-1827596481"
+		descriptor = "(I)I",
+		garbageValue = "-1510700582"
 	)
-	public static int method9132(int var0) {
-		return var0 != 0 && var0 != 1 ? -1 : 0;
+	public int method9042() {
+		double var1 = this.method9058();
+		return (int)Math.round((double)this.field5103 + var1 * (double)(this.field5104 - this.field5103));
 	}
 }

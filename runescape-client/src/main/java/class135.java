@@ -1,130 +1,164 @@
-import java.io.IOException;
-import java.util.concurrent.Callable;
 import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fr")
-class class135 implements Callable {
-	// $FF: synthetic field
+@ObfuscatedName("fz")
+public class class135 implements Enum {
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Lfu;"
+		descriptor = "Lfz;"
 	)
-	final class138 this$0;
-	// $FF: synthetic field
+	static final class135 field1620;
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "Luk;"
+		descriptor = "Lfz;"
 	)
-	final Buffer val$p;
-	// $FF: synthetic field
-	final int val$version;
-
-	@ObfuscatedSignature(
-		descriptor = "(Lfu;Luk;I)V"
-	)
-	class135(class138 var1, Buffer var2, int var3) {
-		this.this$0 = var1;
-		this.val$p = var2;
-		this.val$version = var3;
-	}
-
-	public Object call() {
-		this.this$0.method3158(this.val$p, this.val$version);
-		return null;
-	}
-
-	@ObfuscatedName("af")
-	@ObfuscatedSignature(
-		descriptor = "(Low;III)Luc;",
-		garbageValue = "945955054"
-	)
-	@Export("SpriteBuffer_getSprite")
-	public static SpritePixels SpriteBuffer_getSprite(AbstractArchive var0, int var1, int var2) {
-		if (!Varcs.method2829(var0, var1, var2)) {
-			return null;
-		} else {
-			SpritePixels var4 = new SpritePixels();
-			var4.width = SpriteBufferProperties.SpriteBuffer_spriteWidth;
-			var4.height = SpriteBufferProperties.SpriteBuffer_spriteHeight;
-			var4.xOffset = SpriteBufferProperties.SpriteBuffer_xOffsets[0];
-			var4.yOffset = class388.SpriteBuffer_yOffsets[0];
-			var4.subWidth = FriendsList.SpriteBuffer_spriteWidths[0];
-			var4.subHeight = GrandExchangeOfferOwnWorldComparator.SpriteBuffer_spriteHeights[0];
-			int var5 = var4.subHeight * var4.subWidth;
-			byte[] var6 = class230.SpriteBuffer_pixels[0];
-			var4.pixels = new int[var5];
-
-			for (int var7 = 0; var7 < var5; ++var7) {
-				var4.pixels[var7] = SecureUrlRequester.SpriteBuffer_spritePalette[var6[var7] & 255];
-			}
-
-			SpriteBufferProperties.SpriteBuffer_xOffsets = null;
-			class388.SpriteBuffer_yOffsets = null;
-			FriendsList.SpriteBuffer_spriteWidths = null;
-			GrandExchangeOfferOwnWorldComparator.SpriteBuffer_spriteHeights = null;
-			SecureUrlRequester.SpriteBuffer_spritePalette = null;
-			class230.SpriteBuffer_pixels = null;
-			return var4;
-		}
-	}
-
-	@ObfuscatedName("af")
-	@ObfuscatedSignature(
-		descriptor = "([FS)V",
-		garbageValue = "-28166"
-	)
-	static void method3146(float[] var0) {
-		if (var0[0] + class127.field1487 < 1.3333334F) {
-			float var1 = var0[0] - 2.0F;
-			float var2 = var0[0] - 1.0F;
-			float var3 = (float)Math.sqrt((double)(var1 * var1 - 4.0F * var2 * var2));
-			float var4 = 0.5F * (var3 + -var1);
-			if (var0[1] + class127.field1487 > var4) {
-				var0[1] = var4 - class127.field1487;
-			} else {
-				var4 = 0.5F * (-var1 - var3);
-				if (var0[1] < class127.field1487 + var4) {
-					var0[1] = class127.field1487 + var4;
-				}
-			}
-		} else {
-			var0[0] = 1.3333334F - class127.field1487;
-			var0[1] = 0.33333334F - class127.field1487;
-		}
-
-	}
-
+	static final class135 field1631;
 	@ObfuscatedName("aj")
-	public static int method3149(long var0) {
-		return (int)(var0 >>> 7 & 127L);
-	}
-
+	@ObfuscatedSignature(
+		descriptor = "Lfz;"
+	)
+	static final class135 field1618;
+	@ObfuscatedName("az")
+	@ObfuscatedSignature(
+		descriptor = "Lfz;"
+	)
+	static final class135 field1619;
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "Lfz;"
+	)
+	static final class135 field1633;
+	@ObfuscatedName("aa")
+	@ObfuscatedSignature(
+		descriptor = "Lfz;"
+	)
+	static final class135 field1621;
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "Lfz;"
+	)
+	static final class135 field1622;
+	@ObfuscatedName("ab")
+	@ObfuscatedSignature(
+		descriptor = "Lfz;"
+	)
+	static final class135 field1628;
+	@ObfuscatedName("ac")
+	@ObfuscatedSignature(
+		descriptor = "Lfz;"
+	)
+	static final class135 field1624;
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "Lfz;"
+	)
+	static final class135 field1625;
+	@ObfuscatedName("ah")
+	@ObfuscatedSignature(
+		descriptor = "Lfz;"
+	)
+	static final class135 field1617;
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "Lfz;"
+	)
+	static final class135 field1626;
 	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "(B)[B",
-		garbageValue = "39"
+		descriptor = "Lfz;"
 	)
-	@Export("randomDatData2")
-	public static byte[] randomDatData2() {
-		byte[] var0 = new byte[24];
+	static final class135 field1616;
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "Lfz;"
+	)
+	static final class135 field1635;
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "Lfz;"
+	)
+	static final class135 field1630;
+	@ObfuscatedName("ax")
+	@ObfuscatedSignature(
+		descriptor = "Lfz;"
+	)
+	static final class135 field1623;
+	@ObfuscatedName("ay")
+	@ObfuscatedSignature(
+		descriptor = "Lfz;"
+	)
+	static final class135 field1632;
+	@ObfuscatedName("eo")
+	@ObfuscatedSignature(
+		descriptor = "Lot;"
+	)
+	static Archive field1637;
+	@ObfuscatedName("jm")
+	static byte[][] field1636;
+	@ObfuscatedName("au")
+	@ObfuscatedGetter(
+		intValue = -758368109
+	)
+	final int field1629;
+	@ObfuscatedName("as")
+	@ObfuscatedGetter(
+		intValue = -131380607
+	)
+	final int field1634;
+	@ObfuscatedName("aw")
+	@ObfuscatedGetter(
+		intValue = -236585989
+	)
+	final int field1627;
 
-		try {
-			JagexCache.JagexCache_randomDat.seek(0L);
-			JagexCache.JagexCache_randomDat.readFully(var0);
+	static {
+		field1620 = new class135(0, 0, (String)null, -1, -1);
+		field1631 = new class135(1, 1, (String)null, 0, 2);
+		field1618 = new class135(2, 2, (String)null, 1, 2);
+		field1619 = new class135(3, 3, (String)null, 2, 2);
+		field1633 = new class135(4, 4, (String)null, 3, 1);
+		field1621 = new class135(5, 5, (String)null, 4, 1);
+		field1622 = new class135(6, 6, (String)null, 5, 1);
+		field1628 = new class135(7, 7, (String)null, 6, 3);
+		field1624 = new class135(8, 8, (String)null, 7, 3);
+		field1625 = new class135(9, 9, (String)null, 8, 3);
+		field1617 = new class135(10, 10, (String)null, 0, 7);
+		field1626 = new class135(11, 11, (String)null, 1, 7);
+		field1616 = new class135(12, 12, (String)null, 2, 7);
+		field1635 = new class135(13, 13, (String)null, 3, 7);
+		field1630 = new class135(14, 14, (String)null, 4, 7);
+		field1623 = new class135(15, 15, (String)null, 5, 7);
+		field1632 = new class135(16, 16, (String)null, 0, 5);
+	}
 
-			int var1;
-			for (var1 = 0; var1 < 24 && var0[var1] == 0; ++var1) {
-			}
+	@ObfuscatedSignature(
+		descriptor = "(IILjava/lang/String;II)V",
+		garbageValue = "-1"
+	)
+	class135(int var1, int var2, String var3, int var4, int var5) {
+		this.field1629 = var1;
+		this.field1634 = var2;
+		this.field1627 = var4;
+	}
 
-			if (var1 >= 24) {
-				throw new IOException();
-			}
-		} catch (Exception var4) {
-			for (int var2 = 0; var2 < 24; ++var2) {
-				var0[var2] = -1;
-			}
-		}
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "-311400525"
+	)
+	@Export("rsOrdinal")
+	public int rsOrdinal() {
+		return this.field1634;
+	}
 
-		return var0;
+	@ObfuscatedName("az")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "1894055301"
+	)
+	int method3120() {
+		return this.field1627;
 	}
 }

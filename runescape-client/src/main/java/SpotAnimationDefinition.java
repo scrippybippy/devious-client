@@ -4,84 +4,84 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hq")
+@ObfuscatedName("ip")
 @Implements("SpotAnimationDefinition")
 public class SpotAnimationDefinition extends DualNode {
-	@ObfuscatedName("am")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "Low;"
+		descriptor = "Lor;"
 	)
-	@Export("SpotAnimationDefinition_archive")
-	static AbstractArchive SpotAnimationDefinition_archive;
-	@ObfuscatedName("af")
+	@Export("SpotAnimationDefinition_modelArchive")
+	public static AbstractArchive SpotAnimationDefinition_modelArchive;
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "Llq;"
+		descriptor = "Llm;"
 	)
 	@Export("SpotAnimationDefinition_cached")
 	public static EvictingDualNodeHashTable SpotAnimationDefinition_cached;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "Llq;"
+		descriptor = "Llm;"
 	)
 	@Export("SpotAnimationDefinition_cachedModels")
 	public static EvictingDualNodeHashTable SpotAnimationDefinition_cachedModels;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@ObfuscatedGetter(
-		intValue = 216273167
+		intValue = -880763715
 	)
 	@Export("id")
 	int id;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = 40174983
+		intValue = 831089047
 	)
 	@Export("archive")
 	int archive;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 1626267687
+		intValue = 107112977
 	)
 	@Export("sequence")
 	public int sequence;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ab")
 	@Export("recolorFrom")
 	short[] recolorFrom;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ac")
 	@Export("recolorTo")
 	short[] recolorTo;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ao")
 	@Export("retextureFrom")
 	short[] retextureFrom;
-	@ObfuscatedName("au")
+	@ObfuscatedName("ah")
 	@Export("retextureTo")
 	short[] retextureTo;
-	@ObfuscatedName("an")
+	@ObfuscatedName("av")
 	@ObfuscatedGetter(
-		intValue = -2103071131
+		intValue = -2123612661
 	)
 	@Export("widthScale")
 	int widthScale;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aq")
 	@ObfuscatedGetter(
-		intValue = -954982103
+		intValue = 2139694611
 	)
 	@Export("heightScale")
 	int heightScale;
-	@ObfuscatedName("ax")
+	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
-		intValue = -1037110477
+		intValue = 800719853
 	)
 	@Export("orientation")
 	int orientation;
-	@ObfuscatedName("aw")
+	@ObfuscatedName("ae")
 	@ObfuscatedGetter(
-		intValue = 859860569
+		intValue = -2134366815
 	)
 	@Export("ambient")
 	int ambient;
-	@ObfuscatedName("az")
+	@ObfuscatedName("ax")
 	@ObfuscatedGetter(
-		intValue = -863846891
+		intValue = 1931691159
 	)
 	@Export("contrast")
 	int contrast;
@@ -100,10 +100,10 @@ public class SpotAnimationDefinition extends DualNode {
 		this.contrast = 0;
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(Luk;B)V",
-		garbageValue = "-81"
+		descriptor = "(Lua;B)V",
+		garbageValue = "43"
 	)
 	@Export("decode")
 	void decode(Buffer var1) {
@@ -119,8 +119,8 @@ public class SpotAnimationDefinition extends DualNode {
 
 	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(Luk;II)V",
-		garbageValue = "1911696940"
+		descriptor = "(Lua;IB)V",
+		garbageValue = "55"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
@@ -164,54 +164,58 @@ public class SpotAnimationDefinition extends DualNode {
 
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(IB)Lko;",
-		garbageValue = "0"
+		descriptor = "(IS)Lkb;",
+		garbageValue = "28802"
 	)
 	@Export("getModel")
 	public final Model getModel(int var1) {
-		Model var2 = this.method3795();
-		Model var3;
-		if (this.sequence != -1 && var1 != -1) {
-			var3 = HttpMethod.SequenceDefinition_get(this.sequence).transformSpotAnimationModel(var2, var1);
+		Model var2 = this.method4036();
+		if (var2 == null) {
+			return null;
 		} else {
-			var3 = var2.toSharedSpotAnimationModel(true);
-		}
-
-		if (this.widthScale != 128 || this.heightScale != 128) {
-			var3.scale(this.widthScale, this.heightScale, this.widthScale);
-		}
-
-		if (this.orientation != 0) {
-			if (this.orientation == 90) {
-				var3.rotateY90Ccw();
+			Model var3;
+			if (this.sequence != -1 && var1 != -1) {
+				var3 = FaceNormal.SequenceDefinition_get(this.sequence).transformSpotAnimationModel(var2, var1);
+			} else {
+				var3 = var2.toSharedSpotAnimationModel(true);
 			}
 
-			if (this.orientation == 180) {
-				var3.rotateY90Ccw();
-				var3.rotateY90Ccw();
+			if (this.widthScale != 128 || this.heightScale != 128) {
+				var3.scale(this.widthScale, this.heightScale, this.widthScale);
 			}
 
-			if (this.orientation == 270) {
-				var3.rotateY90Ccw();
-				var3.rotateY90Ccw();
-				var3.rotateY90Ccw();
+			if (this.orientation != 0) {
+				if (this.orientation == 90) {
+					var3.rotateY90Ccw();
+				}
+
+				if (this.orientation == 180) {
+					var3.rotateY90Ccw();
+					var3.rotateY90Ccw();
+				}
+
+				if (this.orientation == 270) {
+					var3.rotateY90Ccw();
+					var3.rotateY90Ccw();
+					var3.rotateY90Ccw();
+				}
 			}
+
+			return var3;
 		}
-
-		return var3;
 	}
 
-	@ObfuscatedName("ar")
+	@ObfuscatedName("af")
 	@ObfuscatedSignature(
-		descriptor = "(I)Lko;",
-		garbageValue = "2136947186"
+		descriptor = "(I)Lkb;",
+		garbageValue = "-1042877857"
 	)
-	public final Model method3795() {
+	public final Model method4036() {
 		Model var1 = (Model)SpotAnimationDefinition_cachedModels.get((long)this.id);
 		if (var1 == null) {
-			ModelData var2 = ModelData.ModelData_get(class105.SpotAnimationDefinition_modelArchive, this.archive, 0);
+			ModelData var2 = ModelData.ModelData_get(SpotAnimationDefinition_modelArchive, this.archive, 0);
 			if (var2 == null) {
 				return null;
 			}
@@ -234,14 +238,5 @@ public class SpotAnimationDefinition extends DualNode {
 		}
 
 		return var1;
-	}
-
-	@ObfuscatedName("am")
-	@ObfuscatedSignature(
-		descriptor = "(II)I",
-		garbageValue = "2022716626"
-	)
-	public static int method3814(int var0) {
-		return class317.field3440[var0];
 	}
 }

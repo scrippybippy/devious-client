@@ -1,87 +1,128 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("mw")
+@ObfuscatedName("mn")
 public class class319 {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Low;"
+		descriptor = "Lmn;"
 	)
-	public static AbstractArchive field3458;
-	@ObfuscatedName("ap")
+	public static final class319 field3385;
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "Low;"
+		descriptor = "Lmn;"
 	)
-	public static AbstractArchive field3455;
+	public static final class319 field3375;
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "Lmn;"
+	)
+	public static final class319 field3377;
+	@ObfuscatedName("az")
+	@ObfuscatedSignature(
+		descriptor = "Lmn;"
+	)
+	public static final class319 field3378;
 	@ObfuscatedName("af")
 	@ObfuscatedSignature(
-		descriptor = "Low;"
+		descriptor = "Lmn;"
 	)
-	public static AbstractArchive field3456;
-	@ObfuscatedName("aj")
-	public static ArrayList field3457;
-	@ObfuscatedName("aq")
-	public static LinkedList field3461;
-	@ObfuscatedName("ar")
-	@Export("musicSongs")
-	public static ArrayList musicSongs;
-	@ObfuscatedName("ag")
-	public static ArrayList field3466;
-	@ObfuscatedName("ao")
-	public static ArrayList field3462;
-	@ObfuscatedName("ae")
-	public static final List field3463;
+	public static final class319 field3379;
 	@ObfuscatedName("aa")
-	@ObfuscatedGetter(
-		intValue = -376058759
+	@ObfuscatedSignature(
+		descriptor = "Lmn;"
 	)
-	@Export("musicPlayerStatus")
-	static int musicPlayerStatus;
-	@ObfuscatedName("au")
-	@ObfuscatedGetter(
-		intValue = 711086529
+	public static final class319 field3380;
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "Lmn;"
 	)
-	static int field3464;
-	@ObfuscatedName("an")
-	@ObfuscatedGetter(
-		intValue = -177841689
+	public static final class319 field3387;
+	@ObfuscatedName("ab")
+	@ObfuscatedSignature(
+		descriptor = "Lmn;"
 	)
-	static int field3465;
-	@ObfuscatedName("ad")
-	@ObfuscatedGetter(
-		intValue = -1146087885
+	public static final class319 field3384;
+	@ObfuscatedName("ac")
+	@ObfuscatedSignature(
+		descriptor = "Lmn;"
 	)
-	static int field3454;
-	@ObfuscatedName("js")
-	@Export("regionLandArchives")
-	static byte[][] regionLandArchives;
+	public static final class319 field3383;
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "Lmn;"
+	)
+	public static final class319 field3388;
+	@ObfuscatedName("ah")
+	@ObfuscatedSignature(
+		descriptor = "Lmn;"
+	)
+	public static final class319 field3382;
 
 	static {
-		field3457 = null;
-		field3461 = new LinkedList();
-		musicSongs = new ArrayList(3);
-		field3466 = new ArrayList(3);
-		field3462 = new ArrayList();
-		field3463 = new ArrayList();
-		musicPlayerStatus = 0;
-		field3464 = 0;
-		field3465 = 0;
-		field3454 = 0;
+		field3385 = new class319(7);
+		field3375 = new class319(5);
+		field3377 = new class319(14);
+		field3378 = new class319(4);
+		field3379 = new class319(20);
+		field3380 = new class319(2);
+		field3387 = new class319(4);
+		field3384 = new class319(7);
+		field3383 = new class319(11);
+		field3388 = new class319(6);
+		field3382 = new class319(14);
 	}
 
-	@ObfuscatedName("am")
 	@ObfuscatedSignature(
-		descriptor = "(II)V",
-		garbageValue = "958296006"
+		descriptor = "(I)V",
+		garbageValue = "7"
 	)
-	static void method6068(int var0) {
-		class466.field4808 = var0;
-		class466.field4811 = new class466[var0];
-		class431.field4647 = 0;
+	class319(int var1) {
+	}
+
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(IB)V",
+		garbageValue = "78"
+	)
+	static void method6173(int var0) {
+		class422.field4688 = var0;
+		class422.field4690 = new class422[var0];
+		class422.field4686 = 0;
+	}
+
+	@ObfuscatedName("al")
+	@ObfuscatedSignature(
+		descriptor = "(B)V",
+		garbageValue = "40"
+	)
+	public static void method6172() {
+		synchronized(ArchiveDiskActionHandler.field4447) {
+			if (ArchiveDiskActionHandler.field4445 != 0) {
+				ArchiveDiskActionHandler.field4445 = 1;
+				ArchiveDiskActionHandler.field4448 = true;
+
+				try {
+					ArchiveDiskActionHandler.field4447.wait();
+				} catch (InterruptedException var3) {
+				}
+			}
+
+		}
+	}
+
+	@ObfuscatedName("jf")
+	@ObfuscatedSignature(
+		descriptor = "(Ldt;III)V",
+		garbageValue = "-1485751769"
+	)
+	static final void method6168(WorldView var0, int var1, int var2) {
+		if (Client.hintArrowType == 2) {
+			MenuAction.worldToScreen(var0, Client.hintArrowSubX * 64 + (Client.hintArrowX - var0.baseX << 7), Client.hintArrowSubY * 64 + (Client.hintArrowY - var0.baseY << 7), Client.hintArrowHeight * 2);
+			if (Client.viewportTempX > -1 && Client.cycle % 20 < 10) {
+				class369.headIconHintSprites[0].drawTransBgAt(Client.viewportTempX + var1 - 12, var2 + Client.viewportTempY - 28);
+			}
+
+		}
 	}
 }

@@ -4,36 +4,30 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("kk")
+@ObfuscatedName("km")
 @Implements("VertexNormal")
 public class VertexNormal {
-	@ObfuscatedName("bl")
-	@Export("client")
-	@ObfuscatedSignature(
-		descriptor = "Lclient;"
-	)
-	public static Client client;
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = -412257943
+		intValue = 1722409035
 	)
 	@Export("x")
 	int x;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedGetter(
-		intValue = 1715582301
+		intValue = -516588001
 	)
 	@Export("y")
 	int y;
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = 152811235
+		intValue = 1419484021
 	)
 	@Export("z")
 	int z;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		intValue = -1243101715
+		intValue = 143754529
 	)
 	@Export("magnitude")
 	int magnitude;
@@ -42,7 +36,7 @@ public class VertexNormal {
 	}
 
 	@ObfuscatedSignature(
-		descriptor = "(Lkk;)V"
+		descriptor = "(Lkm;)V"
 	)
 	VertexNormal(VertexNormal var1) {
 		this.x = var1.x;

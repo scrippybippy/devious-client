@@ -1,86 +1,66 @@
 import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gi")
-public class class171 extends DualNode {
-	@ObfuscatedName("am")
-	@ObfuscatedSignature(
-		descriptor = "Llq;"
+@ObfuscatedName("gb")
+public class class171 extends class147 {
+	@ObfuscatedName("kv")
+	@ObfuscatedGetter(
+		intValue = 406002563
 	)
-	@Export("field1909")
-	public static EvictingDualNodeHashTable field1909;
+	@Export("cameraY")
+	static int cameraY;
+	@ObfuscatedName("ak")
+	@ObfuscatedGetter(
+		intValue = -239094847
+	)
+	int field1845;
+	@ObfuscatedName("al")
+	@ObfuscatedGetter(
+		longValue = 8502200598084483025L
+	)
+	long field1844;
+	// $FF: synthetic field
+	@ObfuscatedSignature(
+		descriptor = "Lfu;"
+	)
+	final class150 this$0;
 
-	static {
-		field1909 = new EvictingDualNodeHashTable(64);
+	@ObfuscatedSignature(
+		descriptor = "(Lfu;)V"
+	)
+	class171(class150 var1) {
+		this.this$0 = var1;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(B)[Lui;",
-		garbageValue = "58"
+		descriptor = "(Lua;I)V",
+		garbageValue = "1738227110"
 	)
-	@Export("FillMode_values")
-	public static FillMode[] FillMode_values() {
-		return new FillMode[]{FillMode.SOLID, FillMode.field5263, FillMode.field5261};
+	void vmethod3486(Buffer var1) {
+		this.field1845 = var1.readInt();
+		this.field1844 = var1.readLong();
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(IIIZIZI)V",
-		garbageValue = "250910255"
+		descriptor = "(Lgc;B)V",
+		garbageValue = "100"
 	)
-	@Export("doWorldSorting")
-	static void doWorldSorting(int var0, int var1, int var2, boolean var3, int var4, boolean var5) {
-		if (var0 < var1) {
-			int var6 = (var0 + var1) / 2;
-			int var7 = var0;
-			World var8 = World.World_worlds[var6];
-			World.World_worlds[var6] = World.World_worlds[var1];
-			World.World_worlds[var1] = var8;
-
-			for (int var9 = var0; var9 < var1; ++var9) {
-				World var11 = World.World_worlds[var9];
-				int var12 = World.compareWorlds(var11, var8, var2, var3);
-				int var10;
-				if (var12 != 0) {
-					if (var3) {
-						var10 = -var12;
-					} else {
-						var10 = var12;
-					}
-				} else if (var4 == -1) {
-					var10 = 0;
-				} else {
-					int var13 = World.compareWorlds(var11, var8, var4, var5);
-					if (var5) {
-						var10 = -var13;
-					} else {
-						var10 = var13;
-					}
-				}
-
-				if (var10 <= 0) {
-					World var14 = World.World_worlds[var9];
-					World.World_worlds[var9] = World.World_worlds[var7];
-					World.World_worlds[var7++] = var14;
-				}
-			}
-
-			World.World_worlds[var1] = World.World_worlds[var7];
-			World.World_worlds[var7] = var8;
-			doWorldSorting(var0, var7 - 1, var2, var3, var4, var5);
-			doWorldSorting(var7 + 1, var1, var2, var3, var4, var5);
-		}
-
+	void vmethod3490(ClanSettings var1) {
+		var1.method3336(this.field1845, this.field1844);
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "8624389"
+		descriptor = "(B)V",
+		garbageValue = "10"
 	)
-	protected static final int method3569() {
-		return GameEngine.keyHandler.method358();
+	static final void method3491() {
+		Object var10000 = null;
+		String var0 = "You can't add yourself to your own friend list";
+		UrlRequest.addGameMessage(30, "", var0);
 	}
 }

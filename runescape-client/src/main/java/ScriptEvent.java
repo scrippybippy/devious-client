@@ -4,67 +4,70 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dr")
+@ObfuscatedName("dw")
 @Implements("ScriptEvent")
 public class ScriptEvent extends Node {
-	@ObfuscatedName("am")
+	@ObfuscatedName("an")
+	@Export("userHomeDirectory")
+	static String userHomeDirectory;
+	@ObfuscatedName("ak")
 	@Export("args")
 	Object[] args;
-	@ObfuscatedName("ap")
-	boolean field1056;
-	@ObfuscatedName("af")
+	@ObfuscatedName("al")
+	boolean field1092;
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "Lnn;"
+		descriptor = "Lnb;"
 	)
 	@Export("widget")
 	Widget widget;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		intValue = 1314429303
+		intValue = -361293249
 	)
 	@Export("mouseX")
 	int mouseX;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@ObfuscatedGetter(
-		intValue = 1485219497
+		intValue = -1225945623
 	)
 	@Export("mouseY")
 	int mouseY;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = -1369710663
+		intValue = 192584687
 	)
 	@Export("opIndex")
 	int opIndex;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lnn;"
+		descriptor = "Lnb;"
 	)
 	@Export("dragTarget")
 	Widget dragTarget;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = -1559051435
+		intValue = -1104718817
 	)
 	@Export("keyTyped")
 	int keyTyped;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ac")
 	@ObfuscatedGetter(
-		intValue = 1536654943
+		intValue = 1455858769
 	)
 	@Export("keyPressed")
 	int keyPressed;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ao")
 	@Export("targetName")
 	String targetName;
-	@ObfuscatedName("au")
+	@ObfuscatedName("ah")
 	@ObfuscatedGetter(
-		intValue = 677421933
+		intValue = -262495581
 	)
-	int field1065;
-	@ObfuscatedName("an")
+	int field1100;
+	@ObfuscatedName("av")
 	@ObfuscatedGetter(
-		intValue = -1254028745
+		intValue = 759425415
 	)
 	@Export("type")
 	int type;
@@ -73,57 +76,65 @@ public class ScriptEvent extends Node {
 		this.type = 76;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
 		descriptor = "([Ljava/lang/Object;I)V",
-		garbageValue = "-1122840461"
+		garbageValue = "1439023135"
 	)
 	@Export("setArgs")
 	public void setArgs(Object[] var1) {
 		this.args = var1;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
 		descriptor = "(II)V",
-		garbageValue = "882056995"
+		garbageValue = "-672994861"
 	)
 	@Export("setType")
 	public void setType(int var1) {
 		this.type = var1;
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(Lnn;I)V",
-		garbageValue = "2103666237"
+		descriptor = "(Lnb;B)V",
+		garbageValue = "8"
 	)
-	public void method2355(Widget var1) {
+	public void method2327(Widget var1) {
 		this.widget = var1;
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V",
-		garbageValue = "-1897100616"
+		descriptor = "(II)Liz;",
+		garbageValue = "1731505000"
 	)
-	static void method2361(String var0, String var1, String var2) {
-		Actor.method2489(7);
-		class142.setLoginResponseString(var0, var1, var2);
-	}
-
-	@ObfuscatedName("kv")
-	@ObfuscatedSignature(
-		descriptor = "(IIB)V",
-		garbageValue = "45"
-	)
-	static final void method2366(int var0, int var1) {
-		if (Client.hintArrowType == 2) {
-			FriendSystem.worldToScreen(Client.hintArrowSubX * 64 + (Client.hintArrowX - HealthBarDefinition.baseX * 64 << 7), Client.hintArrowSubY * 64 + (Client.hintArrowY - WorldMapScaleHandler.baseY * 64 << 7), Client.hintArrowHeight * 4);
-			if (Client.viewportTempX > -1 && Client.cycle % 20 < 10) {
-				GrandExchangeOfferOwnWorldComparator.headIconHintSprites[0].drawTransBgAt(var0 + Client.viewportTempX - 12, Client.viewportTempY + var1 - 28);
+	@Export("StructDefinition_getStructDefinition")
+	public static StructComposition StructDefinition_getStructDefinition(int var0) {
+		StructComposition var1 = (StructComposition)StructComposition.StructDefinition_cached.get((long)var0);
+		if (var1 != null) {
+			return var1;
+		} else {
+			byte[] var2 = StructComposition.StructDefinition_archive.takeFile(34, var0);
+			var1 = new StructComposition();
+			if (var2 != null) {
+				var1.decode(new Buffer(var2));
 			}
 
+			var1.postDecode();
+			StructComposition.StructDefinition_cached.put(var1, (long)var0);
+			return var1;
 		}
+	}
+
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "(CB)Z",
+		garbageValue = "-116"
+	)
+	@Export("isAlphaNumeric")
+	public static boolean isAlphaNumeric(char var0) {
+		return var0 >= '0' && var0 <= '9' || var0 >= 'A' && var0 <= 'Z' || var0 >= 'a' && var0 <= 'z';
 	}
 }

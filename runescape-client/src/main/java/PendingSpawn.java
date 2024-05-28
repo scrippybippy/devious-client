@@ -7,219 +7,143 @@ import net.runelite.mapping.ObfuscatedSignature;
 @ObfuscatedName("dk")
 @Implements("PendingSpawn")
 public final class PendingSpawn extends Node {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = -7190583
+		intValue = 1855293411
 	)
 	@Export("plane")
 	int plane;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedGetter(
-		intValue = -309329667
+		intValue = 1008038753
 	)
 	@Export("type")
 	int type;
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -440010209
+		intValue = 433863545
 	)
 	@Export("x")
 	int x;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		intValue = 956622833
+		intValue = -264142591
 	)
 	@Export("y")
 	int y;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@ObfuscatedGetter(
-		intValue = 1260061589
+		intValue = 106953625
 	)
 	@Export("objectId")
 	int objectId;
-	@ObfuscatedName("ar")
-	@ObfuscatedGetter(
-		intValue = -284572845
-	)
-	int field1162;
-	@ObfuscatedName("ag")
-	@ObfuscatedGetter(
-		intValue = 1964960583
-	)
-	int field1163;
-	@ObfuscatedName("ao")
-	@ObfuscatedGetter(
-		intValue = 91823357
-	)
-	int field1164;
-	@ObfuscatedName("ae")
-	@ObfuscatedGetter(
-		intValue = -2132160277
-	)
-	int field1157;
 	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = 427908289
+		intValue = -1536759051
 	)
-	int field1166;
-	@ObfuscatedName("au")
+	int field1195;
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 1348057939
+		intValue = -1120669841
 	)
-	int field1167;
-	@ObfuscatedName("ad")
+	int field1201;
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = 1116431321
+		intValue = 875810921
 	)
-	int field1169;
-	@ObfuscatedName("ax")
+	int field1193;
+	@ObfuscatedName("ac")
 	@ObfuscatedGetter(
-		intValue = 1748127727
+		intValue = -995596597
+	)
+	int field1198;
+	@ObfuscatedName("ao")
+	@ObfuscatedGetter(
+		intValue = 1848412699
+	)
+	int field1197;
+	@ObfuscatedName("ah")
+	@ObfuscatedGetter(
+		intValue = -1214778777
+	)
+	int field1190;
+	@ObfuscatedName("aq")
+	@ObfuscatedGetter(
+		intValue = 2010923569
+	)
+	int field1199;
+	@ObfuscatedName("ap")
+	@ObfuscatedGetter(
+		intValue = 1187381017
 	)
 	@Export("delay")
 	int delay;
-	@ObfuscatedName("aw")
+	@ObfuscatedName("ae")
 	@ObfuscatedGetter(
-		intValue = -255769707
+		intValue = 1758720105
 	)
 	@Export("hitpoints")
 	int hitpoints;
 
 	PendingSpawn() {
-		this.field1169 = 31;
+		this.field1199 = 31;
 		this.delay = 0;
 		this.hitpoints = -1;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(II)V",
-		garbageValue = "349896774"
+		descriptor = "(IB)V",
+		garbageValue = "111"
 	)
-	void method2443(int var1) {
-		this.field1169 = var1;
+	void method2412(int var1) {
+		this.field1199 = var1;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
 		descriptor = "(II)Z",
-		garbageValue = "65280"
+		garbageValue = "521834596"
 	)
-	boolean method2442(int var1) {
+	boolean method2415(int var1) {
 		if (var1 >= 0 && var1 <= 4) {
-			return (this.field1169 & 1 << var1) != 0;
+			return (this.field1199 & 1 << var1) != 0;
 		} else {
 			return true;
 		}
 	}
 
-	@ObfuscatedName("bh")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(Lnn;II)V",
-		garbageValue = "300310316"
+		descriptor = "(I)[Lhc;",
+		garbageValue = "105227683"
 	)
-	public static void method2448(Widget var0, int var1) {
-		ItemComposition var2 = class341.ItemDefinition_get(var1);
-		var0.field3759.equipment[var2.maleModel] = var1 + 512;
-		if (var2.maleModel1 != -1) {
-			var0.field3759.equipment[var2.maleModel1] = 0;
-		}
-
-		if (var2.maleModel2 != -1) {
-			var0.field3759.equipment[var2.maleModel2] = 0;
-		}
-
-		var0.field3759.method6383();
+	static HorizontalAlignment[] method2417() {
+		return new HorizontalAlignment[]{HorizontalAlignment.HorizontalAlignment_centered, HorizontalAlignment.field2107, HorizontalAlignment.field2105};
 	}
 
-	@ObfuscatedName("jv")
+	@ObfuscatedName("ax")
 	@ObfuscatedSignature(
-		descriptor = "(Ldf;I)V",
-		garbageValue = "-469241818"
+		descriptor = "(ZI)V",
+		garbageValue = "300392582"
 	)
-	static final void method2449(Actor var0) {
-		int var2;
-		int var3;
-		int var4;
-		if (var0.targetIndex != -1) {
-			Object var1 = null;
-			var2 = 65536;
-			if (var0.targetIndex < var2) {
-				var1 = Client.npcs[var0.targetIndex];
-			} else {
-				var1 = Client.players[var0.targetIndex - var2];
-			}
-
-			if (var1 != null) {
-				var3 = var0.x - ((Actor)var1).x;
-				var4 = var0.y - ((Actor)var1).y;
-				if (var3 != 0 || var4 != 0) {
-					int var6 = (int)(Math.atan2((double)var3, (double)var4) * 325.94932345220167D) & 2047;
-					var0.orientation = var6;
-				}
-			} else if (var0.false0) {
-				var0.targetIndex = -1;
-				var0.false0 = false;
-			}
+	static void method2411(boolean var0) {
+		byte var1 = 0;
+		if (!HttpRequestTask.hasAcceptedEULA()) {
+			var1 = 12;
+		} else if (class188.client.containsAccessAndRefreshToken() || class188.client.otlTokenRequesterInitialized() || class188.client.containsSessionAndCharacterId()) {
+			var1 = 10;
 		}
 
-		int var7;
-		if (var0.pathLength == 0 || var0.field1245 > 0) {
-			var7 = -1;
-			if (var0.field1213 != -1 && var0.field1210 != -1) {
-				var2 = var0.field1213 * 128 - HealthBarDefinition.baseX * 8192 + 64;
-				var3 = var0.field1210 * 128 - WorldMapScaleHandler.baseY * 8192 + 64;
-				var4 = var0.x - var2;
-				int var8 = var0.y - var3;
-				if (var4 != 0 || var8 != 0) {
-					var7 = class189.method3782(var4, var8);
-				}
-			} else if (var0.field1208 != -1) {
-				var7 = var0.field1208;
-			}
-
-			if (var7 != -1) {
-				var0.orientation = var7;
-				if (var0.field1211) {
-					var0.rotation = var0.orientation;
-				}
-			}
-
-			var0.method2460();
+		ParamComposition.updateLoginIndex(var1);
+		if (var0) {
+			Login.Login_username = "";
+			Login.Login_password = "";
+			class414.otpMedium = 0;
+			class285.otp = "";
 		}
 
-		var7 = var0.orientation - var0.rotation & 2047;
-		if (var7 != 0) {
-			boolean var10 = true;
-			boolean var11 = true;
-			++var0.field1239;
-			var4 = var7 > 1024 ? -1 : 1;
-			var0.rotation += var0.field1240 * var4;
-			boolean var12 = true;
-			if (var7 < var0.field1240 || var7 > 2048 - var0.field1240) {
-				var0.rotation = var0.orientation;
-				var12 = false;
-			}
-
-			if (var0.field1240 > 0 && var0.idleSequence == var0.movementSequence && (var0.field1239 > 25 || var12)) {
-				if (var4 == -1 && var0.turnLeftSequence != -1) {
-					var0.movementSequence = var0.turnLeftSequence;
-				} else if (var4 == 1 && var0.turnRightSequence != -1) {
-					var0.movementSequence = var0.turnRightSequence;
-				} else {
-					var0.movementSequence = var0.walkSequence;
-				}
-			}
-
-			var0.rotation &= 2047;
-		} else {
-			if (var0.false0) {
-				var0.targetIndex = -1;
-				var0.false0 = false;
-			}
-
-			var0.field1239 = 0;
-		}
-
+		AsyncHttpResponse.updateToRememberedUsername();
+		ActorSpotAnim.focusPasswordWhenUsernameFilled();
 	}
 }

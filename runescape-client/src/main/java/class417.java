@@ -1,64 +1,84 @@
-import java.util.ArrayList;
-import java.util.Iterator;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("qz")
-public class class417 extends SongTask {
-	@ObfuscatedName("am")
-	ArrayList field4581;
-
+@ObfuscatedName("qd")
+public class class417 {
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Lqd;Ljava/util/ArrayList;)V"
+		descriptor = "Lqz;"
 	)
-	public class417(SongTask var1, ArrayList var2) {
-		super(var1);
-		super.field4597 = "ClearRequestTask";
-		this.field4581 = var2;
+	public class422 field4667;
+	@ObfuscatedName("al")
+	@ObfuscatedSignature(
+		descriptor = "Lqe;"
+	)
+	public class421 field4668;
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "Lqe;"
+	)
+	public class421 field4669;
+
+	public class417() {
+		this.field4667 = new class422();
+		this.field4668 = new class421();
+		this.field4669 = new class421(1.0F, 1.0F, 1.0F);
 	}
 
-	@ObfuscatedName("am")
-	@ObfuscatedSignature(
-		descriptor = "(I)Z",
-		garbageValue = "2012801823"
-	)
-	public boolean vmethod7975() {
-		if (this.field4581.isEmpty()) {
+	public String toString() {
+		return "[" + this.field4667.toString() + "|" + this.field4668.toString() + "|" + this.field4669.toString() + "]";
+	}
+
+	public int hashCode() {
+		boolean var1 = true;
+		byte var2 = 1;
+		int var3 = var2 * 31 + this.field4667.hashCode();
+		var3 = 31 * var3 + this.field4668.hashCode();
+		var3 = 31 * var3 + this.field4669.hashCode();
+		return var3;
+	}
+
+	public boolean equals(Object var1) {
+		if (var1 == null) {
+			return false;
+		} else if (this == var1) {
 			return true;
+		} else if (!(var1 instanceof class417)) {
+			return false;
 		} else {
-			Iterator var1 = this.field4581.iterator();
+			class417 var2 = (class417)var1;
+			return this.field4667.equals(var2.field4667) && this.field4668.method7798(var2.field4668) && this.field4669.method7798(var2.field4669);
+		}
+	}
 
-			while (var1.hasNext()) {
-				MusicSong var2 = (MusicSong)var1.next();
-
-				try {
-					if (class319.musicSongs.contains(var2)) {
-						if (var2 == null) {
-							class319.musicSongs.remove(var2);
-						} else {
-							if (var2.midiPcmStream.field3499 > 0) {
-								--var2.midiPcmStream.field3499;
-							}
-
-							if (var2.midiPcmStream.field3499 == 0) {
-								var2.midiPcmStream.clear();
-								var2.midiPcmStream.method6075();
-								var2.midiPcmStream.setPcmStreamVolume(0);
-							}
-
-							class129.method3075(var2.musicTrackGroupId, var2.musicTrackFileId);
-							class319.musicSongs.remove(var2);
-						}
-					}
-				} catch (Exception var4) {
-					class368.RunException_sendStackTrace((String)null, var4);
-					this.method7954(var4.getMessage());
-					class319.musicSongs.clear();
-					return true;
-				}
+	@ObfuscatedName("ck")
+	@ObfuscatedSignature(
+		descriptor = "(ILdm;ZB)I",
+		garbageValue = "-60"
+	)
+	static int method7760(int var0, Script var1, boolean var2) {
+		int var3;
+		int var4;
+		if (var0 == 8000) {
+			--class13.Interpreter_intStackSize;
+			var3 = Interpreter.Interpreter_intStack[class13.Interpreter_intStackSize];
+			var4 = Interpreter.Interpreter_arrayLengths[var3];
+			class332.method6430(Interpreter.Interpreter_arrays[var3], new int[var4], 0, var4 - 1);
+			return 1;
+		} else if (var0 == 8001) {
+			class13.Interpreter_intStackSize -= 3;
+			var3 = Interpreter.Interpreter_intStack[class13.Interpreter_intStackSize];
+			var4 = Interpreter.Interpreter_intStack[class13.Interpreter_intStackSize + 1];
+			int var5 = Interpreter.Interpreter_intStack[class13.Interpreter_intStackSize + 2];
+			int var6 = Interpreter.Interpreter_arrayLengths[var3];
+			if (var6 <= 1) {
+				return 1;
+			} else {
+				class446.method8344(Interpreter.Interpreter_arrays[var3], var6, var4, var5);
+				return 1;
 			}
-
-			return true;
+		} else {
+			return 2;
 		}
 	}
 }

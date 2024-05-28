@@ -47,7 +47,6 @@ import net.runelite.api.widgets.WidgetUtil;
 import net.runelite.rs.api.RSClient;
 import net.runelite.rs.api.RSFont;
 import net.runelite.rs.api.RSModel;
-import net.runelite.rs.api.RSNPCComposition;
 import net.runelite.rs.api.RSWidgetDefinition;
 import net.runelite.rs.api.RSNpcOverrides;
 import net.runelite.rs.api.RSNode;
@@ -533,36 +532,15 @@ public abstract class RSWidgetMixin implements RSWidget
 
 	@Inject
 	@Override
-	public Widget createStaticChild(int type)
-	{
-		assert client.isClientThread() : "createStaticChild must be called on client thread";
-
-		int id = this.getId();
-		int groupId = id >> 16;
-		RSWidget[] widgets = client.getWidgetDefinition().getWidgets()[groupId];
-		widgets = Arrays.copyOf(widgets, widgets.length + 1);
-		int packedId = groupId << 16 | widgets.length - 1;
-		RSWidget widget = client.createWidget();
-		widget.setIsIf3(true);
-		widget.setType(type);
-		widget.setParentId(id);
-		widget.setId(packedId);
-		widgets[widgets.length - 1] = widget;
-		client.getWidgetDefinition().getWidgets()[groupId] = widgets;
-		return widget;
-	}
-
-	@Inject
-	@Override
 	public Widget createChild(int index, int type)
 	{
 		assert client.isClientThread() : "createChild must be called on client thread";
 
 		RSWidget w = client.createWidget();
-		w.setIsIf3(true);
 		w.setType(type);
 		w.setParentId(getId());
 		w.setId(getId());
+		w.setIsIf3(true);
 
 		RSWidget[] siblings = getChildren();
 
@@ -637,13 +615,13 @@ public abstract class RSWidgetMixin implements RSWidget
 	@Copy("getModel")
 	@Replace("getModel")
 	@SuppressWarnings("InfiniteRecursion")
-	public RSModel copy$getModel(RSWidgetDefinition widgetDefinition, RSSequenceDefinition sequence, int frame, boolean alternate, RSPlayerComposition playerComposition, RSNPCComposition npcComposition, RSNpcOverrides npcOverrides)
+	public RSModel copy$getModel(RSWidgetDefinition widgetDefinition, RSSequenceDefinition sequence, int frame, boolean alternate, RSPlayerComposition playerComposition, RSNpcOverrides npcOverrides)
 	{
 		if (frame != -1 && client.isInterpolateWidgetAnimations())
 		{
 			frame = frame | getModelFrameCycle() << 16 | Integer.MIN_VALUE;
 		}
-		return copy$getModel(widgetDefinition, sequence, frame, alternate, playerComposition, npcComposition, npcOverrides);
+		return copy$getModel(widgetDefinition, sequence, frame, alternate, playerComposition, npcOverrides);
 	}
 
 	@Inject

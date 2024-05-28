@@ -4,30 +4,24 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("rj")
+@ObfuscatedName("so")
 @Implements("Buddy")
 public class Buddy extends User {
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "Luc;"
-	)
-	@Export("leftTitleSprite")
-	static SpritePixels leftTitleSprite;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@ObfuscatedGetter(
-		intValue = 250013891
+		intValue = 580704417
 	)
 	@Export("world")
 	public int world;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = 493572503
+		intValue = 1407439113
 	)
 	@Export("int2")
 	public int int2;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = -543157203
+		intValue = -772085279
 	)
 	@Export("rank")
 	public int rank;
@@ -36,10 +30,10 @@ public class Buddy extends User {
 		this.world = -1;
 	}
 
-	@ObfuscatedName("bb")
+	@ObfuscatedName("bm")
 	@ObfuscatedSignature(
 		descriptor = "(III)V",
-		garbageValue = "734486288"
+		garbageValue = "2133598257"
 	)
 	@Export("set")
 	void set(int var1, int var2) {
@@ -47,37 +41,23 @@ public class Buddy extends User {
 		this.int2 = var2;
 	}
 
-	@ObfuscatedName("bh")
+	@ObfuscatedName("bq")
 	@ObfuscatedSignature(
-		descriptor = "(S)I",
-		garbageValue = "-4063"
+		descriptor = "(B)I",
+		garbageValue = "0"
 	)
 	@Export("getWorld")
 	public int getWorld() {
 		return this.world;
 	}
 
-	@ObfuscatedName("bw")
+	@ObfuscatedName("bj")
 	@ObfuscatedSignature(
-		descriptor = "(B)Z",
-		garbageValue = "22"
+		descriptor = "(I)Z",
+		garbageValue = "1192304992"
 	)
 	@Export("hasWorld")
 	public boolean hasWorld() {
 		return this.world > 0;
-	}
-
-	@ObfuscatedName("am")
-	@ObfuscatedSignature(
-		descriptor = "(III)I",
-		garbageValue = "91806107"
-	)
-	static int method8383(int var0, int var1) {
-		ItemContainer var2 = (ItemContainer)ItemContainer.itemContainers.get((long)var0);
-		if (var2 == null) {
-			return -1;
-		} else {
-			return var1 >= 0 && var1 < var2.ids.length ? var2.ids[var1] : -1;
-		}
 	}
 }

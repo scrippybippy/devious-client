@@ -4,45 +4,46 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ot")
+@ObfuscatedName("om")
 @Implements("ArchiveDiskActionHandler")
 public class ArchiveDiskActionHandler implements Runnable {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Lpu;"
+		descriptor = "Lpk;"
 	)
 	@Export("ArchiveDiskActionHandler_requestQueue")
-	static final NodeDeque ArchiveDiskActionHandler_requestQueue;
-	@ObfuscatedName("ap")
+	public static final NodeDeque ArchiveDiskActionHandler_requestQueue;
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "Lpu;"
+		descriptor = "Lpk;"
 	)
 	@Export("ArchiveDiskActionHandler_responseQueue")
-	static NodeDeque ArchiveDiskActionHandler_responseQueue;
-	@ObfuscatedName("af")
-	@ObfuscatedGetter(
-		intValue = 1601517815
-	)
-	static int field4329;
+	public static NodeDeque ArchiveDiskActionHandler_responseQueue;
 	@ObfuscatedName("aj")
-	static boolean field4332;
-	@ObfuscatedName("aq")
-	static Object field4331;
-	@ObfuscatedName("ar")
+	@ObfuscatedGetter(
+		intValue = -1779711313
+	)
+	static int field4445;
+	@ObfuscatedName("az")
+	static boolean field4448;
+	@ObfuscatedName("af")
+	static Object field4447;
+	@ObfuscatedName("aa")
 	@Export("ArchiveDiskActionHandler_thread")
 	static Thread ArchiveDiskActionHandler_thread;
-	@ObfuscatedName("ue")
+	@ObfuscatedName("np")
 	@ObfuscatedGetter(
-		intValue = -1258700800
+		intValue = -302371735
 	)
-	static int field4334;
+	@Export("menuHeight")
+	static int menuHeight;
 
 	static {
 		ArchiveDiskActionHandler_requestQueue = new NodeDeque();
 		ArchiveDiskActionHandler_responseQueue = new NodeDeque();
-		field4329 = 0;
-		field4332 = false;
-		field4331 = new Object();
+		field4445 = 0;
+		field4448 = false;
+		field4447 = new Object();
 	}
 
 	ArchiveDiskActionHandler() {
@@ -69,51 +70,40 @@ public class ArchiveDiskActionHandler implements Runnable {
 						}
 					}
 
-					synchronized(field4331) {
-						if ((field4332 || field4329 <= 1) && ArchiveDiskActionHandler_requestQueue.method7336()) {
-							field4329 = 0;
-							field4331.notifyAll();
+					synchronized(field4447) {
+						if ((field4448 || field4445 <= 1) && ArchiveDiskActionHandler_requestQueue.method7511()) {
+							field4445 = 0;
+							field4447.notifyAll();
 							return;
 						}
 
-						field4329 = 600;
+						field4445 = 600;
 					}
 				} else {
-					BuddyRankComparator.method2992(100L);
-					synchronized(field4331) {
-						if ((field4332 || field4329 <= 1) && ArchiveDiskActionHandler_requestQueue.method7336()) {
-							field4329 = 0;
-							field4331.notifyAll();
+					class484.method8889(100L);
+					synchronized(field4447) {
+						if ((field4448 || field4445 <= 1) && ArchiveDiskActionHandler_requestQueue.method7511()) {
+							field4445 = 0;
+							field4447.notifyAll();
 							return;
 						}
 
-						--field4329;
+						--field4445;
 					}
 				}
 			}
 		} catch (Exception var13) {
-			class368.RunException_sendStackTrace((String)null, var13);
+			BufferedSink.RunException_sendStackTrace((String)null, var13);
 		}
 	}
 
-	@ObfuscatedName("md")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "231374914"
+		descriptor = "(B)[Lvm;",
+		garbageValue = "-27"
 	)
-	static void method6981() {
-		if (Client.isSpellSelected) {
-			Widget var0 = class380.widgetDefinition.getWidgetChild(ModelData0.selectedSpellWidget, Client.selectedSpellChildIndex);
-			if (var0 != null && var0.onTargetLeave != null) {
-				ScriptEvent var1 = new ScriptEvent();
-				var1.widget = var0;
-				var1.args = var0.onTargetLeave;
-				WorldMapSectionType.runScriptEvent(var1);
-			}
-
-			Client.selectedSpellItemId = -1;
-			Client.isSpellSelected = false;
-			FaceNormal.invalidateWidget(var0);
-		}
+	@Export("FillMode_values")
+	public static FillMode[] FillMode_values() {
+		return new FillMode[]{FillMode.SOLID, FillMode.field5427, FillMode.field5426};
 	}
 }

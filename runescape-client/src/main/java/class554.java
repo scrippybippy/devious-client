@@ -1,11 +1,49 @@
+import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
+import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("vl")
+@ObfuscatedName("vf")
 public class class554 {
-	@ObfuscatedName("am")
-	static final int[] field5330;
+	@ObfuscatedName("iy")
+	@ObfuscatedSignature(
+		descriptor = "Lqb;"
+	)
+	@Export("fontPlain11")
+	static Font fontPlain11;
+	@ObfuscatedName("ak")
+	@ObfuscatedGetter(
+		intValue = 1978856885
+	)
+	public final int field5408;
+	@ObfuscatedName("al")
+	public Object field5410;
 
-	static {
-		field5330 = new int[]{16777215, 14942979, 16747520, 16772352, 32806, 2375822, 7547266, 16720268, 11884176, 5261772, 10724259, 13970688, 15693351, 16577588, 494960, 2208255, 10178454, 16756679, 13722276, 8105443, 16751190, 2543274, 7591918, 10246609, 10021057, 11894492, 2894892, 9699842, 6371605, 13680896, 4882723, 14504, 8388736, 14025328, 10682978, 4004472};
+	public class554(int var1) {
+		this.field5408 = var1;
+	}
+
+	public class554(int var1, Object var2) {
+		this.field5408 = var1;
+		this.field5410 = var2;
+	}
+
+	public int hashCode() {
+		return super.hashCode();
+	}
+
+	public boolean equals(Object var1) {
+		if (!(var1 instanceof class554)) {
+			return false;
+		} else {
+			class554 var2 = (class554)var1;
+			if (var2.field5410 == null && this.field5410 != null) {
+				return false;
+			} else if (this.field5410 == null && var2.field5410 != null) {
+				return false;
+			} else {
+				return this.field5408 == var2.field5408 && var2.field5410.equals(this.field5410);
+			}
+		}
 	}
 }

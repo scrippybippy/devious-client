@@ -4,32 +4,34 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("kr")
+@ObfuscatedName("jn")
 @Implements("Skeleton")
 public class Skeleton extends Node {
-	@ObfuscatedName("ar")
+	@ObfuscatedName("cc")
+	static String field2697;
+	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = 1201940895
+		intValue = 215908835
 	)
 	@Export("id")
 	int id;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 1582314451
+		intValue = 415648975
 	)
 	@Export("count")
 	int count;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ab")
 	@Export("transformTypes")
 	int[] transformTypes;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ac")
 	@Export("labels")
 	int[][] labels;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
-		descriptor = "Lkx;"
+		descriptor = "Lje;"
 	)
-	class270 field2830;
+	class249 field2703;
 
 	public Skeleton(int var1, byte[] var2) {
 		this.id = var1;
@@ -56,78 +58,54 @@ public class Skeleton extends Node {
 		if (var3.offset < var3.array.length) {
 			var4 = var3.readUnsignedShort();
 			if (var4 > 0) {
-				this.field2830 = new class270(var3, var4);
+				this.field2703 = new class249(var3, var4);
 			}
 		}
 
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(S)I",
-		garbageValue = "-10508"
+		descriptor = "(I)I",
+		garbageValue = "1286736484"
 	)
-	public int method5372() {
+	public int method4846() {
 		return this.count;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(B)Lkx;",
-		garbageValue = "88"
+		descriptor = "(I)Lje;",
+		garbageValue = "-868887817"
 	)
-	public class270 method5373() {
-		return this.field2830;
+	public class249 method4844() {
+		return this.field2703;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("aa")
 	@ObfuscatedSignature(
-		descriptor = "(II)Ldd;",
-		garbageValue = "-260731599"
+		descriptor = "(II)I",
+		garbageValue = "-1894808035"
 	)
-	@Export("getScript")
-	static Script getScript(int var0) {
-		Script var1 = (Script)Script.Script_cached.get((long)var0);
-		if (var1 != null) {
-			return var1;
-		} else {
-			byte[] var2 = WorldMapDecorationType.archive12.takeFile(var0, 0);
-			if (var2 == null) {
-				return null;
-			} else {
-				var1 = class90.newScript(var2);
-				Script.Script_cached.put(var1, (long)var0);
-				return var1;
-			}
-		}
+	public static int method4848(int var0) {
+		--var0;
+		var0 |= var0 >>> 1;
+		var0 |= var0 >>> 2;
+		var0 |= var0 >>> 4;
+		var0 |= var0 >>> 8;
+		var0 |= var0 >>> 16;
+		return var0 + 1;
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "-1932368264"
+		garbageValue = "1821199649"
 	)
-	public static void method5380() {
-		synchronized(ArchiveDiskActionHandler.field4331) {
-			if (ArchiveDiskActionHandler.field4329 != 0) {
-				ArchiveDiskActionHandler.field4329 = 1;
-				ArchiveDiskActionHandler.field4332 = true;
-
-				try {
-					ArchiveDiskActionHandler.field4331.wait();
-				} catch (InterruptedException var3) {
-				}
-			}
-
-		}
-	}
-
-	@ObfuscatedName("aj")
-	@ObfuscatedSignature(
-		descriptor = "(II)Z",
-		garbageValue = "1817162027"
-	)
-	public static boolean method5378(int var0) {
-		return (var0 >> 20 & 1) != 0;
+	public static void method4849() {
+		ObjectComposition.ObjectDefinition_cached.clear();
+		ObjectComposition.ObjectDefinition_cachedModelData.clear();
+		ObjectComposition.ObjectDefinition_cachedEntities.clear();
+		ObjectComposition.ObjectDefinition_cachedModels.clear();
 	}
 }

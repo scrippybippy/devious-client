@@ -2,31 +2,25 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jn")
+@ObfuscatedName("le")
 @Implements("WorldMapDecoration")
 public class WorldMapDecoration {
-	@ObfuscatedName("fy")
-	@ObfuscatedSignature(
-		descriptor = "Loz;"
-	)
-	static Archive field2627;
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = 394542689
+		intValue = -86955387
 	)
 	@Export("objectDefinitionId")
 	final int objectDefinitionId;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedGetter(
-		intValue = -2000261319
+		intValue = -366743665
 	)
 	@Export("decoration")
 	final int decoration;
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = 1201614091
+		intValue = 2066973857
 	)
 	@Export("rotation")
 	final int rotation;
@@ -35,14 +29,5 @@ public class WorldMapDecoration {
 		this.objectDefinitionId = var1;
 		this.decoration = var2;
 		this.rotation = var3;
-	}
-
-	@ObfuscatedName("ao")
-	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "-90"
-	)
-	public static void method5021() {
-		WorldMapElement.HitSplatDefinition_cached.clear();
 	}
 }

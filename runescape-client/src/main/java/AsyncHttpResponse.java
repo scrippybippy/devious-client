@@ -1,41 +1,16 @@
 import java.util.concurrent.Future;
-import java.util.concurrent.ThreadPoolExecutor;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ay")
+@ObfuscatedName("as")
 @Implements("AsyncHttpResponse")
 public class AsyncHttpResponse {
-	@ObfuscatedName("wd")
-	@ObfuscatedGetter(
-		intValue = 567578519
-	)
-	@Export("foundItemIndex")
-	static int foundItemIndex;
-	@ObfuscatedName("ao")
-	public static ThreadPoolExecutor field85;
-	@ObfuscatedName("fs")
-	@ObfuscatedGetter(
-		longValue = 2210412390535978497L
-	)
-	static long field83;
-	@ObfuscatedName("gr")
-	@ObfuscatedSignature(
-		descriptor = "Loz;"
-	)
-	static Archive field80;
-	@ObfuscatedName("ql")
-	@ObfuscatedSignature(
-		descriptor = "[Lnn;"
-	)
-	static Widget[] field78;
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@Export("responseFuture")
 	Future responseFuture;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@Export("errorMessage")
 	String errorMessage;
 
@@ -44,15 +19,15 @@ public class AsyncHttpResponse {
 	}
 
 	AsyncHttpResponse(String var1) {
-		this.method274(var1);
+		this.method250(var1);
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;B)V",
-		garbageValue = "-76"
+		descriptor = "(Ljava/lang/String;I)V",
+		garbageValue = "1423475742"
 	)
-	void method274(String var1) {
+	void method250(String var1) {
 		if (var1 == null) {
 			var1 = "";
 		}
@@ -65,40 +40,40 @@ public class AsyncHttpResponse {
 
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(B)Ljava/lang/String;",
-		garbageValue = "80"
+		descriptor = "(I)Ljava/lang/String;",
+		garbageValue = "374540017"
 	)
 	@Export("getErrorMessage")
 	public final String getErrorMessage() {
 		return this.errorMessage;
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
 		descriptor = "(I)Z",
-		garbageValue = "1544046253"
+		garbageValue = "137471638"
 	)
 	@Export("hasError")
 	public boolean hasError() {
 		return this.errorMessage != null || this.responseFuture == null;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(I)Z",
-		garbageValue = "-403372870"
+		descriptor = "(S)Z",
+		garbageValue = "-10056"
 	)
 	@Export("hasFinished")
 	public final boolean hasFinished() {
 		return this.hasError() ? true : this.responseFuture.isDone();
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@ObfuscatedSignature(
-		descriptor = "(B)Lab;",
-		garbageValue = "52"
+		descriptor = "(I)Lad;",
+		garbageValue = "412355004"
 	)
 	@Export("await")
 	public final HttpResponse await() {
@@ -112,19 +87,64 @@ public class AsyncHttpResponse {
 			} catch (Exception var3) {
 				String var2 = "Error retrieving REST request reply";
 				System.err.println(var2 + "\r\n" + var3);
-				this.method274(var2);
+				this.method250(var2);
 				return new HttpResponse(var2);
 			}
 		}
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(II)Lco;",
-		garbageValue = "-1149524749"
+		descriptor = "(IB)Lij;",
+		garbageValue = "32"
 	)
-	@Export("Messages_getMessage")
-	static Message Messages_getMessage(int var0) {
-		return (Message)Messages.Messages_hashTable.get((long)var0);
+	public static HitSplatDefinition method260(int var0) {
+		HitSplatDefinition var1 = (HitSplatDefinition)HitSplatDefinition.HitSplatDefinition_cached.get((long)var0);
+		if (var1 != null) {
+			return var1;
+		} else {
+			byte[] var2 = HitSplatDefinition.HitSplatDefinition_archive.takeFile(32, var0);
+			var1 = new HitSplatDefinition();
+			if (var2 != null) {
+				var1.decode(new Buffer(var2));
+			}
+
+			HitSplatDefinition.HitSplatDefinition_cached.put(var1, (long)var0);
+			return var1;
+		}
+	}
+
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "1857648377"
+	)
+	@Export("updateToRememberedUsername")
+	static void updateToRememberedUsername() {
+		if (Login.Login_username == null || Login.Login_username.length() <= 0) {
+			if (class459.clientPreferences.getRememberedUsername() != null) {
+				Login.Login_username = class459.clientPreferences.getRememberedUsername();
+				Client.Login_isUsernameRemembered = true;
+			} else {
+				Client.Login_isUsernameRemembered = false;
+			}
+
+		}
+	}
+
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(CI)Z",
+		garbageValue = "635952730"
+	)
+	@Export("isCharPrintable")
+	public static boolean isCharPrintable(char var0) {
+		if (var0 >= ' ' && var0 <= '~') {
+			return true;
+		} else if (var0 >= 160 && var0 <= 255) {
+			return true;
+		} else {
+			return var0 == 8364 || var0 == 338 || var0 == 8212 || var0 == 339 || var0 == 376;
+		}
 	}
 }

@@ -1,29 +1,32 @@
-import net.runelite.mapping.ObfuscatedGetter;
+import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("pi")
-public class class411 {
-	@ObfuscatedName("am")
-	@ObfuscatedGetter(
-		intValue = 1242749267
-	)
-	int field4543;
-
+public final class class411 {
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(IZ)V",
+		descriptor = "Lor;"
+	)
+	@Export("ParamDefinition_archive")
+	static AbstractArchive ParamDefinition_archive;
+
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "(B)V",
 		garbageValue = "1"
 	)
-	class411(int var1, boolean var2) {
-		this.field4543 = var1;
-	}
-
-	@ObfuscatedName("am")
-	@ObfuscatedSignature(
-		descriptor = "(B)I",
-		garbageValue = "-94"
-	)
-	public int method7743() {
-		return this.field4543;
+	public static void method7677() {
+		synchronized(MouseHandler.MouseHandler_instance) {
+			MouseHandler.MouseHandler_currentButton = MouseHandler.MouseHandler_currentButtonVolatile;
+			MouseHandler.MouseHandler_x = MouseHandler.MouseHandler_xVolatile;
+			MouseHandler.MouseHandler_y = MouseHandler.MouseHandler_yVolatile;
+			MouseHandler.MouseHandler_millis = MouseHandler.MouseHandler_lastMovedVolatile;
+			MouseHandler.MouseHandler_lastButton = MouseHandler.MouseHandler_lastButtonVolatile;
+			MouseHandler.MouseHandler_lastPressedX = MouseHandler.MouseHandler_lastPressedXVolatile;
+			MouseHandler.MouseHandler_lastPressedY = MouseHandler.MouseHandler_lastPressedYVolatile;
+			MouseHandler.MouseHandler_lastPressedTimeMillis = MouseHandler.MouseHandler_lastPressedTimeMillisVolatile;
+			MouseHandler.MouseHandler_lastButtonVolatile = 0;
+		}
 	}
 }

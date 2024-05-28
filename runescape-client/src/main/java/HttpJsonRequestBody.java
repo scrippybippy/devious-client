@@ -7,10 +7,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-@ObfuscatedName("sd")
+@ObfuscatedName("sv")
 @Implements("HttpJsonRequestBody")
 public class HttpJsonRequestBody implements HttpPayload {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@Export("body")
 	@ObfuscatedSignature(
 		descriptor = "Lorg/json/JSONObject;"
@@ -32,30 +32,30 @@ public class HttpJsonRequestBody implements HttpPayload {
 		this.setBodyFromString(var1);
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(I)Lsy;",
-		garbageValue = "2086749416"
+		descriptor = "(B)Lsd;",
+		garbageValue = "14"
 	)
 	@Export("getContentType")
 	public HttpContentType getContentType() {
 		return HttpContentType.APPLICATION_JSON;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(I)[B",
-		garbageValue = "529214667"
+		descriptor = "(B)[B",
+		garbageValue = "26"
 	)
 	@Export("toBytes")
 	public byte[] toBytes() throws UnsupportedEncodingException {
 		return this.body == null ? new byte[0] : this.body.toString().getBytes("UTF-8");
 	}
 
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ac")
 	@ObfuscatedSignature(
-		descriptor = "([BI)V",
-		garbageValue = "981961216"
+		descriptor = "([BB)V",
+		garbageValue = "106"
 	)
 	@Export("bodyFromBytes")
 	void bodyFromBytes(byte[] var1) throws UnsupportedEncodingException {
@@ -66,7 +66,7 @@ public class HttpJsonRequestBody implements HttpPayload {
 	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
 		descriptor = "(Ljava/lang/String;I)V",
-		garbageValue = "1247464866"
+		garbageValue = "1874774526"
 	)
 	@Export("setBodyFromString")
 	void setBodyFromString(String var1) throws UnsupportedEncodingException {
@@ -88,13 +88,26 @@ public class HttpJsonRequestBody implements HttpPayload {
 		}
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
 		descriptor = "(I)Lorg/json/JSONObject;",
-		garbageValue = "1041668985"
+		garbageValue = "1821188827"
 	)
 	@Export("getBody")
 	public JSONObject getBody() {
 		return this.body;
+	}
+
+	@ObfuscatedName("oy")
+	@ObfuscatedSignature(
+		descriptor = "(S)V",
+		garbageValue = "11831"
+	)
+	static final void method8938() {
+		for (int var0 = 0; var0 < class358.topLevelWorldView.playerUpdateManager.playerCount; ++var0) {
+			Player var1 = class358.topLevelWorldView.players[class358.topLevelWorldView.playerUpdateManager.playerIndices[var0]];
+			var1.method2366();
+		}
+
 	}
 }

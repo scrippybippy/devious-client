@@ -1,49 +1,28 @@
+import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ie")
-public class class216 extends class222 {
-	@ObfuscatedName("am")
-	String field2325;
-	// $FF: synthetic field
+@ObfuscatedName("iy")
+public class class216 extends DualNode {
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Lih;"
+		descriptor = "Llm;"
 	)
-	final class219 this$0;
+	@Export("field2136")
+	static EvictingDualNodeHashTable field2136;
 
-	@ObfuscatedSignature(
-		descriptor = "(Lih;Ljava/lang/String;Ljava/lang/String;)V"
-	)
-	class216(class219 var1, String var2, String var3) {
-		super(var1, var2);
-		this.this$0 = var1;
-		this.field2325 = var3;
+	static {
+		field2136 = new EvictingDualNodeHashTable(64);
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "945435280"
+		descriptor = "(I)Lcl;",
+		garbageValue = "509456093"
 	)
-	public int vmethod4368() {
-		return 1;
-	}
-
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "(I)Ljava/lang/String;",
-		garbageValue = "-1875884586"
-	)
-	public String vmethod4369() {
-		return this.field2325;
-	}
-
-	@ObfuscatedName("af")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "880024876"
-	)
-	static void method4273() {
-		WorldMapRegion.WorldMapRegion_cachedSprites.clear();
+	@Export("worldListStart")
+	static World worldListStart() {
+		World.World_listCount = 0;
+		return class137.getNextWorldListWorld();
 	}
 }

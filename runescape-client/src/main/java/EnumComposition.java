@@ -4,49 +4,49 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hu")
+@ObfuscatedName("hz")
 @Implements("EnumComposition")
 public class EnumComposition extends DualNode {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Low;"
+		descriptor = "Lor;"
 	)
 	@Export("EnumDefinition_archive")
 	public static AbstractArchive EnumDefinition_archive;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "Llq;"
+		descriptor = "Llm;"
 	)
 	@Export("EnumDefinition_cached")
-	static EvictingDualNodeHashTable EnumDefinition_cached;
-	@ObfuscatedName("af")
+	public static EvictingDualNodeHashTable EnumDefinition_cached;
+	@ObfuscatedName("aj")
 	@Export("inputType")
 	public char inputType;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@Export("outputType")
 	public char outputType;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@Export("defaultStr")
 	public String defaultStr;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = 684618021
+		intValue = 632326171
 	)
 	@Export("defaultInt")
 	public int defaultInt;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = -213869229
+		intValue = 779903189
 	)
 	@Export("outputCount")
 	public int outputCount;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ab")
 	@Export("keys")
 	public int[] keys;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ac")
 	@Export("intVals")
 	public int[] intVals;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ao")
 	@Export("strVals")
 	public String[] strVals;
 
@@ -59,10 +59,10 @@ public class EnumComposition extends DualNode {
 		this.outputCount = 0;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(Luk;B)V",
-		garbageValue = "31"
+		descriptor = "(Lua;S)V",
+		garbageValue = "-5693"
 	)
 	@Export("decode")
 	void decode(Buffer var1) {
@@ -76,10 +76,10 @@ public class EnumComposition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(Luk;IB)V",
-		garbageValue = "117"
+		descriptor = "(Lua;II)V",
+		garbageValue = "2102664749"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
@@ -116,28 +116,13 @@ public class EnumComposition extends DualNode {
 
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "-1692614113"
+		garbageValue = "1422809382"
 	)
 	@Export("size")
 	public int size() {
 		return this.outputCount;
-	}
-
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "(III)I",
-		garbageValue = "2125087536"
-	)
-	@Export("ItemContainer_getCount")
-	static int ItemContainer_getCount(int var0, int var1) {
-		ItemContainer var2 = (ItemContainer)ItemContainer.itemContainers.get((long)var0);
-		if (var2 == null) {
-			return 0;
-		} else {
-			return var1 >= 0 && var1 < var2.quantities.length ? var2.quantities[var1] : 0;
-		}
 	}
 }

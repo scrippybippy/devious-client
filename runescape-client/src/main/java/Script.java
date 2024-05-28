@@ -4,53 +4,60 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dd")
+@ObfuscatedName("dm")
 @Implements("Script")
 public class Script extends DualNode {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Llq;"
+		descriptor = "Llm;"
 	)
 	@Export("Script_cached")
 	static EvictingDualNodeHashTable Script_cached;
-	@ObfuscatedName("ap")
-	String field979;
-	@ObfuscatedName("af")
+	@ObfuscatedName("au")
+	static String[] field1016;
+	@ObfuscatedName("cm")
+	@ObfuscatedGetter(
+		intValue = 246565167
+	)
+	static int field1026;
+	@ObfuscatedName("al")
+	String field1019;
+	@ObfuscatedName("aj")
 	@Export("opcodes")
 	int[] opcodes;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@Export("intOperands")
 	int[] intOperands;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@Export("stringOperands")
 	String[] stringOperands;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = -165630961
+		intValue = 54182531
 	)
 	@Export("localIntCount")
 	int localIntCount;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 1498866603
+		intValue = -972598111
 	)
 	@Export("localStringCount")
 	int localStringCount;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = 634248277
+		intValue = 296809297
 	)
 	@Export("intArgumentCount")
 	int intArgumentCount;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ac")
 	@ObfuscatedGetter(
-		intValue = -1186762681
+		intValue = 1223292047
 	)
 	@Export("stringArgumentCount")
 	int stringArgumentCount;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
-		descriptor = "[Ltb;"
+		descriptor = "[Ltu;"
 	)
 	@Export("switches")
 	IterableNodeHashTable[] switches;
@@ -62,80 +69,37 @@ public class Script extends DualNode {
 	Script() {
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@ObfuscatedSignature(
-		descriptor = "(II)[Ltb;",
-		garbageValue = "-1812104264"
+		descriptor = "(IB)[Ltu;",
+		garbageValue = "70"
 	)
 	@Export("newIterableNodeHashTable")
 	IterableNodeHashTable[] newIterableNodeHashTable(int var1) {
 		return new IterableNodeHashTable[var1];
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(IB)Lhi;",
-		garbageValue = "0"
+		descriptor = "([Ljava/lang/String;[II)V",
+		garbageValue = "958054688"
 	)
-	@Export("StructDefinition_getStructDefinition")
-	public static StructComposition StructDefinition_getStructDefinition(int var0) {
-		StructComposition var1 = (StructComposition)StructComposition.StructDefinition_cached.get((long)var0);
-		if (var1 != null) {
-			return var1;
-		} else {
-			byte[] var2 = StructComposition.StructDefinition_archive.takeFile(34, var0);
-			var1 = new StructComposition();
-			if (var2 != null) {
-				var1.decode(new Buffer(var2));
-			}
-
-			var1.postDecode();
-			StructComposition.StructDefinition_cached.put(var1, (long)var0);
-			return var1;
-		}
+	public static void method2209(String[] var0, int[] var1) {
+		class195.quicksortStringsWithCorrespondingIntegers(var0, var1, 0, var0.length - 1);
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("pd")
 	@ObfuscatedSignature(
-		descriptor = "(II)Lho;",
-		garbageValue = "538407903"
+		descriptor = "(Lua;II)V",
+		garbageValue = "-915995285"
 	)
-	@Export("getNpcDefinition")
-	public static NPCComposition getNpcDefinition(int var0) {
-		NPCComposition var1 = (NPCComposition)NPCComposition.NpcDefinition_cached.get((long)var0);
-		if (var1 != null) {
-			return var1;
-		} else {
-			byte[] var2 = NPCComposition.NpcDefinition_archive.takeFile(9, var0);
-			var1 = new NPCComposition();
-			var1.id = var0;
-			if (var2 != null) {
-				var1.decode(new Buffer(var2));
-			}
-
-			var1.postDecode();
-			NPCComposition.NpcDefinition_cached.put(var1, (long)var0);
-			return var1;
-		}
-	}
-
-	@ObfuscatedName("aj")
-	@ObfuscatedSignature(
-		descriptor = "(CLol;I)I",
-		garbageValue = "-885374361"
-	)
-	@Export("lowercaseChar")
-	static int lowercaseChar(char var0, Language var1) {
-		int var2 = var0 << 4;
-		if (Character.isUpperCase(var0) || Character.isTitleCase(var0)) {
-			var0 = Character.toLowerCase(var0);
-			var2 = (var0 << 4) + 1;
+	static void method2220(Buffer var0, int var1) {
+		byte[] var2 = var0.array;
+		if (Client.randomDatData == null) {
+			Client.randomDatData = new byte[24];
 		}
 
-		if (var0 == 241 && var1 == Language.Language_ES) {
-			var2 = 1762;
-		}
-
-		return var2;
+		class446.writeRandomDat(var2, var1, Client.randomDatData, 0, 24);
+		UrlRequest.method2944(var0, var1);
 	}
 }

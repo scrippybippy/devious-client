@@ -1,85 +1,85 @@
-import java.util.Date;
-import java.util.HashMap;
-import java.util.TimeZone;
+import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("md")
-public final class class314 {
-	@ObfuscatedName("af")
-	static final HashMap field3427;
-	@ObfuscatedName("fn")
+@ObfuscatedName("mv")
+public class class314 {
+	@ObfuscatedName("nf")
 	@ObfuscatedSignature(
-		descriptor = "Loz;"
+		descriptor = "([Lnb;IB)V",
+		garbageValue = "-32"
 	)
-	static Archive field3428;
+	@Export("drawModelComponents")
+	static final void drawModelComponents(Widget[] var0, int var1) {
+		for (int var2 = 0; var2 < var0.length; ++var2) {
+			Widget var3 = var0[var2];
+			if (var3 != null && var3.parentId == var1 && (!var3.isIf3 || !class360.isComponentHidden(var3))) {
+				if (var3.type == 0) {
+					if (!var3.isIf3 && class360.isComponentHidden(var3) && var3 != MouseHandler.mousedOverWidgetIf1) {
+						continue;
+					}
 
-	static {
-		field3427 = new HashMap();
-		java.util.Calendar.getInstance(method6000("Europe/London"));
-	}
+					drawModelComponents(var0, var3.id);
+					if (var3.children != null) {
+						drawModelComponents(var3.children, var3.id);
+					}
 
-	@ObfuscatedName("am")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;I)Ljava/util/TimeZone;",
-		garbageValue = "-127615188"
-	)
-	static TimeZone method6000(String var0) {
-		synchronized(field3427) {
-			TimeZone var2 = (TimeZone)field3427.get(var0);
-			if (var2 == null) {
-				var2 = TimeZone.getTimeZone(var0);
-				field3427.put(var0, var2);
+					InterfaceParent var4 = (InterfaceParent)Client.interfaceParents.get((long)var3.id);
+					if (var4 != null) {
+						class140.method3145(var4.group);
+					}
+				}
+
+				if (var3.type == 6) {
+					int var5;
+					if (var3.sequenceId != -1 || var3.sequenceId2 != -1) {
+						boolean var8 = class238.runCs1(var3);
+						if (var8) {
+							var5 = var3.sequenceId2;
+						} else {
+							var5 = var3.sequenceId;
+						}
+
+						if (var5 != -1) {
+							SequenceDefinition var6 = FaceNormal.SequenceDefinition_get(var5);
+							if (!var6.isCachedModelIdSet()) {
+								for (var3.modelFrameCycle += Client.graphicsCycle; var3.modelFrameCycle > var6.frameLengths[var3.modelFrame]; class324.invalidateWidget(var3)) {
+									var3.modelFrameCycle -= var6.frameLengths[var3.modelFrame];
+									++var3.modelFrame;
+									if (var3.modelFrame >= var6.frameIds.length) {
+										var3.modelFrame -= var6.frameCount;
+										if (var3.modelFrame < 0 || var3.modelFrame >= var6.frameIds.length) {
+											var3.modelFrame = 0;
+										}
+									}
+								}
+							} else {
+								var3.modelFrame += Client.graphicsCycle;
+								int var7 = var6.method4326();
+								if (var3.modelFrame >= var7) {
+									var3.modelFrame -= var6.frameCount;
+									if (var3.modelFrame < 0 || var3.modelFrame >= var7) {
+										var3.modelFrame = 0;
+									}
+								}
+
+								class324.invalidateWidget(var3);
+							}
+						}
+					}
+
+					if (var3.field3872 != 0 && !var3.isIf3) {
+						int var9 = var3.field3872 >> 16;
+						var5 = var3.field3872 << 16 >> 16;
+						var9 *= Client.graphicsCycle;
+						var5 *= Client.graphicsCycle;
+						var3.modelAngleX = var9 + var3.modelAngleX & 2047;
+						var3.modelAngleY = var5 + var3.modelAngleY & 2047;
+						class324.invalidateWidget(var3);
+					}
+				}
 			}
-
-			return var2;
 		}
-	}
 
-	@ObfuscatedName("ao")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/util/Date;B)Z",
-		garbageValue = "-75"
-	)
-	static boolean method6005(Date var0) {
-		java.util.Calendar var1 = java.util.Calendar.getInstance();
-		var1.set(1, var1.get(1) - 13);
-		var1.set(5, var1.get(5) + 1);
-		var1.set(11, 0);
-		var1.set(12, 0);
-		var1.set(13, 0);
-		var1.set(14, 0);
-		Date var2 = var1.getTime();
-		return var0.before(var2);
-	}
-
-	@ObfuscatedName("bi")
-	@ObfuscatedSignature(
-		descriptor = "(ILdd;ZI)I",
-		garbageValue = "2047821445"
-	)
-	static int method6006(int var0, Script var1, boolean var2) {
-		if (var0 == 6754) {
-			int var5 = Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize];
-			NPCComposition var6 = Script.getNpcDefinition(var5);
-			Interpreter.Interpreter_stringStack[++class211.Interpreter_stringStackSize - 1] = var6 != null ? var6.name : "";
-			return 1;
-		} else {
-			NPCComposition var3;
-			if (var0 == 6764) {
-				UserComparator6.Interpreter_intStackSize -= 2;
-				var3 = Script.getNpcDefinition(Interpreter.Interpreter_intStack[UserComparator6.Interpreter_intStackSize]);
-				int var4 = Interpreter.Interpreter_intStack[UserComparator6.Interpreter_intStackSize + 1];
-				Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = var3.method3738(var4);
-				Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = var3.method3729(var4);
-				return 1;
-			} else if (var0 == 6765) {
-				var3 = Script.getNpcDefinition(Interpreter.Interpreter_intStack[--UserComparator6.Interpreter_intStackSize]);
-				Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = var3 != null ? var3.combatLevel : 0;
-				return 1;
-			} else {
-				return 2;
-			}
-		}
 	}
 }

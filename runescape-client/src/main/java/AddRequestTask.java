@@ -3,45 +3,53 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("pb")
+@ObfuscatedName("qh")
 @Implements("AddRequestTask")
 public class AddRequestTask extends SongTask {
+	@ObfuscatedName("av")
+	public static short[][] field4780;
+	@ObfuscatedName("io")
 	@ObfuscatedSignature(
-		descriptor = "(Lqd;)V"
+		descriptor = "Lhe;"
+	)
+	static Task field4779;
+
+	@ObfuscatedSignature(
+		descriptor = "(Lre;)V"
 	)
 	public AddRequestTask(SongTask var1) {
 		super(var1);
-		super.field4597 = "AddRequestTask";
+		super.field4793 = "AddRequestTask";
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
 		descriptor = "(I)Z",
-		garbageValue = "2012801823"
+		garbageValue = "1230726323"
 	)
-	public boolean vmethod7975() {
-		while (!class319.field3461.isEmpty()) {
-			MusicSong var1 = (MusicSong)class319.field3461.peek();
+	public boolean vmethod8329() {
+		while (!class329.field3576.isEmpty()) {
+			MusicSong var1 = (MusicSong)class329.field3576.peek();
 			if (var1 == null) {
-				class319.field3461.pop();
+				class329.field3576.pop();
 			} else {
-				var1.midiPcmStream = this.method7914();
-				class319.musicSongs.add(var1);
-				class319.field3461.pop();
+				var1.midiPcmStream = this.method8262();
+				class329.musicSongs.add(var1);
+				class329.field3576.pop();
 			}
 		}
 
 		return true;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(I)Lmk;",
-		garbageValue = "450811833"
+		descriptor = "(I)Lmw;",
+		garbageValue = "-1043214319"
 	)
-	MidiPcmStream method7914() {
+	MidiPcmStream method8262() {
 		MidiPcmStream var1 = null;
-		Iterator var2 = class319.field3457.iterator();
+		Iterator var2 = class329.field3577.iterator();
 
 		while (true) {
 			MidiPcmStream var3;
@@ -49,10 +57,10 @@ public class AddRequestTask extends SongTask {
 				do {
 					if (!var2.hasNext()) {
 						if (var1 != null) {
-							++var1.field3499;
-							if (var1.method6071() == 0 && var1.isReady()) {
+							++var1.field3620;
+							if (var1.method6374() == 0 && var1.isReady()) {
 								var1.clear();
-								var1.method6075();
+								var1.method6256();
 								var1.setPcmStreamVolume(0);
 							}
 						}
@@ -62,18 +70,9 @@ public class AddRequestTask extends SongTask {
 
 					var3 = (MidiPcmStream)var2.next();
 				} while(var3 == null);
-			} while(var1 != null && var1.field3499 <= var3.field3499 && (var3.method6071() != 0 || !var3.isReady()));
+			} while(var1 != null && var1.field3620 <= var3.field3620 && (var3.method6374() != 0 || !var3.isReady()));
 
 			var1 = var3;
 		}
-	}
-
-	@ObfuscatedName("pe")
-	@ObfuscatedSignature(
-		descriptor = "(ZB)V",
-		garbageValue = "1"
-	)
-	static void method7922(boolean var0) {
-		Client.leftClickOpensMenu = var0;
 	}
 }

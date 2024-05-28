@@ -1,72 +1,97 @@
-import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fz")
-public class class153 extends class143 {
-	@ObfuscatedName("am")
+@ObfuscatedName("ff")
+public class class153 extends class163 {
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = 1370249681
+		intValue = -1128650951
 	)
-	int field1689;
-	@ObfuscatedName("ap")
-	String field1688;
+	int field1728;
+	@ObfuscatedName("al")
+	byte field1729;
+	@ObfuscatedName("aj")
+	@ObfuscatedGetter(
+		intValue = 1845299605
+	)
+	int field1730;
+	@ObfuscatedName("az")
+	String field1731;
 	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lfm;"
+		descriptor = "Lgx;"
 	)
-	final class146 this$0;
+	final class164 this$0;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lfm;)V"
+		descriptor = "(Lgx;)V"
 	)
-	class153(class146 var1) {
+	class153(class164 var1) {
 		this.this$0 = var1;
+		this.field1728 = -1;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Luk;I)V",
-		garbageValue = "-411371469"
+		descriptor = "(Lua;I)V",
+		garbageValue = "-406894472"
 	)
-	void vmethod3531(Buffer var1) {
-		this.field1689 = var1.readInt();
-		this.field1688 = var1.readStringCp1252NullTerminated();
+	void vmethod3479(Buffer var1) {
+		this.field1728 = var1.readUnsignedShort();
+		this.field1729 = var1.readByte();
+		this.field1730 = var1.readUnsignedShort();
+		var1.readLong();
+		this.field1731 = var1.readStringCp1252NullTerminated();
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(Lfn;I)V",
-		garbageValue = "1048713263"
+		descriptor = "(Lgo;I)V",
+		garbageValue = "-472458599"
 	)
-	void vmethod3529(ClanSettings var1) {
-		var1.method3355(this.field1689, this.field1688);
+	void vmethod3480(ClanChannel var1) {
+		ClanChannelMember var2 = (ClanChannelMember)var1.members.get(this.field1728);
+		var2.rank = this.field1729;
+		var2.world = this.field1730;
+		var2.username = new Username(this.field1731);
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(IIB)V",
-		garbageValue = "-116"
+		descriptor = "(I)Ljava/lang/String;",
+		garbageValue = "-1822669547"
 	)
-	@Export("changeWorldSelectSorting")
-	static void changeWorldSelectSorting(int var0, int var1) {
-		int[] var2 = new int[4];
-		int[] var3 = new int[4];
-		var2[0] = var0;
-		var3[0] = var1;
-		int var4 = 1;
-
-		for (int var5 = 0; var5 < 4; ++var5) {
-			if (World.World_sortOption1[var5] != var0) {
-				var2[var4] = World.World_sortOption1[var5];
-				var3[var4] = World.World_sortOption2[var5];
-				++var4;
-			}
+	static String method3282() {
+		String var0;
+		if (class459.clientPreferences.isUsernameHidden()) {
+			String var2 = Login.Login_username;
+			String var1 = ItemLayer.method4585('*', var2.length());
+			var0 = var1;
+		} else {
+			var0 = Login.Login_username;
 		}
 
-		World.World_sortOption1 = var2;
-		World.World_sortOption2 = var3;
-		ModeWhere.sortWorlds(World.World_worlds, 0, World.World_worlds.length - 1, World.World_sortOption1, World.World_sortOption2);
+		return var0;
+	}
+
+	@ObfuscatedName("cp")
+	@ObfuscatedSignature(
+		descriptor = "(Luy;I)Ljava/lang/Object;",
+		garbageValue = "-949314910"
+	)
+	static Object method3285(class533 var0) {
+		if (var0 == null) {
+			throw new IllegalStateException("popValueOfType() failure - null baseVarType");
+		} else {
+			switch(var0.field5265) {
+			case 0:
+				return Interpreter.Interpreter_stringStack[--class166.Interpreter_stringStackSize];
+			case 2:
+				return Interpreter.Interpreter_intStack[--class13.Interpreter_intStackSize];
+			default:
+				throw new IllegalStateException("popValueOfType() failure - unsupported type");
+			}
+		}
 	}
 }

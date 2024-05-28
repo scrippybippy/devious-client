@@ -7,28 +7,22 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("on")
+@ObfuscatedName("oa")
 @Implements("GrandExchangeEvents")
 public class GrandExchangeEvents {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@Export("GrandExchangeEvents_ageComparator")
 	public static Comparator GrandExchangeEvents_ageComparator;
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@Export("GrandExchangeEvents_priceComparator")
 	public static Comparator GrandExchangeEvents_priceComparator;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@Export("GrandExchangeEvents_nameComparator")
 	public static Comparator GrandExchangeEvents_nameComparator;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@Export("GrandExchangeEvents_quantityComparator")
 	public static Comparator GrandExchangeEvents_quantityComparator;
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "Lut;"
-	)
-	@Export("logoSprite")
-	static IndexedSprite logoSprite;
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@Export("events")
 	public final List events;
 
@@ -41,7 +35,7 @@ public class GrandExchangeEvents {
 	}
 
 	@ObfuscatedSignature(
-		descriptor = "(Luk;Z)V",
+		descriptor = "(Lua;Z)V",
 		garbageValue = "1"
 	)
 	public GrandExchangeEvents(Buffer var1, boolean var2) {
@@ -63,10 +57,10 @@ public class GrandExchangeEvents {
 
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/util/Comparator;ZI)V",
-		garbageValue = "-153138390"
+		descriptor = "(Ljava/util/Comparator;ZB)V",
+		garbageValue = "11"
 	)
 	@Export("sort")
 	public void sort(Comparator var1, boolean var2) {
@@ -78,32 +72,13 @@ public class GrandExchangeEvents {
 
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("on")
 	@ObfuscatedSignature(
-		descriptor = "(ILjava/lang/String;Ljava/lang/String;I)V",
-		garbageValue = "-1454738678"
+		descriptor = "(B)V",
+		garbageValue = "107"
 	)
-	@Export("addGameMessage")
-	static void addGameMessage(int var0, String var1, String var2) {
-		ItemContainer.addChatMessage(var0, var1, var2, (String)null);
-	}
-
-	@ObfuscatedName("am")
-	@ObfuscatedSignature(
-		descriptor = "([Loh;II)Loh;",
-		garbageValue = "272786121"
-	)
-	@Export("findEnumerated")
-	public static Enum findEnumerated(Enum[] var0, int var1) {
-		Enum[] var2 = var0;
-
-		for (int var3 = 0; var3 < var2.length; ++var3) {
-			Enum var4 = var2[var3];
-			if (var1 == var4.rsOrdinal()) {
-				return var4;
-			}
-		}
-
-		return null;
+	static final void method7359() {
+		Client.field731 = Client.cycleCntr;
+		class238.field2539 = true;
 	}
 }

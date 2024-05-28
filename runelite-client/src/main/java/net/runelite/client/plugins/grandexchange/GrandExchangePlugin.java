@@ -140,10 +140,8 @@ public class GrandExchangePlugin extends Plugin
 	private static final int MAX_TRADE_HISTORY = 1024;
 	private static final int MAX_TRADE_DAYS = 365;
 
-	@Getter(AccessLevel.PACKAGE)
 	private NavigationButton button;
 
-	@Getter(AccessLevel.PACKAGE)
 	@Setter(AccessLevel.PACKAGE)
 	private GrandExchangePanel panel;
 
@@ -363,6 +361,16 @@ public class GrandExchangePlugin extends Plugin
 		tradeSeq = 0;
 	}
 
+	void search(final String itemName)
+	{
+		SwingUtilities.invokeLater(() ->
+		{
+			panel.showSearch();
+			clientToolbar.openPanel(button);
+			panel.getSearchPanel().priceLookup(itemName);
+		});
+	}
+
 	@Subscribe
 	public void onSessionOpen(SessionOpen sessionOpen)
 	{
@@ -551,6 +559,10 @@ public class GrandExchangePlugin extends Plugin
 		{
 			return WorldType.FRESH_START_WORLD;
 		}
+		else if (worldTypes.contains(net.runelite.api.WorldType.BETA_WORLD))
+		{
+			return WorldType.BETA_WORLD;
+		}
 		else
 		{
 			return null;
@@ -594,13 +606,13 @@ public class GrandExchangePlugin extends Plugin
 
 		String message = Text.removeTags(event.getMessage());
 
-		if (message.startsWith("Grand Exchange:") && config.enableNotifications())
+		if (message.startsWith("Grand Exchange: Finished"))
 		{
-			notifier.notify(message);
+			notifier.notify(config.notifyOnOfferComplete(), message);
 		}
-		else if (message.startsWith("Grand Exchange: Finished") && config.notifyOnOfferComplete())
+		else if (message.startsWith("Grand Exchange:"))
 		{
-			notifier.notify(message);
+			notifier.notify(config.enableNotifications(), message);
 		}
 	}
 

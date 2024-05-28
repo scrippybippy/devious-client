@@ -1,187 +1,127 @@
-import java.util.Iterator;
-import net.runelite.mapping.Export;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("mh")
+@ObfuscatedName("fp")
 @Implements("LoginPacket")
-public class LoginPacket implements class307 {
-	@ObfuscatedName("am")
-	@ObfuscatedSignature(
-		descriptor = "Lmh;"
-	)
-	public static final LoginPacket field3421;
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "Lmh;"
-	)
-	static final LoginPacket field3418;
-	@ObfuscatedName("af")
-	@ObfuscatedSignature(
-		descriptor = "Lmh;"
-	)
-	public static final LoginPacket field3416;
+public class LoginPacket extends class147 {
 	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "Lmh;"
+		descriptor = "Lor;"
 	)
-	public static final LoginPacket field3415;
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "Lmh;"
-	)
-	public static final LoginPacket field3414;
-	@ObfuscatedName("ar")
-	@ObfuscatedSignature(
-		descriptor = "Lmh;"
-	)
-	static final LoginPacket field3419;
-	@ObfuscatedName("ao")
-	@ObfuscatedSignature(
-		descriptor = "[Lmh;"
-	)
-	@Export("LoginPacket_indexedValues")
-	static final LoginPacket[] LoginPacket_indexedValues;
-	@ObfuscatedName("ag")
+	public static AbstractArchive field1682;
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = -188050641
+		longValue = 2791208581734828753L
 	)
-	@Export("id")
-	public final int id;
+	long field1685;
+	@ObfuscatedName("al")
+	String field1683;
+	// $FF: synthetic field
+	@ObfuscatedSignature(
+		descriptor = "Lfu;"
+	)
+	final class150 this$0;
 
-	static {
-		field3421 = new LoginPacket(14, 0);
-		field3418 = new LoginPacket(15, 4);
-		field3416 = new LoginPacket(16, -2);
-		field3415 = new LoginPacket(18, -2);
-		field3414 = new LoginPacket(19, -2);
-		field3419 = new LoginPacket(27, 0);
-		LoginPacket_indexedValues = new LoginPacket[32];
-		LoginPacket[] var0 = class345.method6685();
+	@ObfuscatedSignature(
+		descriptor = "(Lfu;)V"
+	)
+	LoginPacket(class150 var1) {
+		this.this$0 = var1;
+		this.field1685 = -1L;
+		this.field1683 = null;
+	}
 
-		for (int var1 = 0; var1 < var0.length; ++var1) {
-			LoginPacket_indexedValues[var0[var1].id] = var0[var1];
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(Lua;I)V",
+		garbageValue = "1738227110"
+	)
+	void vmethod3486(Buffer var1) {
+		if (var1.readUnsignedByte() != 255) {
+			--var1.offset;
+			this.field1685 = var1.readLong();
 		}
 
+		this.field1683 = var1.readStringCp1252NullTerminatedOrNull();
 	}
 
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(II)V",
-		garbageValue = "0"
+		descriptor = "(Lgc;B)V",
+		garbageValue = "100"
 	)
-	LoginPacket(int var1, int var2) {
-		this.id = var1;
+	void vmethod3490(ClanSettings var1) {
+		var1.method3325(this.field1685, this.field1683, 0);
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "1"
+		descriptor = "(I)[Lmj;",
+		garbageValue = "901583378"
 	)
-	static void method5996() {
-		if (Login.Login_username == null || Login.Login_username.length() <= 0) {
-			if (class93.clientPreferences.getRememberedUsername() != null) {
-				Login.Login_username = class93.clientPreferences.getRememberedUsername();
-				Client.Login_isUsernameRemembered = true;
-			} else {
-				Client.Login_isUsernameRemembered = false;
+	static class322[] method3218() {
+		return new class322[]{class322.field3532, class322.field3537, class322.field3534, class322.field3535, class322.field3541, class322.field3539, class322.field3533, class322.field3540};
+	}
+
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "(I)Ljava/util/Date;",
+		garbageValue = "-1172017478"
+	)
+	static Date method3213() throws ParseException {
+		SimpleDateFormat var0 = new SimpleDateFormat("ddMMyyyyHH", Locale.ENGLISH);
+		var0.setLenient(false);
+		StringBuilder var1 = new StringBuilder();
+		String[] var2 = Login.field960;
+
+		for (int var3 = 0; var3 < var2.length; ++var3) {
+			String var4 = var2[var3];
+			if (var4 == null) {
+				AbstractWorldMapData.method5932("Date not valid.", "Please ensure all characters are populated.", "");
+				return null;
 			}
 
-		}
-	}
-
-	@ObfuscatedName("ao")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "2066265657"
-	)
-	static void method5995() {
-		Iterator var0 = Messages.Messages_hashTable.iterator();
-
-		while (var0.hasNext()) {
-			Message var1 = (Message)var0.next();
-			var1.clearIsFromIgnored();
+			var1.append(var4);
 		}
 
+		var1.append("12");
+		return var0.parse(var1.toString());
 	}
 
-	@ObfuscatedName("ih")
+	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-2077342774"
+		descriptor = "(ILdm;ZI)I",
+		garbageValue = "-1143420848"
 	)
-	@Export("clear")
-	static final void clear() {
-		class182.field2007.clear();
-		class184.field2023.clear();
-		class173.field1915.clear();
-		DbRowType.DBRowType_cache.clear();
-		DbTableType.DBTableType_cache.clear();
-		Login.method2167();
-		FloorOverlayDefinition.FloorOverlayDefinition_cached.clear();
-		SecureRandomSSLSocket.method146();
-		HealthBarDefinition.HealthBarDefinition_cached.clear();
-		HealthBarDefinition.HealthBarDefinition_cachedSprites.clear();
-		HitSplatDefinition.HitSplatDefinition_cached.clear();
-		HitSplatDefinition.HitSplatDefinition_cachedSprites.clear();
-		HitSplatDefinition.HitSplatDefinition_cachedFonts.clear();
-		class172.field1913.clear();
-		UrlRequester.method2901();
-		class33.method495();
-		class142.method3224();
-		WorldMapDecoration.method5021();
-		class185.field2026.clear();
-		MouseHandler.method720();
-		ItemComposition.ItemDefinition_cached.clear();
-		ItemComposition.ItemDefinition_cachedModels.clear();
-		ItemComposition.ItemDefinition_cachedSprites.clear();
-		ParamComposition.ParamDefinition_cached.clear();
-		PlayerComposition.method6414();
-		SpotAnimationDefinition.SpotAnimationDefinition_cached.clear();
-		SpotAnimationDefinition.SpotAnimationDefinition_cachedModels.clear();
-		ClanSettings.method3356();
-		Friend.method8228();
-		Language.Widget_cachedModels.method9202();
-		class176.Widget_cachedFonts.method9202();
-		class189.Widget_cachedSpriteMasks.clear();
-		ClanSettings.method3409();
-		VarcInt.VarcInt_cached.clear();
-		class176.archive5.clear();
-		class171.field1909.clear();
-		class345.method6683();
-		class30.method453();
-		class149.method3292();
-		class195.field2136.clear();
-		Client.DBTableIndex_cache.clear();
-		Client.archive11.clear();
-		LoginScreenAnimation.method2529();
-		class380.widgetDefinition.method6349();
-		((TextureProvider)Rasterizer3D.clips.Rasterizer3D_textureLoader).clear();
-		Script.Script_cached.clear();
-		Client.field791.clearFiles();
-		DirectByteArrayCopier.field3862.clearFiles();
-		AABB.field2907.clearFiles();
-		class189.archive10.clearFiles();
-		WorldMapDecorationType.archive12.clearFiles();
-		class36.archive2.clearFiles();
-		AsyncHttpResponse.field80.clearFiles();
-		class189.field1999.clearFiles();
-		HitSplatDefinition.archive13.clearFiles();
-		class173.archive4.clearFiles();
-		class208.field2281.clearFiles();
-		HttpContentType.field4844.clearFiles();
-		WorldMapDecoration.field2627.clearFiles();
-		class30.archive9.clearFiles();
-		WorldMapSection0.archive6.clearFiles();
-		MusicPatchNode.field3548.clearFiles();
-		DynamicObject.field994.clearFiles();
-		HttpRequestTask.archive8.clearFiles();
-		class127.field1489.clearFiles();
-		class314.field3428.clearFiles();
-		class142.field1632.clearFiles();
-		class130.field1521.clearFiles();
-		PacketBufferNode.field3284.clearFiles();
+	static int method3219(int var0, Script var1, boolean var2) {
+		Widget var3 = AsyncRestClient.widgetDefinition.method6536(Interpreter.Interpreter_intStack[--class13.Interpreter_intStackSize]);
+		if (var0 == ScriptOpcodes.IF_GETX) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.x;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETY) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.y;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETWIDTH) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.width;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETHEIGHT) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.height;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETHIDE) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.isHidden ? 1 : 0;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETLAYER) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.parentId;
+			return 1;
+		} else {
+			return 2;
+		}
 	}
 }

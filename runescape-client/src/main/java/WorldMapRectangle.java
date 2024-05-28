@@ -3,68 +3,80 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("je")
+@ObfuscatedName("ly")
 @Implements("WorldMapRectangle")
 public final class WorldMapRectangle {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = 2084419831
+		intValue = 1141718873
 	)
 	@Export("width")
 	int width;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedGetter(
-		intValue = 1215993933
+		intValue = -398680227
 	)
 	@Export("height")
 	int height;
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -213602905
+		intValue = -971106859
 	)
 	@Export("x")
 	int x;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		intValue = 762996225
+		intValue = -1158165341
 	)
 	@Export("y")
 	int y;
 	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Ljj;"
+		descriptor = "Lki;"
 	)
 	final WorldMapRenderer this$0;
 
 	@ObfuscatedSignature(
-		descriptor = "(Ljj;)V"
+		descriptor = "(Lki;)V"
 	)
 	WorldMapRectangle(WorldMapRenderer var1) {
 		this.this$0 = var1;
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("as")
 	@ObfuscatedSignature(
-		descriptor = "(IIIIB)V",
-		garbageValue = "17"
+		descriptor = "(ILdm;ZB)I",
+		garbageValue = "-79"
 	)
-	public static void method5019(int var0, int var1, int var2, int var3) {
-		class319.musicPlayerStatus = var0;
-		class319.field3464 = var1;
-		class319.field3465 = var2;
-		class319.field3454 = var3;
-	}
+	static int method5933(int var0, Script var1, boolean var2) {
+		Widget var3 = var2 ? Interpreter.scriptDotWidget : SecureRandomSSLSocket.scriptActiveWidget;
+		if (var0 == ScriptOpcodes.CC_GETTARGETMASK) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = TaskHandler.Widget_unpackTargetMask(class160.getWidgetFlags(var3));
+			return 1;
+		} else if (var0 != ScriptOpcodes.CC_GETOP) {
+			if (var0 == ScriptOpcodes.CC_GETOPBASE) {
+				if (var3.dataText == null) {
+					Interpreter.Interpreter_stringStack[++class166.Interpreter_stringStackSize - 1] = "";
+				} else {
+					Interpreter.Interpreter_stringStack[++class166.Interpreter_stringStackSize - 1] = var3.dataText;
+				}
 
-	@ObfuscatedName("it")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1151527319"
-	)
-	static final void method5020() {
-		if (WorldMap.pcmPlayer1 != null) {
-			WorldMap.pcmPlayer1.run();
+				return 1;
+			} else {
+				return 2;
+			}
+		} else {
+			int var4 = Interpreter.Interpreter_intStack[--class13.Interpreter_intStackSize];
+			--var4;
+			if (var3.actions != null && var4 < var3.actions.length && var3.actions[var4] != null) {
+				Interpreter.Interpreter_stringStack[++class166.Interpreter_stringStackSize - 1] = var3.actions[var4];
+			} else {
+				Interpreter.Interpreter_stringStack[++class166.Interpreter_stringStackSize - 1] = "";
+			}
+
+			return 1;
 		}
-
 	}
 }

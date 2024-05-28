@@ -4,47 +4,53 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("lr")
+@ObfuscatedName("md")
 @Implements("PacketBufferNode")
 public class PacketBufferNode extends Node {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@ObfuscatedSignature(
-		descriptor = "[Llr;"
+		descriptor = "[Lmd;"
 	)
 	@Export("PacketBufferNode_packetBufferNodes")
 	static PacketBufferNode[] PacketBufferNode_packetBufferNodes;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = 1424440789
+		intValue = 1720291611
 	)
 	@Export("PacketBufferNode_packetBufferNodeCount")
 	static int PacketBufferNode_packetBufferNodeCount;
-	@ObfuscatedName("gz")
-	@ObfuscatedSignature(
-		descriptor = "Loz;"
+	@ObfuscatedName("gs")
+	@ObfuscatedGetter(
+		intValue = -871116551
 	)
-	static Archive field3284;
-	@ObfuscatedName("am")
+	static int field3390;
+	@ObfuscatedName("ip")
 	@ObfuscatedSignature(
-		descriptor = "Llo;"
+		descriptor = "Leb;"
+	)
+	@Export("urlRequester")
+	static UrlRequester urlRequester;
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "Lmc;"
 	)
 	@Export("clientPacket")
 	public ClientPacket clientPacket;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedGetter(
-		intValue = 1419817901
+		intValue = 674199947
 	)
 	@Export("clientPacketLength")
 	public int clientPacketLength;
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "Luo;"
+		descriptor = "Luk;"
 	)
 	@Export("packetBuffer")
 	public PacketBuffer packetBuffer;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		intValue = -1932494637
+		intValue = -1414122657
 	)
 	@Export("index")
 	public int index;
@@ -57,10 +63,10 @@ public class PacketBufferNode extends Node {
 	PacketBufferNode() {
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "-52"
+		descriptor = "(S)V",
+		garbageValue = "27705"
 	)
 	@Export("release")
 	public void release() {

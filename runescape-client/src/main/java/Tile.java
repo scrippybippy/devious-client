@@ -4,129 +4,145 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("kd")
+@ObfuscatedName("jz")
 @Implements("Tile")
 public final class Tile extends Node {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ph")
 	@ObfuscatedGetter(
-		intValue = 1960032189
+		intValue = -896049715
+	)
+	@Export("widgetDragDuration")
+	static int widgetDragDuration;
+	@ObfuscatedName("qj")
+	@ObfuscatedSignature(
+		descriptor = "Luj;"
+	)
+	static class528 field2639;
+	@ObfuscatedName("un")
+	@ObfuscatedGetter(
+		intValue = -1619357703
+	)
+	static int field2641;
+	@ObfuscatedName("ak")
+	@ObfuscatedGetter(
+		intValue = -1506494255
 	)
 	@Export("plane")
 	int plane;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedGetter(
-		intValue = 934684243
+		intValue = -118489229
 	)
 	@Export("x")
 	int x;
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -1545522719
+		intValue = 1838880061
 	)
 	@Export("y")
 	int y;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		intValue = -207645507
+		intValue = 100104241
 	)
 	@Export("originalPlane")
 	int originalPlane;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@ObfuscatedSignature(
-		descriptor = "Lkh;"
+		descriptor = "Lkg;"
 	)
 	@Export("paint")
 	SceneTilePaint paint;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("aa")
 	@ObfuscatedSignature(
-		descriptor = "Lkc;"
+		descriptor = "Lke;"
 	)
 	@Export("model")
 	SceneTileModel model;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Llv;"
+		descriptor = "Lkt;"
 	)
 	@Export("boundaryObject")
 	BoundaryObject boundaryObject;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
-		descriptor = "Llu;"
+		descriptor = "Lkj;"
 	)
 	@Export("wallDecoration")
 	WallDecoration wallDecoration;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ac")
 	@ObfuscatedSignature(
-		descriptor = "Lku;"
+		descriptor = "Ljm;"
 	)
 	@Export("floorDecoration")
 	FloorDecoration floorDecoration;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
-		descriptor = "Lkz;"
+		descriptor = "Ljh;"
 	)
 	@Export("itemLayer")
 	ItemLayer itemLayer;
-	@ObfuscatedName("au")
+	@ObfuscatedName("ah")
 	@ObfuscatedGetter(
-		intValue = 1181518301
+		intValue = 8092243
 	)
 	@Export("gameObjectsCount")
 	int gameObjectsCount;
-	@ObfuscatedName("an")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "[Lll;"
+		descriptor = "[Lkf;"
 	)
 	@Export("gameObjects")
 	GameObject[] gameObjects;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aq")
 	@Export("gameObjectEdgeMasks")
 	int[] gameObjectEdgeMasks;
-	@ObfuscatedName("ax")
+	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
-		intValue = 1388713263
+		intValue = 1261156353
 	)
 	@Export("gameObjectsEdgeMask")
 	int gameObjectsEdgeMask;
-	@ObfuscatedName("aw")
+	@ObfuscatedName("ae")
 	@ObfuscatedGetter(
-		intValue = -1788936995
+		intValue = 225429201
 	)
 	@Export("minPlane")
 	int minPlane;
-	@ObfuscatedName("az")
+	@ObfuscatedName("ax")
 	@Export("drawPrimary")
 	boolean drawPrimary;
-	@ObfuscatedName("av")
+	@ObfuscatedName("ay")
 	@Export("drawSecondary")
 	boolean drawSecondary;
-	@ObfuscatedName("ak")
+	@ObfuscatedName("au")
 	@Export("drawGameObjects")
 	boolean drawGameObjects;
-	@ObfuscatedName("ay")
+	@ObfuscatedName("as")
 	@ObfuscatedGetter(
-		intValue = -1754732641
+		intValue = 1960205435
 	)
 	@Export("drawGameObjectEdges")
 	int drawGameObjectEdges;
-	@ObfuscatedName("as")
+	@ObfuscatedName("aw")
 	@ObfuscatedGetter(
-		intValue = 2017344355
+		intValue = 176877587
 	)
-	int field2780;
-	@ObfuscatedName("ab")
+	int field2660;
+	@ObfuscatedName("ad")
 	@ObfuscatedGetter(
-		intValue = 780240341
+		intValue = 1016934781
 	)
-	int field2796;
-	@ObfuscatedName("ah")
-	@ObfuscatedGetter(
-		intValue = -1224610147
-	)
-	int field2799;
+	int field2657;
 	@ObfuscatedName("ai")
+	@ObfuscatedGetter(
+		intValue = 2034123681
+	)
+	int field2658;
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "Lkd;"
+		descriptor = "Ljz;"
 	)
 	@Export("linkedBelowTile")
 	Tile linkedBelowTile;

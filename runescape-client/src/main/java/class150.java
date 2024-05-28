@@ -1,86 +1,123 @@
-import java.util.Iterator;
+import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fg")
-public class class150 extends class143 {
-	@ObfuscatedName("am")
-	boolean field1677;
-	@ObfuscatedName("ap")
-	byte field1673;
-	@ObfuscatedName("af")
-	byte field1674;
+@ObfuscatedName("fu")
+public class class150 {
+	@ObfuscatedName("ak")
+	@ObfuscatedGetter(
+		longValue = -8184252867772202709L
+	)
+	long field1710;
+	@ObfuscatedName("al")
+	@ObfuscatedGetter(
+		intValue = 1680514671
+	)
+	public int field1706;
 	@ObfuscatedName("aj")
-	byte field1672;
-	@ObfuscatedName("aq")
-	byte field1676;
-	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lfm;"
+		descriptor = "Lps;"
 	)
-	final class146 this$0;
+	IterableNodeDeque field1711;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lfm;)V"
+		descriptor = "(Lua;)V"
 	)
-	class150(class146 var1) {
-		this.this$0 = var1;
+	public class150(Buffer var1) {
+		this.field1706 = -1;
+		this.field1711 = new IterableNodeDeque();
+		this.method3252(var1);
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Luk;I)V",
-		garbageValue = "-411371469"
+		descriptor = "(Lua;I)V",
+		garbageValue = "-1169519545"
 	)
-	void vmethod3531(Buffer var1) {
-		this.field1677 = var1.readUnsignedByte() == 1;
-		this.field1673 = var1.readByte();
-		this.field1674 = var1.readByte();
-		this.field1672 = var1.readByte();
-		this.field1676 = var1.readByte();
-	}
+	void method3252(Buffer var1) {
+		this.field1710 = var1.readLong();
+		this.field1706 = var1.readInt();
 
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "(Lfn;I)V",
-		garbageValue = "1048713263"
-	)
-	void vmethod3529(ClanSettings var1) {
-		var1.allowGuests = this.field1677;
-		var1.field1699 = this.field1673;
-		var1.field1707 = this.field1674;
-		var1.field1696 = this.field1672;
-		var1.field1702 = this.field1676;
-	}
+		for (int var2 = var1.readUnsignedByte(); var2 != 0; var2 = var1.readUnsignedByte()) {
+			Object var3;
+			if (var2 == 3) {
+				var3 = new class169(this);
+			} else if (var2 == 1) {
+				var3 = new LoginPacket(this);
+			} else if (var2 == 13) {
+				var3 = new class162(this);
+			} else if (var2 == 4) {
+				var3 = new class154(this);
+			} else if (var2 == 6) {
+				var3 = new class161(this);
+			} else if (var2 == 5) {
+				var3 = new class146(this);
+			} else if (var2 == 2) {
+				var3 = new class151(this);
+			} else if (var2 == 7) {
+				var3 = new class144(this);
+			} else if (var2 == 14) {
+				var3 = new class148(this);
+			} else if (var2 == 8) {
+				var3 = new class165(this);
+			} else if (var2 == 9) {
+				var3 = new class171(this);
+			} else if (var2 == 10) {
+				var3 = new class157(this);
+			} else if (var2 == 11) {
+				var3 = new class152(this);
+			} else if (var2 == 12) {
+				var3 = new class156(this);
+			} else {
+				if (var2 != 15) {
+					throw new RuntimeException("");
+				}
 
-	@ObfuscatedName("am")
-	@ObfuscatedSignature(
-		descriptor = "(B)[Ldl;",
-		garbageValue = "84"
-	)
-	static AttackOption[] method3301() {
-		return new AttackOption[]{AttackOption.field1331, AttackOption.AttackOption_hidden, AttackOption.AttackOption_alwaysRightClick, AttackOption.field1329, AttackOption.AttackOption_dependsOnCombatLevels};
-	}
-
-	@ObfuscatedName("aa")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1514358172"
-	)
-	public static void method3304() {
-		Iterator var0 = class319.musicSongs.iterator();
-
-		while (var0.hasNext()) {
-			MusicSong var1 = (MusicSong)var0.next();
-			if (var1 != null) {
-				var1.midiPcmStream.clear();
-				var1.midiPcmStream.method6075();
-				var1.midiPcmStream.setPcmStreamVolume(0);
-				var1.midiPcmStream.field3499 = 0;
-				class129.method3075(var1.musicTrackGroupId, var1.musicTrackFileId);
+				var3 = new class166(this);
 			}
+
+			((class147)var3).vmethod3486(var1);
+			this.field1711.addFirst((Node)var3);
 		}
 
-		class319.musicSongs.clear();
+	}
+
+	@ObfuscatedName("al")
+	@ObfuscatedSignature(
+		descriptor = "(Lgc;I)V",
+		garbageValue = "143754529"
+	)
+	public void method3261(ClanSettings var1) {
+		if (this.field1710 == var1.field1784 && this.field1706 == var1.field1763) {
+			for (class147 var2 = (class147)this.field1711.last(); var2 != null; var2 = (class147)this.field1711.previous()) {
+				var2.vmethod3490(var1);
+			}
+
+			++var1.field1763;
+		} else {
+			throw new RuntimeException("");
+		}
+	}
+
+	@ObfuscatedName("lk")
+	@ObfuscatedSignature(
+		descriptor = "(S)Z",
+		garbageValue = "15699"
+	)
+	static final boolean method3254() {
+		return Client.isMenuOpen;
+	}
+
+	@ObfuscatedName("og")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "-1894426333"
+	)
+	@Export("Clan_leaveChat")
+	static final void Clan_leaveChat() {
+		PacketBufferNode var0 = WorldMapElement.getPacketBufferNode(ClientPacket.field3347, Client.packetWriter.isaacCipher);
+		var0.packetBuffer.writeByte(0);
+		Client.packetWriter.addNode(var0);
 	}
 }

@@ -4,111 +4,122 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("el")
+@ObfuscatedName("em")
 @Implements("TileItem")
 public final class TileItem extends Renderable {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = -1587968895
+		intValue = -2113245633
 	)
 	@Export("id")
 	int id;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedGetter(
-		intValue = 1767030957
+		intValue = 1911170797
 	)
 	@Export("quantity")
 	int quantity;
 	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -1704232705
+		intValue = 419336507
 	)
-	int field1335;
+	@Export("visibleTime")
+	int visibileTime;
+	@ObfuscatedName("az")
+	@ObfuscatedGetter(
+		intValue = 359021447
+	)
+	@Export("despawnTime")
+	int despawnTime;
+	@ObfuscatedName("af")
+	@ObfuscatedGetter(
+		intValue = -1547995727
+	)
+	@Export("ownership")
+	int ownership;
+	@ObfuscatedName("aa")
+	@Export("isPrivate")
+	boolean isPrivate;
+	@ObfuscatedName("ab")
+	@ObfuscatedGetter(
+		intValue = 238010175
+	)
+	@Export("flag")
+	int flag;
 
 	TileItem() {
-		this.field1335 = 31;
+		this.flag = 31;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(IB)V",
-		garbageValue = "46"
+		descriptor = "(II)V",
+		garbageValue = "251603547"
 	)
-	void method2750(int var1) {
-		this.field1335 = var1;
+	@Export("setFlag")
+	void setFlag(int var1) {
+		this.flag = var1;
 	}
 
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "(I)Lko;",
-		garbageValue = "-714420560"
-	)
-	@Export("getModel")
-	protected final Model getModel() {
-		return class341.ItemDefinition_get(this.id).getModel(this.quantity);
-	}
-
-	@ObfuscatedName("af")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
 		descriptor = "(IB)Z",
-		garbageValue = "1"
+		garbageValue = "57"
 	)
-	boolean method2751(int var1) {
+	boolean method2759(int var1) {
 		if (var1 >= 0 && var1 <= 4) {
-			return (this.field1335 & 1 << var1) != 0;
+			return (this.flag & 1 << var1) != 0;
 		} else {
 			return true;
 		}
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "-1453512088"
+		descriptor = "(I)Lkb;",
+		garbageValue = "-852782106"
 	)
-	static int method2762() {
-		return class28.KeyHandler_keyCodes.length;
+	@Export("getModel")
+	protected final Model getModel() {
+		return KeyHandler.ItemDefinition_get(this.id).getModel(this.quantity);
 	}
 
-	@ObfuscatedName("aa")
-	static final void method2757(long var0) {
-		ViewportMouse.ViewportMouse_entityTags[++ViewportMouse.ViewportMouse_entityCount - 1] = var0;
-	}
-
-	@ObfuscatedName("jb")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "-117"
+		descriptor = "([Ljava/lang/CharSequence;III)Ljava/lang/String;",
+		garbageValue = "1549229344"
 	)
-	static void method2764() {
-		if (KeyHandler.localPlayer.x >> 7 == Client.destinationX && KeyHandler.localPlayer.y >> 7 == Client.destinationY) {
-			Client.destinationX = 0;
-		}
+	public static String method2763(CharSequence[] var0, int var1, int var2) {
+		if (var2 == 0) {
+			return "";
+		} else if (var2 == 1) {
+			CharSequence var10 = var0[var1];
+			return var10 == null ? "null" : var10.toString();
+		} else {
+			int var3 = var2 + var1;
+			int var4 = 0;
 
-	}
-
-	@ObfuscatedName("oz")
-	@ObfuscatedSignature(
-		descriptor = "(IIIILuc;Lmq;B)V",
-		garbageValue = "20"
-	)
-	@Export("drawSpriteOnMinimap")
-	static final void drawSpriteOnMinimap(int var0, int var1, int var2, int var3, SpritePixels var4, SpriteMask var5) {
-		if (var4 != null) {
-			int var6 = Client.camAngleY & 2047;
-			int var7 = var3 * var3 + var2 * var2;
-			if (var7 <= 6400) {
-				int var8 = Rasterizer3D.Rasterizer3D_sine[var6];
-				int var9 = Rasterizer3D.Rasterizer3D_cosine[var6];
-				int var10 = var9 * var2 + var3 * var8 >> 16;
-				int var11 = var3 * var9 - var8 * var2 >> 16;
-				if (var7 > 2500) {
-					var4.method9911(var10 + var5.width / 2 - var4.width / 2, var5.height / 2 - var11 - var4.height / 2, var0, var1, var5.width, var5.height, var5.xStarts, var5.xWidths);
+			for (int var5 = var1; var5 < var3; ++var5) {
+				CharSequence var9 = var0[var5];
+				if (var9 == null) {
+					var4 += 4;
 				} else {
-					var4.drawTransBgAt(var0 + var10 + var5.width / 2 - var4.width / 2, var5.height / 2 + var1 - var11 - var4.height / 2);
+					var4 += var9.length();
 				}
-
 			}
+
+			StringBuilder var8 = new StringBuilder(var4);
+
+			for (int var6 = var1; var6 < var3; ++var6) {
+				CharSequence var7 = var0[var6];
+				if (var7 == null) {
+					var8.append("null");
+				} else {
+					var8.append(var7);
+				}
+			}
+
+			return var8.toString();
 		}
 	}
 }

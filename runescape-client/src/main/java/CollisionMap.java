@@ -4,34 +4,36 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ii")
+@ObfuscatedName("ir")
 @Implements("CollisionMap")
 public class CollisionMap {
-	@ObfuscatedName("bn")
+	@ObfuscatedName("ap")
+	public static short[][] field2491;
+	@ObfuscatedName("be")
 	@ObfuscatedGetter(
-		intValue = 920759369
+		intValue = 431710865
 	)
 	@Export("xInset")
 	int xInset;
-	@ObfuscatedName("by")
+	@ObfuscatedName("bg")
 	@ObfuscatedGetter(
-		intValue = -2000616941
+		intValue = 462939225
 	)
 	@Export("yInset")
 	int yInset;
-	@ObfuscatedName("bc")
+	@ObfuscatedName("bu")
 	@ObfuscatedGetter(
-		intValue = 961659383
+		intValue = -907414625
 	)
 	@Export("xSize")
 	int xSize;
-	@ObfuscatedName("bx")
+	@ObfuscatedName("bh")
 	@ObfuscatedGetter(
-		intValue = -1096635323
+		intValue = 1122138315
 	)
 	@Export("ySize")
 	int ySize;
-	@ObfuscatedName("bf")
+	@ObfuscatedName("bk")
 	@Export("flags")
 	public int[][] flags;
 
@@ -44,17 +46,17 @@ public class CollisionMap {
 		this.clear();
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "1279524969"
+		garbageValue = "1956905558"
 	)
 	@Export("clear")
 	public void clear() {
 		for (int var1 = 0; var1 < this.xSize; ++var1) {
 			for (int var2 = 0; var2 < this.ySize; ++var2) {
 				if (var1 != 0 && var2 != 0 && var1 < this.xSize - 5 && var2 < this.ySize - 5) {
-					this.flags[var1][var2] = 16777216;
+					this.flags[var1][var2] = 1073741824;
 				} else {
 					this.flags[var1][var2] = 16777215;
 				}
@@ -63,12 +65,12 @@ public class CollisionMap {
 
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
 		descriptor = "(IIIIZB)V",
-		garbageValue = "65"
+		garbageValue = "27"
 	)
-	public void method4466(int var1, int var2, int var3, int var4, boolean var5) {
+	public void method4457(int var1, int var2, int var3, int var4, boolean var5) {
 		var1 -= this.xInset;
 		var2 -= this.yInset;
 		if (var3 == 0) {
@@ -215,10 +217,10 @@ public class CollisionMap {
 
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(IIIIZB)V",
-		garbageValue = "-29"
+		descriptor = "(IIIIZI)V",
+		garbageValue = "1911214483"
 	)
 	@Export("addGameObject")
 	public void addGameObject(int var1, int var2, int var3, int var4, boolean var5) {
@@ -242,10 +244,10 @@ public class CollisionMap {
 
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(IIB)V",
-		garbageValue = "68"
+		descriptor = "(III)V",
+		garbageValue = "-26839704"
 	)
 	@Export("setBlockedByFloor")
 	public void setBlockedByFloor(int var1, int var2) {
@@ -255,10 +257,10 @@ public class CollisionMap {
 		var10000[var2] |= 2097152;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@ObfuscatedSignature(
-		descriptor = "(IIB)V",
-		garbageValue = "9"
+		descriptor = "(III)V",
+		garbageValue = "-139896518"
 	)
 	@Export("setBlockedByFloorDec")
 	public void setBlockedByFloorDec(int var1, int var2) {
@@ -268,10 +270,10 @@ public class CollisionMap {
 		var10000[var2] |= 262144;
 	}
 
-	@ObfuscatedName("ar")
+	@ObfuscatedName("aa")
 	@ObfuscatedSignature(
-		descriptor = "(IIIB)V",
-		garbageValue = "7"
+		descriptor = "(IIII)V",
+		garbageValue = "1835599831"
 	)
 	@Export("setFlag")
 	void setFlag(int var1, int var2, int var3) {
@@ -279,12 +281,12 @@ public class CollisionMap {
 		var10000[var2] |= var3;
 	}
 
-	@ObfuscatedName("ag")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(IIIIZI)V",
-		garbageValue = "-1942405589"
+		garbageValue = "249323904"
 	)
-	public void method4464(int var1, int var2, int var3, int var4, boolean var5) {
+	public void method4478(int var1, int var2, int var3, int var4, boolean var5) {
 		var1 -= this.xInset;
 		var2 -= this.yInset;
 		if (var3 == 0) {
@@ -431,14 +433,14 @@ public class CollisionMap {
 
 	}
 
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
 		descriptor = "(IIIIIZI)V",
-		garbageValue = "-766496103"
+		garbageValue = "-672703506"
 	)
 	@Export("setFlagOffNonSquare")
 	public void setFlagOffNonSquare(int var1, int var2, int var3, int var4, int var5, boolean var6) {
-		int var7 = 256;
+		int var7 = 33554688;
 		if (var6) {
 			var7 += 131072;
 		}
@@ -464,10 +466,10 @@ public class CollisionMap {
 
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ac")
 	@ObfuscatedSignature(
-		descriptor = "(IIII)V",
-		garbageValue = "-1567607117"
+		descriptor = "(IIIB)V",
+		garbageValue = "0"
 	)
 	@Export("setFlagOff")
 	void setFlagOff(int var1, int var2, int var3) {
@@ -475,72 +477,15 @@ public class CollisionMap {
 		var10000[var2] &= ~var3;
 	}
 
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
 		descriptor = "(III)V",
-		garbageValue = "2072016514"
+		garbageValue = "503558444"
 	)
-	public void method4473(int var1, int var2) {
+	public void method4470(int var1, int var2) {
 		var1 -= this.xInset;
 		var2 -= this.yInset;
 		int[] var10000 = this.flags[var1];
 		var10000[var2] &= -262145;
-	}
-
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;I)[B",
-		garbageValue = "762996225"
-	)
-	static byte[] method4475(String var0) {
-		boolean var1 = true;
-		boolean var2 = true;
-		int var3 = "pattern".length();
-		int var4 = 0;
-		byte[] var5 = new byte[8];
-
-		while (true) {
-			int var6 = var4 + var3;
-			if (var6 >= var0.length()) {
-				return null;
-			}
-
-			char var7 = var0.charAt(var6);
-			if (var7 == ':') {
-				if (var4 == 0) {
-					return null;
-				}
-
-				byte[] var8 = new byte[var4];
-				System.arraycopy(var5, 0, var8, 0, var4);
-				return var8;
-			}
-
-			if (var5.length == var4) {
-				return null;
-			}
-
-			if (var7 >= '0' && var7 <= '9') {
-				var7 = (char)(var7 - '0');
-			} else {
-				if (var7 < 'a' || var7 > 'z') {
-					return null;
-				}
-
-				var7 = (char)(var7 - 'W');
-			}
-
-			var5[var4++] = (byte)var7;
-		}
-	}
-
-	@ObfuscatedName("ci")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;I)I",
-		garbageValue = "-1880295988"
-	)
-	@Export("stringCp1252NullTerminatedByteSize")
-	public static int stringCp1252NullTerminatedByteSize(String var0) {
-		return var0.length() + 1;
 	}
 }

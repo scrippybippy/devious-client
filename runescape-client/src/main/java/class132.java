@@ -1,119 +1,69 @@
-import net.runelite.mapping.Export;
+import java.util.concurrent.Callable;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ff")
-public class class132 implements Enum {
-	@ObfuscatedName("am")
+@ObfuscatedName("fy")
+public class class132 implements Callable {
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Lff;"
+		descriptor = "Lfm;"
 	)
-	static final class132 field1555;
-	@ObfuscatedName("ap")
+	final class133 field1577;
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "Lff;"
+		descriptor = "Lfr;"
 	)
-	static final class132 field1553;
-	@ObfuscatedName("af")
-	@ObfuscatedSignature(
-		descriptor = "Lff;"
-	)
-	static final class132 field1554;
+	final class134 field1574;
 	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "Lff;"
+		descriptor = "Lfz;"
 	)
-	static final class132 field1560;
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "Lff;"
-	)
-	static final class132 field1556;
-	@ObfuscatedName("ar")
-	@ObfuscatedSignature(
-		descriptor = "Lff;"
-	)
-	static final class132 field1561;
-	@ObfuscatedName("ii")
-	@ObfuscatedSignature(
-		descriptor = "Lil;"
-	)
-	static Task field1563;
-	@ObfuscatedName("ag")
+	final class135 field1575;
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		intValue = 1569709707
+		intValue = 106186067
 	)
-	final int field1558;
-	@ObfuscatedName("ao")
-	@ObfuscatedGetter(
-		intValue = -1331409345
-	)
-	final int field1559;
-	@ObfuscatedName("ae")
-	@ObfuscatedGetter(
-		intValue = 2076256283
-	)
-	final int field1557;
-
-	static {
-		field1555 = new class132(0, 0, (String)null, 0);
-		field1553 = new class132(1, 1, (String)null, 9);
-		field1554 = new class132(2, 2, (String)null, 3);
-		field1560 = new class132(3, 3, (String)null, 6);
-		field1556 = new class132(4, 4, (String)null, 1);
-		field1561 = new class132(5, 5, (String)null, 3);
-	}
-
-	class132(int var1, int var2, String var3, int var4) {
-		this.field1558 = var1;
-		this.field1559 = var2;
-		this.field1557 = var4;
-	}
-
-	@ObfuscatedName("ap")
+	final int field1576;
+	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "-884190501"
+		descriptor = "Lfo;"
 	)
-	@Export("rsOrdinal")
-	public int rsOrdinal() {
-		return this.field1559;
+	final class141 this$0;
+
+	@ObfuscatedSignature(
+		descriptor = "(Lfo;Lfm;Lfr;Lfz;I)V"
+	)
+	class132(class141 var1, class133 var2, class134 var3, class135 var4, int var5) {
+		this.this$0 = var1;
+		this.field1577 = var2;
+		this.field1574 = var3;
+		this.field1575 = var4;
+		this.field1576 = var5;
 	}
 
-	@ObfuscatedName("af")
-	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "1760796725"
-	)
-	int method3117() {
-		return this.field1557;
-	}
-
-	@ObfuscatedName("av")
-	@ObfuscatedSignature(
-		descriptor = "(Lnn;I)I",
-		garbageValue = "340165408"
-	)
-	static int method3116(Widget var0) {
-		if (var0.type != 11) {
-			--class211.Interpreter_stringStackSize;
-			Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = -1;
-			return 1;
+	public Object call() {
+		this.field1577.method3091();
+		class133[][] var1;
+		if (this.field1574 == class134.field1604) {
+			var1 = this.this$0.field1647;
 		} else {
-			String var1 = Interpreter.Interpreter_stringStack[--class211.Interpreter_stringStackSize];
-			Interpreter.Interpreter_intStack[++UserComparator6.Interpreter_intStackSize - 1] = var0.method6712(var1);
-			return 1;
+			var1 = this.this$0.field1653;
 		}
+
+		var1[this.field1576][this.field1575.method3120()] = this.field1577;
+		return null;
 	}
 
-	@ObfuscatedName("ht")
+	@ObfuscatedName("lm")
 	@ObfuscatedSignature(
-		descriptor = "(B)Ltc;",
-		garbageValue = "0"
+		descriptor = "(Lcj;III)V",
+		garbageValue = "-1443572211"
 	)
-	@Export("getWorldMap")
-	static WorldMap getWorldMap() {
-		return GrandExchangeOfferUnitPriceComparator.worldMap;
+	static final void method3076(MenuAction var0, int var1, int var2) {
+		if (var0 != null) {
+			PacketWriter.menuAction(var0.param0, var0.param1, var0.opcode, var0.identifier, var0.itemId, var0.worldViewId, var0.action, var0.target, var1, var2);
+		}
+
 	}
 }

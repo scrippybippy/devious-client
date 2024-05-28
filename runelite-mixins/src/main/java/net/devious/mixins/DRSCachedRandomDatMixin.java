@@ -7,7 +7,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.util.Arrays;
 import java.util.Base64;
 import java.util.Properties;
 import net.runelite.api.mixins.Copy;
@@ -107,8 +106,8 @@ public abstract class DRSCachedRandomDatMixin implements RSClient
 			return;
 		}
 
-		client.getLogger().info("Saving new random.dat data {} for user {}", newRandomDatData, client.getUsername());
-		client.writeCachedRandomDatData(client.getUsername(), newRandomDatData);
+		client.getLogger().info("Saving new random.dat data {} for user {}", newRandomDatData, client.getUsername() != null && !client.getUsername().isEmpty() ? client.getUsername() : client.getCharacterId());
+		client.writeCachedRandomDatData(client.getUsername() != null && !client.getUsername().isEmpty() ? client.getUsername() : client.getCharacterId(), newRandomDatData);
 	}
 
 	@Copy("randomDatData2")
@@ -120,31 +119,16 @@ public abstract class DRSCachedRandomDatMixin implements RSClient
 			return copy$RandomDatData2();
 		}
 
-		byte[] loadedData = copy$RandomDatData2();
-		client.getLogger().info("Loaded random.dat data {} for user {}", loadedData, client.getUsername());
-
-		byte[] cachedData = client.getCachedRandomDatData(client.getUsername());
-		if (cachedData != null)
+		byte[] cachedData = client.getCachedRandomDatData(client.getUsername() != null && !client.getUsername().isEmpty() ? client.getUsername() : client.getCharacterId());
+		if (cachedData == null)
 		{
-			client.getLogger().info("Loaded cached data {} for user {}", cachedData, client.getUsername());
-			if (!Arrays.equals(cachedData, loadedData))
-			{
-				client.getLogger().info("Using cached random.dat data {} for user {}", cachedData, client.getUsername());
-				return cachedData;
-			}
-		}
-		else
-		{
-			byte[] emptyData = new byte[24];
+			cachedData = new byte[24];
 			for (byte i = 0; i < 24; i++)
 			{
-				emptyData[i] = -1;
+				cachedData[i] = -1;
 			}
-			client.getLogger().info("Using empty random.dat data {} for user {}", emptyData, client.getUsername());
-			return emptyData;
 		}
-
-		client.getLogger().info("Using default random.dat data {} for user {} (Cached random.dat data matches random.dat file)", loadedData, client.getUsername());
-		return loadedData;
+		client.getLogger().info("Using cached random.dat {} for user {}", cachedData, client.getUsername() != null && !client.getUsername().isEmpty() ? client.getUsername() : client.getCharacterId());
+		return cachedData;
 	}
 }

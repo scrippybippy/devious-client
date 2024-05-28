@@ -1,42 +1,61 @@
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("qs")
-public class class428 {
-	@ObfuscatedName("mq")
+@ObfuscatedName("qr")
+public class class428 implements Iterator {
+	@ObfuscatedName("ds")
 	@ObfuscatedSignature(
-		descriptor = "([Lnn;IIIZI)V",
-		garbageValue = "670906254"
+		descriptor = "[Lvl;"
 	)
-	@Export("resizeInterface")
-	static void resizeInterface(Widget[] var0, int var1, int var2, int var3, boolean var4) {
-		for (int var5 = 0; var5 < var0.length; ++var5) {
-			Widget var6 = var0[var5];
-			if (var6 != null && var6.parentId == var1) {
-				DelayFadeTask.alignWidgetSize(var6, var2, var3, var4);
-				WorldMapID.alignWidgetPosition(var6, var2, var3);
-				if (var6.scrollX > var6.scrollWidth - var6.width) {
-					var6.scrollX = var6.scrollWidth - var6.width;
-				}
+	@Export("worldSelectFlagSprites")
+	static IndexedSprite[] worldSelectFlagSprites;
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "Lqc;"
+	)
+	class429 field4715;
+	@ObfuscatedName("al")
+	@ObfuscatedGetter(
+		intValue = 258225695
+	)
+	int field4716;
+	@ObfuscatedName("aj")
+	@ObfuscatedGetter(
+		intValue = 1135055625
+	)
+	int field4717;
 
-				if (var6.scrollX < 0) {
-					var6.scrollX = 0;
-				}
+	@ObfuscatedSignature(
+		descriptor = "(Lqc;)V"
+	)
+	class428(class429 var1) {
+		this.field4716 = 0;
+		this.field4717 = this.field4715.field4722;
+		this.field4715 = var1;
+	}
 
-				if (var6.scrollY > var6.scrollHeight - var6.height) {
-					var6.scrollY = var6.scrollHeight - var6.height;
-				}
-
-				if (var6.scrollY < 0) {
-					var6.scrollY = 0;
-				}
-
-				if (var6.type == 0) {
-					RestClientThreadFactory.revalidateWidgetScroll(var0, var6, var4);
-				}
-			}
+	public Object next() {
+		if (this.field4715.field4722 != this.field4717) {
+			throw new ConcurrentModificationException();
+		} else if (this.field4716 < this.field4715.field4721) {
+			Object var1 = this.field4715.field4723[this.field4716].field4713;
+			++this.field4716;
+			return var1;
+		} else {
+			throw new NoSuchElementException();
 		}
+	}
 
+	public void remove() {
+		throw new UnsupportedOperationException();
+	}
+
+	public boolean hasNext() {
+		return this.field4716 < this.field4715.field4721;
 	}
 }

@@ -1,34 +1,37 @@
+import java.net.MalformedURLException;
+import java.net.URL;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("mq")
+@ObfuscatedName("nw")
 @Implements("SpriteMask")
 public class SpriteMask extends DualNode {
-	@ObfuscatedName("av")
-	@ObfuscatedSignature(
-		descriptor = "Ldx;"
-	)
-	@Export("loginScreenRunesAnimation")
-	static LoginScreenAnimation loginScreenRunesAnimation;
-	@ObfuscatedName("am")
+	@ObfuscatedName("ac")
 	@ObfuscatedGetter(
-		intValue = 1338249477
+		intValue = -285362375
+	)
+	static int field3705;
+	@ObfuscatedName("jb")
+	static byte[][] field3706;
+	@ObfuscatedName("ak")
+	@ObfuscatedGetter(
+		intValue = -771143131
 	)
 	@Export("width")
 	public final int width;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedGetter(
-		intValue = -1199529387
+		intValue = 1324622685
 	)
 	@Export("height")
 	public final int height;
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@Export("xWidths")
 	public final int[] xWidths;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@Export("xStarts")
 	public final int[] xStarts;
 
@@ -39,10 +42,10 @@ public class SpriteMask extends DualNode {
 		this.xStarts = var4;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(III)Z",
-		garbageValue = "1733503749"
+		descriptor = "(IIB)Z",
+		garbageValue = "12"
 	)
 	@Export("contains")
 	public boolean contains(int var1, int var2) {
@@ -54,5 +57,23 @@ public class SpriteMask extends DualNode {
 		}
 
 		return false;
+	}
+
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;I)Z",
+		garbageValue = "-2060529092"
+	)
+	static boolean method6499(String var0) {
+		if (var0 == null) {
+			return false;
+		} else {
+			try {
+				new URL(var0);
+				return true;
+			} catch (MalformedURLException var2) {
+				return false;
+			}
+		}
 	}
 }

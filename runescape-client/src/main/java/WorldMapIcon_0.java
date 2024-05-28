@@ -1,45 +1,54 @@
+import java.awt.FontMetrics;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jy")
+@ObfuscatedName("lc")
 @Implements("WorldMapIcon_0")
 public class WorldMapIcon_0 extends AbstractWorldMapIcon {
-	@ObfuscatedName("am")
+	@ObfuscatedName("af")
 	@ObfuscatedGetter(
-		intValue = 1716784597
+		intValue = -1654126509
+	)
+	public static int field3144;
+	@ObfuscatedName("bf")
+	@Export("loginScreenFontMetrics")
+	static FontMetrics loginScreenFontMetrics;
+	@ObfuscatedName("ak")
+	@ObfuscatedGetter(
+		intValue = -2145415357
 	)
 	@Export("element")
 	final int element;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "Ljz;"
+		descriptor = "Llh;"
 	)
 	@Export("label")
 	final WorldMapLabel label;
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -327051341
+		intValue = 713364741
 	)
 	@Export("subWidth")
 	final int subWidth;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		intValue = 917238297
+		intValue = -510737185
 	)
 	@Export("subHeight")
 	final int subHeight;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lmu;Lmu;ILjz;)V"
+		descriptor = "(Lnj;Lnj;ILlh;)V"
 	)
 	WorldMapIcon_0(Coord var1, Coord var2, int var3, WorldMapLabel var4) {
 		super(var1, var2);
 		this.element = var3;
 		this.label = var4;
-		WorldMapElement var5 = ConcurrentMidiTask.WorldMapElement_get(this.getElement());
+		WorldMapElement var5 = WorldMapElement.WorldMapElement_get(this.getElement());
 		SpritePixels var6 = var5.getSpriteBool(false);
 		if (var6 != null) {
 			this.subWidth = var6.subWidth;
@@ -51,53 +60,59 @@ public class WorldMapIcon_0 extends AbstractWorldMapIcon {
 
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "833304324"
+		garbageValue = "117980127"
 	)
 	@Export("getElement")
 	public int getElement() {
 		return this.element;
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(I)Ljz;",
-		garbageValue = "1205973162"
+		descriptor = "(B)Llh;",
+		garbageValue = "48"
 	)
 	@Export("getLabel")
 	WorldMapLabel getLabel() {
 		return this.label;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(B)I",
-		garbageValue = "-17"
+		descriptor = "(I)I",
+		garbageValue = "-601586149"
 	)
 	@Export("getSubWidth")
 	int getSubWidth() {
 		return this.subWidth;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "1939845303"
+		garbageValue = "-1569951837"
 	)
 	@Export("getSubHeight")
 	int getSubHeight() {
 		return this.subHeight;
 	}
 
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ak")
+	static double method5860(double var0, double var2, double var4) {
+		double var8 = (var0 - var2) / var4;
+		double var6 = Math.exp(var8 * -var8 / 2.0D) / Math.sqrt(6.283185307179586D);
+		return var6 / var4;
+	}
+
+	@ObfuscatedName("cd")
 	@ObfuscatedSignature(
-		descriptor = "(CI)Z",
-		garbageValue = "-1274823472"
+		descriptor = "(IB)Ljava/lang/Object;",
+		garbageValue = "-23"
 	)
-	@Export("isAlphaNumeric")
-	public static boolean isAlphaNumeric(char var0) {
-		return var0 >= '0' && var0 <= '9' || var0 >= 'A' && var0 <= 'Z' || var0 >= 'a' && var0 <= 'z';
+	static Object method5865(int var0) {
+		return class153.method3285((class533)MenuAction.findEnumerated(class533.method9515(), var0));
 	}
 }

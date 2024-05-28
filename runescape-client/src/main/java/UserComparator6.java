@@ -7,13 +7,12 @@ import net.runelite.mapping.ObfuscatedSignature;
 @ObfuscatedName("eq")
 @Implements("UserComparator6")
 public class UserComparator6 extends AbstractUserComparator {
-	@ObfuscatedName("ae")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 1549455343
+		intValue = -1608214613
 	)
-	@Export("Interpreter_intStackSize")
-	static int Interpreter_intStackSize;
-	@ObfuscatedName("am")
+	static int field1529;
+	@ObfuscatedName("ak")
 	@Export("reversed")
 	final boolean reversed;
 
@@ -21,10 +20,10 @@ public class UserComparator6 extends AbstractUserComparator {
 		this.reversed = var1;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Lrj;Lrj;B)I",
-		garbageValue = "37"
+		descriptor = "(Lso;Lso;I)I",
+		garbageValue = "-563542583"
 	)
 	@Export("compareBuddy")
 	int compareBuddy(Buddy var1, Buddy var2) {
@@ -39,36 +38,46 @@ public class UserComparator6 extends AbstractUserComparator {
 		return this.compareBuddy((Buddy)var1, (Buddy)var2);
 	}
 
-	@ObfuscatedName("ce")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "([BI)[B",
-		garbageValue = "1306902939"
+		descriptor = "(I)V",
+		garbageValue = "487878865"
 	)
-	@Export("decompressBytes")
-	static final byte[] decompressBytes(byte[] var0) {
-		Buffer var1 = new Buffer(var0);
-		int var2 = var1.readUnsignedByte();
-		int var3 = var1.readInt();
-		if (var3 < 0 || AbstractArchive.field4364 != 0 && var3 > AbstractArchive.field4364) {
-			throw new RuntimeException();
-		} else if (var2 == 0) {
-			byte[] var6 = new byte[var3];
-			var1.readBytes(var6, 0, var3);
-			return var6;
-		} else {
-			int var4 = var1.readInt();
-			if (var4 >= 0 && (AbstractArchive.field4364 == 0 || var4 <= AbstractArchive.field4364)) {
-				byte[] var5 = new byte[var4];
-				if (var2 == 1) {
-					BZip2Decompressor.BZip2Decompressor_decompress(var5, var4, var0, var3, 9);
-				} else {
-					AbstractArchive.gzipDecompressor.decompress(var1, var5);
-				}
+	static void method3016() {
+		class197.Tiles_underlays = null;
+		Tiles.Tiles_overlays = null;
+		class253.Tiles_shapes = null;
+		AbstractByteArrayCopier.field3975 = null;
+		SongTask.field4795 = null;
+		class202.Tiles_underlays2 = null;
+		class17.field84 = null;
+		ParamComposition.Tiles_hue = null;
+		class194.Tiles_saturation = null;
+		Tiles.Tiles_lightness = null;
+		class131.Tiles_hueMultiplier = null;
+		Tiles.field1050 = null;
+	}
 
-				return var5;
-			} else {
-				throw new RuntimeException();
-			}
+	@ObfuscatedName("ay")
+	@ObfuscatedSignature(
+		descriptor = "(III)I",
+		garbageValue = "-166924155"
+	)
+	static final int method3021(int var0, int var1) {
+		int var2 = var0 + var1 * 57;
+		var2 ^= var2 << 13;
+		int var3 = (var2 * var2 * 15731 + 789221) * var2 + 1376312589 & Integer.MAX_VALUE;
+		return var3 >> 19 & 255;
+	}
+
+	@ObfuscatedName("hs")
+	@ObfuscatedSignature(
+		descriptor = "(Ldn;I)V",
+		garbageValue = "-257555905"
+	)
+	static void method3020(class94 var0) {
+		if (Client.field561 != var0) {
+			Client.field561 = var0;
 		}
 	}
 }

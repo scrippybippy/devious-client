@@ -1,45 +1,47 @@
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URL;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("rf")
+@ObfuscatedName("sr")
 @Implements("BufferedSink")
 public class BufferedSink implements Runnable {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@Export("thread")
 	Thread thread;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@Export("outputStream")
 	OutputStream outputStream;
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -1476152249
+		intValue = -1983328937
 	)
 	@Export("capacity")
 	int capacity;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@Export("buffer")
 	byte[] buffer;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@ObfuscatedGetter(
-		intValue = -72662605
+		intValue = -2082251661
 	)
 	@Export("position")
 	int position;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = -1528143255
+		intValue = -1075813443
 	)
 	@Export("limit")
 	int limit;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("at")
 	@Export("exception")
 	IOException exception;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ab")
 	@Export("closed")
 	boolean closed;
 
@@ -54,10 +56,10 @@ public class BufferedSink implements Runnable {
 		this.thread.start();
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(I)Z",
-		garbageValue = "854013615"
+		descriptor = "(B)Z",
+		garbageValue = "17"
 	)
 	@Export("isClosed")
 	boolean isClosed() {
@@ -79,10 +81,10 @@ public class BufferedSink implements Runnable {
 		}
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "([BIIB)V",
-		garbageValue = "1"
+		descriptor = "([BIII)V",
+		garbageValue = "-2147483643"
 	)
 	@Export("write")
 	void write(byte[] var1, int var2, int var3) throws IOException {
@@ -119,10 +121,10 @@ public class BufferedSink implements Runnable {
 		}
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "-24"
+		descriptor = "(I)V",
+		garbageValue = "-1194566833"
 	)
 	@Export("close")
 	void close() {
@@ -198,39 +200,44 @@ public class BufferedSink implements Runnable {
 
 	}
 
-	@ObfuscatedName("as")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(III)Z",
-		garbageValue = "2115908768"
+		descriptor = "(Ljava/lang/String;Ljava/lang/Throwable;I)V",
+		garbageValue = "752768456"
 	)
-	static final boolean method8461(int var0, int var1) {
-		ObjectComposition var2 = class137.getObjectDefinition(var0);
-		if (var1 == 11) {
-			var1 = 10;
-		}
-
-		if (var1 >= 5 && var1 <= 8) {
-			var1 = 4;
-		}
-
-		return var2.method3932(var1);
-	}
-
-	@ObfuscatedName("ng")
-	@ObfuscatedSignature(
-		descriptor = "(II)V",
-		garbageValue = "1859289931"
-	)
-	static final void method8450(int var0) {
-		if (class380.widgetDefinition.loadInterface(var0)) {
-			Widget[] var1 = class380.widgetDefinition.Widget_interfaceComponents[var0];
-
-			for (int var2 = 0; var2 < var1.length; ++var2) {
-				Widget var3 = var1[var2];
-				if (var3 != null) {
-					var3.modelFrame = 0;
-					var3.modelFrameCycle = 0;
+	@Export("RunException_sendStackTrace")
+	public static void RunException_sendStackTrace(String var0, Throwable var1) {
+		if (var1 != null) {
+			var1.printStackTrace();
+		} else {
+			try {
+				String var2 = "";
+				if (var1 != null) {
+					var2 = class140.method3139(var1);
 				}
+
+				if (var0 != null) {
+					if (var1 != null) {
+						var2 = var2 + " | ";
+					}
+
+					var2 = var2 + var0;
+				}
+
+				System.out.println("Error: " + var2);
+				var2 = var2.replace(':', '.');
+				var2 = var2.replace('@', '_');
+				var2 = var2.replace('&', '_');
+				var2 = var2.replace('#', '_');
+				if (RunException.RunException_applet == null) {
+					return;
+				}
+
+				URL var3 = new URL(RunException.RunException_applet.getCodeBase(), "clienterror.ws?cv=" + class534.RunException_revision + "&cs=" + RunException.field5495 + "&u=" + GZipDecompressor.field5486 + "&v1=" + TaskHandler.javaVendor + "&v2=" + TaskHandler.javaVersion + "&ct=" + WorldMapIcon_0.field3144 + "&e=" + var2);
+				DataInputStream var4 = new DataInputStream(var3.openStream());
+				var4.read();
+				var4.close();
+			} catch (Exception var5) {
 			}
 
 		}

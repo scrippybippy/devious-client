@@ -4,64 +4,55 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ui")
+@ObfuscatedName("vm")
 @Implements("FillMode")
 public enum FillMode implements Enum {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Lui;"
+		descriptor = "Lvm;"
 	)
 	@Export("SOLID")
 	SOLID(0, 0),
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "Lui;"
+		descriptor = "Lvm;"
 	)
-	field5263(1, 1),
-	@ObfuscatedName("af")
-	@ObfuscatedSignature(
-		descriptor = "Lui;"
-	)
-	field5261(2, 2);
-
+	field5426(1, 1),
 	@ObfuscatedName("aj")
-	@ObfuscatedGetter(
-		intValue = 203856351
+	@ObfuscatedSignature(
+		descriptor = "Lvm;"
 	)
-	public final int field5264;
-	@ObfuscatedName("aq")
-	@ObfuscatedGetter(
-		intValue = -2125553059
+	field5427(2, 2);
+
+	@ObfuscatedName("ah")
+	@ObfuscatedSignature(
+		descriptor = "Lhh;"
 	)
-	final int field5265;
+	@Export("clock")
+	static Clock clock;
+	@ObfuscatedName("az")
+	@ObfuscatedGetter(
+		intValue = -1771953401
+	)
+	public final int field5429;
+	@ObfuscatedName("af")
+	@ObfuscatedGetter(
+		intValue = -906848393
+	)
+	final int field5428;
 
 	FillMode(int var3, int var4) {
-		this.field5264 = var3;
-		this.field5265 = var4;
+		this.field5429 = var3;
+		this.field5428 = var4;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "-884190501"
+		garbageValue = "-311400525"
 	)
 	@Export("rsOrdinal")
 	public int rsOrdinal() {
-		return this.field5265;
-	}
-
-	@ObfuscatedName("an")
-	@ObfuscatedSignature(
-		descriptor = "(Low;II)Z",
-		garbageValue = "1021208551"
-	)
-	static boolean method9805(AbstractArchive var0, int var1) {
-		byte[] var2 = var0.takeFileFlat(var1);
-		if (var2 == null) {
-			return false;
-		} else {
-			DynamicObject.SpriteBuffer_decode(var2);
-			return true;
-		}
+		return this.field5428;
 	}
 }

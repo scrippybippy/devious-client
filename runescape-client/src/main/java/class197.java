@@ -2,58 +2,78 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hk")
+@ObfuscatedName("hd")
 public class class197 extends DualNode {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Llq;"
+		descriptor = "Llm;"
 	)
-	@Export("archive4")
-	static EvictingDualNodeHashTable archive4;
+	@Export("field1864")
+	static EvictingDualNodeHashTable field1864;
+	@ObfuscatedName("al")
+	@Export("Tiles_underlays")
+	static short[][][] Tiles_underlays;
+	@ObfuscatedName("qf")
+	@ObfuscatedSignature(
+		descriptor = "[Lnb;"
+	)
+	static Widget[] field2010;
 
 	static {
-		archive4 = new EvictingDualNodeHashTable(64);
+		field1864 = new EvictingDualNodeHashTable(64);
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("af")
 	@ObfuscatedSignature(
-		descriptor = "(Low;IIB)[Lut;",
-		garbageValue = "80"
+		descriptor = "(IIIZIZI)V",
+		garbageValue = "2142881619"
 	)
-	public static IndexedSprite[] method3853(AbstractArchive var0, int var1, int var2) {
-		if (!Varcs.method2829(var0, var1, var2)) {
-			return null;
-		} else {
-			IndexedSprite[] var4 = new IndexedSprite[SpriteBufferProperties.SpriteBuffer_spriteCount];
+	@Export("doWorldSorting")
+	static void doWorldSorting(int var0, int var1, int var2, boolean var3, int var4, boolean var5) {
+		if (var0 < var1) {
+			int var6 = (var0 + var1) / 2;
+			int var7 = var0;
+			World var8 = class415.World_worlds[var6];
+			class415.World_worlds[var6] = class415.World_worlds[var1];
+			class415.World_worlds[var1] = var8;
 
-			for (int var5 = 0; var5 < SpriteBufferProperties.SpriteBuffer_spriteCount; ++var5) {
-				IndexedSprite var6 = var4[var5] = new IndexedSprite();
-				var6.width = SpriteBufferProperties.SpriteBuffer_spriteWidth;
-				var6.height = SpriteBufferProperties.SpriteBuffer_spriteHeight;
-				var6.xOffset = SpriteBufferProperties.SpriteBuffer_xOffsets[var5];
-				var6.yOffset = class388.SpriteBuffer_yOffsets[var5];
-				var6.subWidth = FriendsList.SpriteBuffer_spriteWidths[var5];
-				var6.subHeight = GrandExchangeOfferOwnWorldComparator.SpriteBuffer_spriteHeights[var5];
-				var6.palette = SecureUrlRequester.SpriteBuffer_spritePalette;
-				var6.pixels = class230.SpriteBuffer_pixels[var5];
+			for (int var9 = var0; var9 < var1; ++var9) {
+				if (class173.method3504(class415.World_worlds[var9], var8, var2, var3, var4, var5) <= 0) {
+					World var10 = class415.World_worlds[var9];
+					class415.World_worlds[var9] = class415.World_worlds[var7];
+					class415.World_worlds[var7++] = var10;
+				}
 			}
 
-			SpriteBufferProperties.SpriteBuffer_xOffsets = null;
-			class388.SpriteBuffer_yOffsets = null;
-			FriendsList.SpriteBuffer_spriteWidths = null;
-			GrandExchangeOfferOwnWorldComparator.SpriteBuffer_spriteHeights = null;
-			SecureUrlRequester.SpriteBuffer_spritePalette = null;
-			class230.SpriteBuffer_pixels = null;
-			return var4;
+			class415.World_worlds[var1] = class415.World_worlds[var7];
+			class415.World_worlds[var7] = var8;
+			doWorldSorting(var0, var7 - 1, var2, var3, var4, var5);
+			doWorldSorting(var7 + 1, var1, var2, var3, var4, var5);
+		}
+
+	}
+
+	@ObfuscatedName("ah")
+	@ObfuscatedSignature(
+		descriptor = "(Lnb;IIII)V",
+		garbageValue = "-1281338571"
+	)
+	@Export("Widget_setKeyRate")
+	static final void Widget_setKeyRate(Widget var0, int var1, int var2, int var3) {
+		if (var0.field3835 == null) {
+			throw new RuntimeException();
+		} else {
+			var0.field3835[var1] = var2;
+			var0.field3894[var1] = var3;
 		}
 	}
 
-	@ObfuscatedName("kz")
+	@ObfuscatedName("cw")
 	@ObfuscatedSignature(
-		descriptor = "(B)Z",
-		garbageValue = "99"
+		descriptor = "(ILdm;ZI)I",
+		garbageValue = "532477484"
 	)
-	static boolean method3854() {
-		return (Client.drawPlayerNames & 4) != 0;
+	static int method3822(int var0, Script var1, boolean var2) {
+		return 2;
 	}
 }

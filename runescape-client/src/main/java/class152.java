@@ -1,102 +1,140 @@
-import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fa")
-public class class152 extends class143 {
-	@ObfuscatedName("af")
+@ObfuscatedName("fd")
+public class class152 extends class147 {
+	@ObfuscatedName("ac")
+	static int[] field1722;
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = -31458575
+		intValue = -1645465563
 	)
-	@Export("WorldMapElement_count")
-	public static int WorldMapElement_count;
-	@ObfuscatedName("am")
-	String field1685;
+	int field1727;
+	@ObfuscatedName("al")
+	@ObfuscatedGetter(
+		intValue = -867688869
+	)
+	int field1726;
+	@ObfuscatedName("aj")
+	@ObfuscatedGetter(
+		intValue = 1260301427
+	)
+	int field1724;
+	@ObfuscatedName("az")
+	@ObfuscatedGetter(
+		intValue = 764459969
+	)
+	int field1725;
 	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lfm;"
+		descriptor = "Lfu;"
 	)
-	final class146 this$0;
+	final class150 this$0;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lfm;)V"
+		descriptor = "(Lfu;)V"
 	)
-	class152(class146 var1) {
+	class152(class150 var1) {
 		this.this$0 = var1;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Luk;I)V",
-		garbageValue = "-411371469"
+		descriptor = "(Lua;I)V",
+		garbageValue = "1738227110"
 	)
-	void vmethod3531(Buffer var1) {
-		this.field1685 = var1.readStringCp1252NullTerminated();
-		var1.readInt();
+	void vmethod3486(Buffer var1) {
+		this.field1727 = var1.readInt();
+		this.field1725 = var1.readInt();
+		this.field1726 = var1.readUnsignedByte();
+		this.field1724 = var1.readUnsignedByte();
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(Lfn;I)V",
-		garbageValue = "1048713263"
+		descriptor = "(Lgc;B)V",
+		garbageValue = "100"
 	)
-	void vmethod3529(ClanSettings var1) {
-		var1.name = this.field1685;
+	void vmethod3490(ClanSettings var1) {
+		var1.method3346(this.field1727, this.field1725, this.field1726, this.field1724);
 	}
 
-	@ObfuscatedName("bk")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Lhg;I)Z",
-		garbageValue = "-1055641095"
+		descriptor = "(Lua;Ljava/lang/String;I)I",
+		garbageValue = "-719936486"
 	)
-	static boolean method3324(ObjectComposition var0) {
-		if (var0.transforms != null) {
-			int[] var1 = var0.transforms;
+	public static int method3277(Buffer var0, String var1) {
+		int var2 = var0.offset;
+		int var4 = var1.length();
+		byte[] var5 = new byte[var4];
 
-			for (int var2 = 0; var2 < var1.length; ++var2) {
-				int var3 = var1[var2];
-				ObjectComposition var4 = class137.getObjectDefinition(var3);
-				if (var4.mapIconId != -1) {
-					return true;
-				}
-			}
-		} else if (var0.mapIconId != -1) {
-			return true;
-		}
-
-		return false;
-	}
-
-	@ObfuscatedName("ii")
-	@ObfuscatedSignature(
-		descriptor = "(IIIZI)V",
-		garbageValue = "194226215"
-	)
-	static void method3320(int var0, int var1, int var2, boolean var3) {
-		if (var0 != 0) {
-			int var4 = var0 & 15;
-			int var5;
-			int var6;
-			if (var4 == 0) {
-				if (!var3) {
-					return;
-				}
-
-				Client.soundLocations[Client.soundEffectCount] = 0;
+		for (int var6 = 0; var6 < var4; ++var6) {
+			char var7 = var1.charAt(var6);
+			if (var7 > 0 && var7 < 128 || var7 >= 160 && var7 <= 255) {
+				var5[var6] = (byte)var7;
+			} else if (var7 == 8364) {
+				var5[var6] = -128;
+			} else if (var7 == 8218) {
+				var5[var6] = -126;
+			} else if (var7 == 402) {
+				var5[var6] = -125;
+			} else if (var7 == 8222) {
+				var5[var6] = -124;
+			} else if (var7 == 8230) {
+				var5[var6] = -123;
+			} else if (var7 == 8224) {
+				var5[var6] = -122;
+			} else if (var7 == 8225) {
+				var5[var6] = -121;
+			} else if (var7 == 710) {
+				var5[var6] = -120;
+			} else if (var7 == 8240) {
+				var5[var6] = -119;
+			} else if (var7 == 352) {
+				var5[var6] = -118;
+			} else if (var7 == 8249) {
+				var5[var6] = -117;
+			} else if (var7 == 338) {
+				var5[var6] = -116;
+			} else if (var7 == 381) {
+				var5[var6] = -114;
+			} else if (var7 == 8216) {
+				var5[var6] = -111;
+			} else if (var7 == 8217) {
+				var5[var6] = -110;
+			} else if (var7 == 8220) {
+				var5[var6] = -109;
+			} else if (var7 == 8221) {
+				var5[var6] = -108;
+			} else if (var7 == 8226) {
+				var5[var6] = -107;
+			} else if (var7 == 8211) {
+				var5[var6] = -106;
+			} else if (var7 == 8212) {
+				var5[var6] = -105;
+			} else if (var7 == 732) {
+				var5[var6] = -104;
+			} else if (var7 == 8482) {
+				var5[var6] = -103;
+			} else if (var7 == 353) {
+				var5[var6] = -102;
+			} else if (var7 == 8250) {
+				var5[var6] = -101;
+			} else if (var7 == 339) {
+				var5[var6] = -100;
+			} else if (var7 == 382) {
+				var5[var6] = -98;
+			} else if (var7 == 376) {
+				var5[var6] = -97;
 			} else {
-				var5 = (var1 - 64) / 128;
-				var6 = (var2 - 64) / 128;
-				Client.soundLocations[Client.soundEffectCount] = var4 + (var6 << 8) + (var5 << 16);
+				var5[var6] = 63;
 			}
-
-			var5 = var0 >> 8;
-			var6 = var0 >> 4 & 7;
-			Client.soundEffectIds[Client.soundEffectCount] = var5;
-			Client.queuedSoundEffectLoops[Client.soundEffectCount] = var6;
-			Client.queuedSoundEffectDelays[Client.soundEffectCount] = 0;
-			Client.soundEffects[Client.soundEffectCount] = null;
-			++Client.soundEffectCount;
 		}
+
+		var0.writeSmartByteShort(var5.length);
+		var0.offset += class360.huffman.compress(var5, 0, var5.length, var0.array, var0.offset);
+		return var0.offset - var2;
 	}
 }

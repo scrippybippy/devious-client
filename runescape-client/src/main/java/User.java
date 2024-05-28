@@ -3,18 +3,18 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("rq")
+@ObfuscatedName("sg")
 @Implements("User")
 public class User implements Comparable {
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "Lvs;"
+		descriptor = "Lvv;"
 	)
 	@Export("username")
 	Username username;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "Lvs;"
+		descriptor = "Lvv;"
 	)
 	@Export("previousUsername")
 	Username previousUsername;
@@ -22,10 +22,10 @@ public class User implements Comparable {
 	User() {
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(Lrq;B)I",
-		garbageValue = "111"
+		descriptor = "(Lsg;I)I",
+		garbageValue = "-1406397913"
 	)
 	@Export("compareTo_user")
 	public int compareTo_user(User var1) {
@@ -34,38 +34,38 @@ public class User implements Comparable {
 
 	@ObfuscatedName("bt")
 	@ObfuscatedSignature(
-		descriptor = "(I)Lvs;",
-		garbageValue = "801922307"
+		descriptor = "(B)Lvv;",
+		garbageValue = "80"
 	)
 	@Export("getUsername")
 	public Username getUsername() {
 		return this.username;
 	}
 
-	@ObfuscatedName("br")
+	@ObfuscatedName("bn")
 	@ObfuscatedSignature(
 		descriptor = "(I)Ljava/lang/String;",
-		garbageValue = "-79145493"
+		garbageValue = "1506605921"
 	)
 	@Export("getName")
 	public String getName() {
 		return this.username == null ? "" : this.username.getName();
 	}
 
-	@ObfuscatedName("ba")
+	@ObfuscatedName("bw")
 	@ObfuscatedSignature(
 		descriptor = "(B)Ljava/lang/String;",
-		garbageValue = "1"
+		garbageValue = "-85"
 	)
 	@Export("getPreviousName")
 	public String getPreviousName() {
 		return this.previousUsername == null ? "" : this.previousUsername.getName();
 	}
 
-	@ObfuscatedName("bk")
+	@ObfuscatedName("bl")
 	@ObfuscatedSignature(
-		descriptor = "(Lvs;Lvs;S)V",
-		garbageValue = "-17681"
+		descriptor = "(Lvv;Lvv;B)V",
+		garbageValue = "70"
 	)
 	@Export("set")
 	void set(Username var1, Username var2) {
@@ -79,5 +79,14 @@ public class User implements Comparable {
 
 	public int compareTo(Object var1) {
 		return this.compareTo_user((User)var1);
+	}
+
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(III)I",
+		garbageValue = "-255329894"
+	)
+	public static int method8638(int var0, int var1) {
+		return (int)Math.round(Math.atan2((double)var0, (double)var1) * 2607.5945876176133D) & 16383;
 	}
 }

@@ -377,11 +377,11 @@ public final class Varbits
 	/**
 	 * Blast Mine
 	 */
-	public static final int BLAST_MINE_COAL = 4924;
-	public static final int BLAST_MINE_GOLD = 4925;
-	public static final int BLAST_MINE_MITHRIL = 4926;
-	public static final int BLAST_MINE_ADAMANTITE = 4921;
-	public static final int BLAST_MINE_RUNITE = 4922;
+	public static final int BLAST_MINE_COAL = 10698;
+	public static final int BLAST_MINE_GOLD = 10699;
+	public static final int BLAST_MINE_MITHRIL = 10700;
+	public static final int BLAST_MINE_ADAMANTITE = 10701;
+	public static final int BLAST_MINE_RUNITE = 10702;
 
 	/**
 	 * Raids
@@ -719,9 +719,9 @@ public final class Varbits
 	/**
 	 * Muted volume restore values
 	 */
-	public static final int MUTED_MUSIC_VOLUME = 9666;
-	public static final int MUTED_SOUND_EFFECT_VOLUME = 9674;
-	public static final int MUTED_AREA_EFFECT_VOLUME = 9675;
+	public static final int MUTED_MUSIC_VOLUME = 12426;
+	public static final int MUTED_SOUND_EFFECT_VOLUME = 12427;
+	public static final int MUTED_AREA_EFFECT_VOLUME = 12428;
 
 	/**
 	 * Parasite infection status during nightmare of ashihama bossfight
@@ -812,6 +812,13 @@ public final class Varbits
 	public static final int TELEBLOCK = 4163;
 
 	/**
+	 * Cooldown timer remaining before eligible to restore at a god wars dungeon altar.
+	 * Number of game ticks remaining is in intervals of 100; for a value X there are 100 * X game ticks remaining.
+	 * A player can pray at a god wars altar once this reaches 0.
+	 */
+	public static final int GOD_WARS_ALTAR_COOLDOWN = 4099;
+
+	/**
 	 * Farmer's Affinity effect timer
 	 * Number of game ticks remaining on Farmer's Affinity effect in intervals of 20; for a value X there are 20 * X game ticks remaining.
 	 * The Farmer's Affinity expires once this reaches 0.
@@ -895,8 +902,18 @@ public final class Varbits
 	public static final int VIGGORA_LOCATION = 815;
 
 	/**
-	 * Draynor manor basement
-	 * See <a href="https://oldschool.runescape.wiki/w/File:Ernest_the_Chicken_-_Oil_can_map.png">asd</a>
+	 * If the player has a spellbook swap active
+	 * <p>
+	 * 0 = inactive
+	 * 1 = active
+	 */
+	public static final int SPELLBOOK_SWAP = 3617;
+
+	public static final int SPELLBOOK = 4070;
+	public static final int SPELLBOOK_SUBMENU = 9730;
+
+	/**
+	 * See <a href="https://oldschool.runescape.wiki/w/File:Ernest_the_Chicken_-_Oil_can_map.png">Draynor manor basement</a>
 	 */
 
 	public static final int DRAYNOR_MANOR_BASEMENT_LEVER_A = 1788;

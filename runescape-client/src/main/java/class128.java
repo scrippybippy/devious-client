@@ -2,262 +2,212 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("ez")
+@ObfuscatedName("eo")
 public class class128 {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = -969057907
+		intValue = -1221342131
 	)
-	public final int field1494;
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "Lez;"
-	)
-	public class128 field1495;
-	@ObfuscatedName("af")
-	float[][] field1496;
+	int field1534;
+	@ObfuscatedName("al")
+	float field1531;
 	@ObfuscatedName("aj")
-	@ObfuscatedSignature(
-		descriptor = "[Lrh;"
-	)
-	final class466[] field1506;
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "[Lrh;"
-	)
-	class466[] field1498;
-	@ObfuscatedName("ar")
-	@ObfuscatedSignature(
-		descriptor = "[Lrh;"
-	)
-	class466[] field1500;
-	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "Lrh;"
-	)
-	class466 field1499;
-	@ObfuscatedName("ao")
-	boolean field1501;
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "Lrh;"
-	)
-	class466 field1502;
-	@ObfuscatedName("aa")
-	boolean field1497;
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "Lrh;"
-	)
-	class466 field1504;
-	@ObfuscatedName("an")
-	float[][] field1505;
-	@ObfuscatedName("ad")
-	float[][] field1503;
-	@ObfuscatedName("ax")
-	float[][] field1507;
-
-	@ObfuscatedSignature(
-		descriptor = "(ILuk;Z)V"
-	)
-	public class128(int var1, Buffer var2, boolean var3) {
-		this.field1499 = new class466();
-		this.field1501 = true;
-		this.field1502 = new class466();
-		this.field1497 = true;
-		this.field1504 = new class466();
-		this.field1494 = var2.readShort();
-		this.field1506 = new class466[var1];
-		this.field1498 = new class466[this.field1506.length];
-		this.field1500 = new class466[this.field1506.length];
-		this.field1496 = new float[this.field1506.length][3];
-
-		for (int var4 = 0; var4 < this.field1506.length; ++var4) {
-			this.field1506[var4] = new class466(var2, var3);
-			this.field1496[var4][0] = var2.method9394();
-			this.field1496[var4][1] = var2.method9394();
-			this.field1496[var4][2] = var2.method9394();
-		}
-
-		this.method3065();
-	}
-
-	@ObfuscatedName("am")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "392360057"
-	)
-	void method3065() {
-		this.field1505 = new float[this.field1506.length][3];
-		this.field1503 = new float[this.field1506.length][3];
-		this.field1507 = new float[this.field1506.length][3];
-		class466 var1 = class255.method5035();
-
-		for (int var2 = 0; var2 < this.field1506.length; ++var2) {
-			class466 var3 = this.method3032(var2);
-			var1.method8548(var3);
-			var1.method8556();
-			this.field1505[var2] = var1.method8542();
-			this.field1503[var2][0] = var3.field4809[12];
-			this.field1503[var2][1] = var3.field4809[13];
-			this.field1503[var2][2] = var3.field4809[14];
-			this.field1507[var2] = var3.method8560();
-		}
-
-		var1.method8559();
-	}
-
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "(II)Lrh;",
-		garbageValue = "-808461038"
-	)
-	class466 method3032(int var1) {
-		return this.field1506[var1];
-	}
-
+	float field1533;
+	@ObfuscatedName("az")
+	float field1532;
 	@ObfuscatedName("af")
-	@ObfuscatedSignature(
-		descriptor = "(II)Lrh;",
-		garbageValue = "-2050887165"
-	)
-	class466 method3038(int var1) {
-		if (this.field1498[var1] == null) {
-			this.field1498[var1] = new class466(this.method3032(var1));
-			if (this.field1495 != null) {
-				this.field1498[var1].method8552(this.field1495.method3038(var1));
-			} else {
-				this.field1498[var1].method8552(class466.field4807);
-			}
-		}
-
-		return this.field1498[var1];
-	}
-
-	@ObfuscatedName("aj")
-	@ObfuscatedSignature(
-		descriptor = "(II)Lrh;",
-		garbageValue = "-2052086319"
-	)
-	class466 method3030(int var1) {
-		if (this.field1500[var1] == null) {
-			this.field1500[var1] = new class466(this.method3038(var1));
-			this.field1500[var1].method8556();
-		}
-
-		return this.field1500[var1];
-	}
-
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "(Lrh;I)V",
-		garbageValue = "-581632848"
-	)
-	void method3053(class466 var1) {
-		this.field1499.method8548(var1);
-		this.field1501 = true;
-		this.field1497 = true;
-	}
-
-	@ObfuscatedName("ar")
-	@ObfuscatedSignature(
-		descriptor = "(I)Lrh;",
-		garbageValue = "1188417619"
-	)
-	class466 method3062() {
-		return this.field1499;
-	}
-
-	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "(B)Lrh;",
-		garbageValue = "8"
-	)
-	class466 method3036() {
-		if (this.field1501) {
-			this.field1502.method8548(this.method3062());
-			if (this.field1495 != null) {
-				this.field1502.method8552(this.field1495.method3036());
-			}
-
-			this.field1501 = false;
-		}
-
-		return this.field1502;
-	}
-
-	@ObfuscatedName("ao")
-	@ObfuscatedSignature(
-		descriptor = "(II)Lrh;",
-		garbageValue = "-1978149370"
-	)
-	public class466 method3037(int var1) {
-		if (this.field1497) {
-			this.field1504.method8548(this.method3030(var1));
-			this.field1504.method8552(this.method3036());
-			this.field1497 = false;
-		}
-
-		return this.field1504;
-	}
-
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "(II)[F",
-		garbageValue = "1301707188"
-	)
-	float[] method3051(int var1) {
-		return this.field1505[var1];
-	}
-
+	float field1535;
 	@ObfuscatedName("aa")
+	float field1536;
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(IB)[F",
-		garbageValue = "1"
+		descriptor = "Leo;"
 	)
-	float[] method3054(int var1) {
-		return this.field1503[var1];
+	class128 field1537;
+
+	class128() {
+		this.field1533 = Float.MAX_VALUE;
+		this.field1532 = Float.MAX_VALUE;
+		this.field1535 = Float.MAX_VALUE;
+		this.field1536 = Float.MAX_VALUE;
 	}
 
-	@ObfuscatedName("au")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(IB)[F",
-		garbageValue = "91"
+		descriptor = "(Lua;II)V",
+		garbageValue = "-625271242"
 	)
-	float[] method3040(int var1) {
-		return this.field1507[var1];
+	void method3023(Buffer var1, int var2) {
+		this.field1534 = var1.readShort();
+		this.field1531 = var1.method9665();
+		this.field1533 = var1.method9665();
+		this.field1532 = var1.method9665();
+		this.field1535 = var1.method9665();
+		this.field1536 = var1.method9665();
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
-		descriptor = "(IB)Lgm;",
-		garbageValue = "-112"
+		descriptor = "(ILdm;ZI)I",
+		garbageValue = "286833018"
 	)
-	@Export("VarpDefinition_get")
-	public static VarpDefinition VarpDefinition_get(int var0) {
-		VarpDefinition var1 = (VarpDefinition)VarpDefinition.VarpDefinition_cached.get((long)var0);
-		if (var1 != null) {
-			return var1;
+	static int method3026(int var0, Script var1, boolean var2) {
+		Widget var3 = AsyncRestClient.widgetDefinition.method6536(Interpreter.Interpreter_intStack[--class13.Interpreter_intStackSize]);
+		if (var0 == ScriptOpcodes.IF_GETSCROLLX) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.scrollX;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETSCROLLY) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.scrollY;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETTEXT) {
+			Interpreter.Interpreter_stringStack[++class166.Interpreter_stringStackSize - 1] = var3.text;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETSCROLLWIDTH) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.scrollWidth;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETSCROLLHEIGHT) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.scrollHeight;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETMODELZOOM) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.modelZoom;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETMODELANGLE_X) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.modelAngleX;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETMODELANGLE_Z) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.modelAngleZ;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETMODELANGLE_Y) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.modelAngleY;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETTRANS) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.transparencyTop;
+			return 1;
+		} else if (var0 == 2610) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.transparencyBot;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETCOLOUR) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.color;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETFILLCOLOUR) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.color2;
+			return 1;
+		} else if (var0 == 2613) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.fillMode.rsOrdinal();
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETMODELTRANSPARENT) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var3.modelTransparency ? 1 : 0;
+			return 1;
 		} else {
-			byte[] var2 = VarpDefinition.VarpDefinition_archive.takeFile(16, var0);
-			var1 = new VarpDefinition();
-			if (var2 != null) {
-				var1.decode(new Buffer(var2));
+			class349 var4;
+			if (var0 == 2617) {
+				var4 = var3.method6943();
+				Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var4 != null ? var4.field3731 : 0;
 			}
 
-			VarpDefinition.VarpDefinition_cached.put(var1, (long)var0);
-			return var1;
+			if (var0 == 2618) {
+				var4 = var3.method6943();
+				Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var4 != null ? var4.field3732 : 0;
+				return 1;
+			} else {
+				class355 var7;
+				if (var0 == 2619) {
+					var7 = var3.method6942();
+					Interpreter.Interpreter_stringStack[++class166.Interpreter_stringStackSize - 1] = var7 != null ? var7.method6666().method8000() : "";
+					return 1;
+				} else if (var0 == 2620) {
+					var4 = var3.method6943();
+					Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var4 != null ? var4.field3733 : 0;
+					return 1;
+				} else if (var0 == 2621) {
+					var7 = var3.method6942();
+					Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var7 != null ? var7.method6676() : 0;
+					return 1;
+				} else if (var0 == 2622) {
+					var7 = var3.method6942();
+					Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var7 != null ? var7.method6677() : 0;
+					return 1;
+				} else if (var0 == 2623) {
+					var7 = var3.method6942();
+					Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var7 != null ? var7.method6678() : 0;
+					return 1;
+				} else if (var0 == 2624) {
+					var7 = var3.method6942();
+					Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var7 != null && var7.method6793() ? 1 : 0;
+					return 1;
+				} else if (var0 != 2625) {
+					if (var0 == 2626) {
+						var7 = var3.method6942();
+						Interpreter.Interpreter_stringStack[++class166.Interpreter_stringStackSize - 1] = var7 != null ? var7.method6667().method8254() : "";
+						return 1;
+					} else if (var0 == 2627) {
+						var7 = var3.method6942();
+						int var5 = var7 != null ? var7.method6822() : 0;
+						int var6 = var7 != null ? var7.method6671() : 0;
+						Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = Math.min(var5, var6);
+						Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = Math.max(var5, var6);
+						return 1;
+					} else if (var0 == 2628) {
+						var7 = var3.method6942();
+						Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var7 != null ? var7.method6671() : 0;
+						return 1;
+					} else if (var0 == 2629) {
+						var7 = var3.method6942();
+						Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var7 != null ? var7.method6680() : 0;
+						return 1;
+					} else if (var0 == 2630) {
+						var7 = var3.method6942();
+						Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var7 != null ? var7.method6679() : 0;
+						return 1;
+					} else if (var0 == 2631) {
+						var7 = var3.method6942();
+						Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var7 != null ? var7.method6681() : 0;
+						return 1;
+					} else if (var0 == 2632) {
+						var7 = var3.method6942();
+						Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var7 != null ? var7.method6798() : 0;
+						return 1;
+					} else {
+						class27 var8;
+						if (var0 == 2633) {
+							var8 = var3.method7041();
+							Interpreter.Interpreter_intStack[class13.Interpreter_intStackSize - 1] = var8 != null ? var8.method400(Interpreter.Interpreter_intStack[class13.Interpreter_intStackSize - 1]) : 0;
+							return 1;
+						} else if (var0 == 2634) {
+							var8 = var3.method7041();
+							Interpreter.Interpreter_intStack[class13.Interpreter_intStackSize - 1] = var8 != null ? var8.method386((char)Interpreter.Interpreter_intStack[class13.Interpreter_intStackSize - 1]) : 0;
+							return 1;
+						} else {
+							return 2;
+						}
+					}
+				} else {
+					var7 = var3.method6942();
+					Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = var7 != null && var7.method6731() ? 1 : 0;
+					return 1;
+				}
+			}
 		}
 	}
 
-	@ObfuscatedName("bb")
+	@ObfuscatedName("bc")
 	@ObfuscatedSignature(
-		descriptor = "(Lnn;IIB)V",
-		garbageValue = "39"
+		descriptor = "(ILdm;ZB)I",
+		garbageValue = "65"
 	)
-	public static void method3070(Widget var0, int var1, int var2) {
-		var0.field3759.bodyColors[var1] = var2;
-		var0.field3759.method6383();
+	static int method3024(int var0, Script var1, boolean var2) {
+		return 2;
+	}
+
+	@ObfuscatedName("gp")
+	@ObfuscatedSignature(
+		descriptor = "(B)Ltf;",
+		garbageValue = "114"
+	)
+	@Export("getPlatformInfo")
+	static PlatformInfo getPlatformInfo() {
+		return class350.platformInfo;
 	}
 }

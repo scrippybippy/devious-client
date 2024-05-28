@@ -3,113 +3,89 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gv")
-public class class165 extends class143 {
-	@ObfuscatedName("am")
+@ObfuscatedName("ga")
+public class class165 extends class147 {
+	@ObfuscatedName("ay")
+	static String[] field1815;
+	@ObfuscatedName("cr")
 	@ObfuscatedGetter(
-		longValue = -8063989231043793109L
+		intValue = 219921597
 	)
-	long field1780;
-	@ObfuscatedName("ap")
-	String field1776;
+	static int field1813;
+	@ObfuscatedName("ak")
+	@ObfuscatedGetter(
+		intValue = 774154011
+	)
+	int field1817;
+	@ObfuscatedName("al")
+	@ObfuscatedGetter(
+		intValue = -73970559
+	)
+	int field1816;
 	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lfm;"
+		descriptor = "Lfu;"
 	)
-	final class146 this$0;
+	final class150 this$0;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lfm;)V"
+		descriptor = "(Lfu;)V"
 	)
-	class165(class146 var1) {
+	class165(class150 var1) {
 		this.this$0 = var1;
-		this.field1780 = -1L;
-		this.field1776 = null;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Luk;I)V",
-		garbageValue = "-411371469"
+		descriptor = "(Lua;I)V",
+		garbageValue = "1738227110"
 	)
-	void vmethod3531(Buffer var1) {
-		if (var1.readUnsignedByte() != 255) {
-			--var1.offset;
-			this.field1780 = var1.readLong();
-		}
-
-		this.field1776 = var1.readStringCp1252NullTerminatedOrNull();
+	void vmethod3486(Buffer var1) {
+		this.field1817 = var1.readInt();
+		this.field1816 = var1.readInt();
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(Lfn;I)V",
-		garbageValue = "1048713263"
+		descriptor = "(Lgc;B)V",
+		garbageValue = "100"
 	)
-	void vmethod3529(ClanSettings var1) {
-		var1.method3347(this.field1780, this.field1776);
+	void vmethod3490(ClanSettings var1) {
+		var1.method3375(this.field1817, this.field1816);
 	}
 
-	@ObfuscatedName("ax")
-	@ObfuscatedSignature(
-		descriptor = "(II)Lky;",
-		garbageValue = "-1613158274"
-	)
-	@Export("getFrames")
-	static Frames getFrames(int var0) {
-		Frames var1 = (Frames)SequenceDefinition.SequenceDefinition_cachedFrames.get((long)var0);
-		if (var1 != null) {
-			return var1;
-		} else {
-			var1 = class226.method4463(SequenceDefinition.SequenceDefinition_animationsArchive, class332.SequenceDefinition_skeletonsArchive, var0, false);
-			if (var1 != null) {
-				SequenceDefinition.SequenceDefinition_cachedFrames.put(var1, (long)var0);
+	@ObfuscatedName("ak")
+	@Export("base37DecodeLong")
+	public static String base37DecodeLong(long var0) {
+		if (var0 > 0L && var0 < 6582952005840035281L) {
+			if (var0 % 37L == 0L) {
+				return null;
+			} else {
+				int var2 = 0;
+
+				for (long var3 = var0; var3 != 0L; var3 /= 37L) {
+					++var2;
+				}
+
+				StringBuilder var5;
+				char var8;
+				for (var5 = new StringBuilder(var2); 0L != var0; var5.append(var8)) {
+					long var6 = var0;
+					var0 /= 37L;
+					var8 = class416.base37Table[(int)(var6 - var0 * 37L)];
+					if (var8 == '_') {
+						int var9 = var5.length() - 1;
+						var5.setCharAt(var9, Character.toUpperCase(var5.charAt(var9)));
+						var8 = 160;
+					}
+				}
+
+				var5.reverse();
+				var5.setCharAt(0, Character.toUpperCase(var5.charAt(0)));
+				return var5.toString();
 			}
-
-			return var1;
-		}
-	}
-
-	@ObfuscatedName("kf")
-	@ObfuscatedSignature(
-		descriptor = "(IIIIB)V",
-		garbageValue = "-35"
-	)
-	static final void method3516(int var0, int var1, int var2, int var3) {
-		class410.method7742();
-	}
-
-	@ObfuscatedName("kx")
-	@ObfuscatedSignature(
-		descriptor = "(Ldf;II)V",
-		garbageValue = "-434342130"
-	)
-	static final void method3517(Actor var0, int var1) {
-		FriendSystem.worldToScreen(var0.x, var0.y, var1);
-	}
-
-	@ObfuscatedName("nd")
-	@ObfuscatedSignature(
-		descriptor = "(II)V",
-		garbageValue = "-1895306323"
-	)
-	static final void method3515(int var0) {
-		var0 = Math.min(Math.max(var0, 0), 127);
-		class93.clientPreferences.updateAreaSoundEffectsVolume(var0);
-	}
-
-	@ObfuscatedName("ou")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;I)V",
-		garbageValue = "1722840458"
-	)
-	@Export("clanKickUser")
-	static final void clanKickUser(String var0) {
-		if (ClientPreferences.friendsChat != null) {
-			PacketBufferNode var1 = class482.getPacketBufferNode(ClientPacket.CLAN_KICKUSER, Client.packetWriter.isaacCipher);
-			var1.packetBuffer.writeByte(CollisionMap.stringCp1252NullTerminatedByteSize(var0));
-			var1.packetBuffer.writeStringCp1252NullTerminated(var0);
-			Client.packetWriter.addNode(var1);
+		} else {
+			return null;
 		}
 	}
 }

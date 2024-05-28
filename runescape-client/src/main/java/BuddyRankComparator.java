@@ -1,12 +1,18 @@
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("es")
+@ObfuscatedName("eg")
 @Implements("BuddyRankComparator")
 public class BuddyRankComparator extends AbstractUserComparator {
-	@ObfuscatedName("am")
+	@ObfuscatedName("gn")
+	@ObfuscatedGetter(
+		intValue = 1565926211
+	)
+	static int field1520;
+	@ObfuscatedName("ak")
 	@Export("reversed")
 	final boolean reversed;
 
@@ -14,10 +20,10 @@ public class BuddyRankComparator extends AbstractUserComparator {
 		this.reversed = var1;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Lrj;Lrj;I)I",
-		garbageValue = "1898768769"
+		descriptor = "(Lso;Lso;I)I",
+		garbageValue = "1604250082"
 	)
 	@Export("compareBuddy")
 	int compareBuddy(Buddy var1, Buddy var2) {
@@ -32,58 +38,35 @@ public class BuddyRankComparator extends AbstractUserComparator {
 		return this.compareBuddy((Buddy)var1, (Buddy)var2);
 	}
 
-	@ObfuscatedName("am")
-	public static final void method2992(long var0) {
-		if (var0 > 0L) {
-			if (0L == var0 % 10L) {
-				GameBuild.method6934(var0 - 1L);
-				GameBuild.method6934(1L);
-			} else {
-				GameBuild.method6934(var0);
-			}
-
+	@ObfuscatedName("az")
+	@ObfuscatedSignature(
+		descriptor = "(II)Lfk;",
+		garbageValue = "992074618"
+	)
+	static class131 method3011(int var0) {
+		class131[] var1 = new class131[]{class131.field1570, class131.field1566, class131.field1573, class131.field1568, class131.field1569};
+		class131 var2 = (class131)MenuAction.findEnumerated(var1, var0);
+		if (var2 == null) {
+			var2 = class131.field1570;
 		}
+
+		return var2;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "(I)[Lff;",
-		garbageValue = "-1880947968"
+		descriptor = "(II)Lfo;",
+		garbageValue = "1041375441"
 	)
-	static class132[] method2996() {
-		return new class132[]{class132.field1555, class132.field1553, class132.field1554, class132.field1560, class132.field1556, class132.field1561};
-	}
-
-	@ObfuscatedName("ak")
-	@ObfuscatedSignature(
-		descriptor = "(Lnn;I)I",
-		garbageValue = "116060212"
-	)
-	static int method2997(Widget var0) {
-		if (var0.type != 11) {
-			Interpreter.Interpreter_stringStack[class211.Interpreter_stringStackSize - 1] = "";
-			return 1;
+	static class141 method3009(int var0) {
+		class141 var2 = HealthBar.method2651(var0);
+		int var1;
+		if (var2 == null) {
+			var1 = 2;
 		} else {
-			String var1 = Interpreter.Interpreter_stringStack[--class211.Interpreter_stringStackSize];
-			Interpreter.Interpreter_stringStack[++class211.Interpreter_stringStackSize - 1] = var0.method6806(var1);
-			return 1;
-		}
-	}
-
-	@ObfuscatedName("ll")
-	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "3"
-	)
-	static final void method2990() {
-		for (PendingSpawn var0 = (PendingSpawn)Client.pendingSpawns.last(); var0 != null; var0 = (PendingSpawn)Client.pendingSpawns.previous()) {
-			if (var0.hitpoints == -1) {
-				var0.delay = 0;
-				class1.method12(var0);
-			} else {
-				var0.remove();
-			}
+			var1 = var2.method3149() ? 0 : 1;
 		}
 
+		return var1 != 0 ? null : HealthBar.method2651(var0);
 	}
 }

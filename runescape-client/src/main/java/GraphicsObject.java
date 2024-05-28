@@ -1,69 +1,69 @@
-import java.net.MalformedURLException;
-import java.net.URL;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ck")
+@ObfuscatedName("cg")
 @Implements("GraphicsObject")
 public class GraphicsObject extends Renderable {
-	@ObfuscatedName("am")
+	@ObfuscatedName("dd")
+	static boolean field902;
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = -1745719425
+		intValue = -61247699
 	)
 	@Export("id")
 	int id;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedGetter(
-		intValue = 943830507
+		intValue = -217494561
 	)
 	@Export("cycleStart")
 	int cycleStart;
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -600062291
+		intValue = -107795739
 	)
 	@Export("plane")
 	int plane;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		intValue = 799207299
+		intValue = 1739675053
 	)
 	@Export("x")
 	int x;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@ObfuscatedGetter(
-		intValue = 137130919
+		intValue = 777941077
 	)
 	@Export("y")
 	int y;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = 1808411713
+		intValue = -1573445793
 	)
 	@Export("z")
 	int z;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lhl;"
+		descriptor = "Lic;"
 	)
 	@Export("sequenceDefinition")
 	SequenceDefinition sequenceDefinition;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = -842084923
+		intValue = -1549919911
 	)
 	@Export("frame")
 	int frame;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ac")
 	@ObfuscatedGetter(
-		intValue = -2077503945
+		intValue = 1586287101
 	)
 	@Export("frameCycle")
 	int frameCycle;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ao")
 	@Export("isFinished")
 	boolean isFinished;
 
@@ -77,20 +77,20 @@ public class GraphicsObject extends Renderable {
 		this.y = var4;
 		this.z = var5;
 		this.cycleStart = var7 + var6;
-		int var8 = class151.SpotAnimationDefinition_get(this.id).sequence;
+		int var8 = Sound.SpotAnimationDefinition_get(this.id).sequence;
 		if (var8 != -1) {
 			this.isFinished = false;
-			this.sequenceDefinition = HttpMethod.SequenceDefinition_get(var8);
+			this.sequenceDefinition = FaceNormal.SequenceDefinition_get(var8);
 		} else {
 			this.isFinished = true;
 		}
 
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(II)V",
-		garbageValue = "244690834"
+		descriptor = "(IB)V",
+		garbageValue = "-58"
 	)
 	@Export("advance")
 	final void advance(int var1) {
@@ -107,7 +107,7 @@ public class GraphicsObject extends Renderable {
 				}
 			} else {
 				this.frame += var1;
-				if (this.frame >= this.sequenceDefinition.method4106()) {
+				if (this.frame >= this.sequenceDefinition.method4326()) {
 					this.isFinished = true;
 				}
 			}
@@ -115,14 +115,14 @@ public class GraphicsObject extends Renderable {
 		}
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(I)Lko;",
-		garbageValue = "-714420560"
+		descriptor = "(I)Lkb;",
+		garbageValue = "-852782106"
 	)
 	@Export("getModel")
 	protected final Model getModel() {
-		SpotAnimationDefinition var1 = class151.SpotAnimationDefinition_get(this.id);
+		SpotAnimationDefinition var1 = Sound.SpotAnimationDefinition_get(this.id);
 		Model var2;
 		if (!this.isFinished) {
 			var2 = var1.getModel(this.frame);
@@ -133,232 +133,63 @@ public class GraphicsObject extends Renderable {
 		return var2 == null ? null : var2;
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;B)Z",
-		garbageValue = "-65"
+		descriptor = "(B)V",
+		garbageValue = "-100"
 	)
-	static boolean method2140(String var0) {
-		if (var0 == null) {
-			return false;
-		} else {
-			try {
-				new URL(var0);
-				return true;
-			} catch (MalformedURLException var2) {
-				return false;
-			}
-		}
+	public static void method2102() {
+		FileSystem.FileSystem_cacheFiles.clear();
 	}
 
-	@ObfuscatedName("ji")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(Ldf;I)V",
-		garbageValue = "-644531348"
+		descriptor = "(IIII)I",
+		garbageValue = "-395899461"
 	)
-	static final void method2141(Actor var0) {
-		var0.movementSequence = var0.idleSequence;
-		if (var0.pathLength == 0) {
-			var0.field1245 = 0;
-		} else {
-			if (var0.sequence != -1 && var0.sequenceDelay == 0) {
-				SequenceDefinition var1 = HttpMethod.SequenceDefinition_get(var0.sequence);
-				if (var0.field1215 > 0 && var1.field2244 == 0) {
-					++var0.field1245;
-					return;
-				}
-
-				if (var0.field1215 <= 0 && var1.field2226 == 0) {
-					++var0.field1245;
-					return;
-				}
-			}
-
-			int var10 = var0.x;
-			int var2 = var0.y;
-			int var3 = var0.field1175 * 423432192 + var0.pathX[var0.pathLength - 1] * 128;
-			int var4 = var0.field1175 * 423432192 + var0.pathY[var0.pathLength - 1] * 128;
-			if (var10 < var3) {
-				if (var2 < var4) {
-					var0.orientation = 1280;
-				} else if (var2 > var4) {
-					var0.orientation = 1792;
-				} else {
-					var0.orientation = 1536;
-				}
-			} else if (var10 > var3) {
-				if (var2 < var4) {
-					var0.orientation = 768;
-				} else if (var2 > var4) {
-					var0.orientation = 256;
-				} else {
-					var0.orientation = 512;
-				}
-			} else if (var2 < var4) {
-				var0.orientation = 1024;
-			} else if (var2 > var4) {
-				var0.orientation = 0;
-			}
-
-			class231 var5 = var0.pathTraversed[var0.pathLength - 1];
-			if (var3 - var10 <= 256 && var3 - var10 >= -256 && var4 - var2 <= 256 && var4 - var2 >= -256) {
-				int var6 = var0.orientation - var0.rotation & 2047;
-				if (var6 > 1024) {
-					var6 -= 2048;
-				}
-
-				int var7 = var0.walkBackSequence;
-				if (var6 >= -256 && var6 <= 256) {
-					var7 = var0.walkSequence;
-				} else if (var6 >= 256 && var6 < 768) {
-					var7 = var0.walkRightSequence;
-				} else if (var6 >= -768 && var6 <= -256) {
-					var7 = var0.walkLeftSequence;
-				}
-
-				if (var7 == -1) {
-					var7 = var0.walkSequence;
-				}
-
-				var0.movementSequence = var7;
-				int var8 = 4;
-				boolean var9 = true;
-				if (var0 instanceof NPC) {
-					var9 = ((NPC)var0).definition.isClipped;
-				}
-
-				if (var9) {
-					if (var0.rotation != var0.orientation && var0.targetIndex == -1 && var0.field1240 != 0) {
-						var8 = 2;
-					}
-
-					if (var0.pathLength > 2) {
-						var8 = 6;
-					}
-
-					if (var0.pathLength > 3) {
-						var8 = 8;
-					}
-
-					if (var0.field1245 > 0 && var0.pathLength > 1) {
-						var8 = 8;
-						--var0.field1245;
-					}
-				} else {
-					if (var0.pathLength > 1) {
-						var8 = 6;
-					}
-
-					if (var0.pathLength > 2) {
-						var8 = 8;
-					}
-
-					if (var0.field1245 > 0 && var0.pathLength > 1) {
-						var8 = 8;
-						--var0.field1245;
-					}
-				}
-
-				if (var5 == class231.field2459) {
-					var8 <<= 1;
-				} else if (var5 == class231.field2456) {
-					var8 >>= 1;
-				}
-
-				if (var8 >= 8) {
-					if (var0.walkSequence == var0.movementSequence && var0.runSequence != -1) {
-						var0.movementSequence = var0.runSequence;
-					} else if (var0.walkBackSequence == var0.movementSequence && var0.field1187 != -1) {
-						var0.movementSequence = var0.field1187;
-					} else if (var0.walkLeftSequence == var0.movementSequence && var0.field1186 != -1) {
-						var0.movementSequence = var0.field1186;
-					} else if (var0.movementSequence == var0.walkRightSequence && var0.field1218 != -1) {
-						var0.movementSequence = var0.field1218;
-					}
-				} else if (var8 <= 2) {
-					if (var0.movementSequence == var0.walkSequence && var0.field1188 != -1) {
-						var0.movementSequence = var0.field1188;
-					} else if (var0.movementSequence == var0.walkBackSequence && var0.field1178 != -1) {
-						var0.movementSequence = var0.field1178;
-					} else if (var0.movementSequence == var0.walkLeftSequence && var0.field1190 != -1) {
-						var0.movementSequence = var0.field1190;
-					} else if (var0.walkRightSequence == var0.movementSequence && var0.field1191 != -1) {
-						var0.movementSequence = var0.field1191;
-					}
-				}
-
-				if (var10 != var3 || var2 != var4) {
-					if (var10 < var3) {
-						var0.x += var8;
-						if (var0.x > var3) {
-							var0.x = var3;
-						}
-					} else if (var10 > var3) {
-						var0.x -= var8;
-						if (var0.x < var3) {
-							var0.x = var3;
-						}
-					}
-
-					if (var2 < var4) {
-						var0.y += var8;
-						if (var0.y > var4) {
-							var0.y = var4;
-						}
-					} else if (var2 > var4) {
-						var0.y -= var8;
-						if (var0.y < var4) {
-							var0.y = var4;
-						}
-					}
-				}
-
-				if (var3 == var0.x && var4 == var0.y) {
-					--var0.pathLength;
-					if (var0.field1215 > 0) {
-						--var0.field1215;
-					}
-				}
-
-			} else {
-				var0.x = var3;
-				var0.y = var4;
-				--var0.pathLength;
-				if (var0.field1215 > 0) {
-					--var0.field1215;
-				}
-
-			}
-		}
+	public static int method2104(int var0, int var1, int var2) {
+		int var3 = WorldMapID.method5942(var2 - var1 + 1);
+		var3 <<= var1;
+		return var0 & ~var3;
 	}
 
-	@ObfuscatedName("lq")
+	@ObfuscatedName("ly")
 	@ObfuscatedSignature(
-		descriptor = "(Ldn;IILir;I)V",
-		garbageValue = "-275020148"
+		descriptor = "(Ldt;Ldk;I)V",
+		garbageValue = "2074227552"
 	)
-	static final void method2132(Player var0, int var1, int var2, class231 var3) {
-		int var4 = var0.pathX[0];
-		int var5 = var0.pathY[0];
-		int var6 = var0.transformedSize();
-		if (var4 >= var6 && var4 < 104 - var6 && var5 >= var6 && var5 < 104 - var6) {
-			if (var1 >= var6 && var1 < 104 - var6 && var2 >= var6 && var2 < 104 - var6) {
-				class232 var7 = Client.field691;
-				int var10 = var0.transformedSize();
-				Client.field801.approxDestinationX = var1;
-				Client.field801.approxDestinationY = var2;
-				Client.field801.approxDestinationSizeX = 1;
-				Client.field801.approxDestinationSizeY = 1;
-				ApproximateRouteStrategy var11 = Client.field801;
-				int var12 = var7.method4556(var4, var5, var10, var11, Client.collisionMaps[var0.plane], true, Client.field802, Client.field803);
-				if (var12 >= 1) {
-					for (int var13 = 0; var13 < var12 - 1; ++var13) {
-						var0.method2415(Client.field802[var13], Client.field803[var13], var3);
-					}
-
-				}
-			}
+	static final void method2099(WorldView var0, PendingSpawn var1) {
+		Scene var2 = var0.scene;
+		long var3 = 0L;
+		int var5 = -1;
+		int var6 = 0;
+		int var7 = 0;
+		if (var1.type == 0) {
+			var3 = var2.getBoundaryObjectTag(var1.plane, var1.x, var1.y);
 		}
+
+		if (var1.type == 1) {
+			var3 = var2.getWallDecorationTag(var1.plane, var1.x, var1.y);
+		}
+
+		if (var1.type == 2) {
+			var3 = var2.getGameObjectTag(var1.plane, var1.x, var1.y);
+		}
+
+		if (var1.type == 3) {
+			var3 = var2.getFloorDecorationTag(var1.plane, var1.x, var1.y);
+		}
+
+		if (var3 != 0L) {
+			int var8 = var2.getObjectFlags(var1.plane, var1.x, var1.y, var3);
+			var5 = class105.Entity_unpackID(var3);
+			var6 = var8 & 31;
+			var7 = var8 >> 6 & 3;
+		}
+
+		var1.objectId = var5;
+		var1.field1201 = var6;
+		var1.field1195 = var7;
 	}
 
 	public GraphicsObject() {

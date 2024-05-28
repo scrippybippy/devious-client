@@ -1,28 +1,14 @@
-import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 
-@ObfuscatedName("uy")
+@ObfuscatedName("ug")
 public class class524 {
-	@ObfuscatedName("af")
-	@ObfuscatedGetter(
-		intValue = 714099229
-	)
-	static final int field5131;
 	@ObfuscatedName("aj")
-	@ObfuscatedGetter(
-		intValue = -1309388659
-	)
-	static final int field5129;
-	@ObfuscatedName("ab")
-	@ObfuscatedGetter(
-		intValue = 659925521
-	)
-	@Export("canvasWidth")
-	public static int canvasWidth;
+	static final char[] field5232;
+	@ObfuscatedName("az")
+	static final char[] field5234;
 
 	static {
-		field5131 = (int)(Math.pow(2.0D, 4.0D) - 1.0D);
-		field5129 = (int)(Math.pow(2.0D, 8.0D) - 1.0D);
+		field5232 = new char[]{' ', ' ', '_', '-', 'à', 'á', 'â', 'ä', 'ã', 'À', 'Á', 'Â', 'Ä', 'Ã', 'è', 'é', 'ê', 'ë', 'È', 'É', 'Ê', 'Ë', 'í', 'î', 'ï', 'Í', 'Î', 'Ï', 'ò', 'ó', 'ô', 'ö', 'õ', 'Ò', 'Ó', 'Ô', 'Ö', 'Õ', 'ù', 'ú', 'û', 'ü', 'Ù', 'Ú', 'Û', 'Ü', 'ç', 'Ç', 'ÿ', 'Ÿ', 'ñ', 'Ñ', 'ß'};
+		field5234 = new char[]{'[', ']', '#'};
 	}
 }

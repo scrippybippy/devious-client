@@ -1,55 +1,62 @@
-import net.runelite.mapping.ObfuscatedGetter;
+import java.util.Iterator;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("qm")
-public final class class440 implements Comparable {
-	@ObfuscatedName("am")
-	Object field4693;
-	@ObfuscatedName("ap")
-	Object field4692;
-	@ObfuscatedName("af")
-	@ObfuscatedGetter(
-		longValue = -8117989091018222727L
-	)
-	long field4694;
-	@ObfuscatedName("aj")
-	@ObfuscatedGetter(
-		longValue = 5202280088486027675L
-	)
-	long field4691;
-
-	class440(Object var1, Object var2) {
-		this.field4693 = var1;
-		this.field4692 = var2;
-	}
-
-	@ObfuscatedName("am")
+@ObfuscatedName("qu")
+public class class440 extends SongTask {
 	@ObfuscatedSignature(
-		descriptor = "(Lqm;I)I",
-		garbageValue = "1851234429"
+		descriptor = "(Lre;)V"
 	)
-	int method8153(class440 var1) {
-		if (this.field4691 < var1.field4691) {
-			return -1;
-		} else {
-			return this.field4691 > var1.field4691 ? 1 : 0;
+	public class440(SongTask var1) {
+		super(var1);
+		super.field4793 = "StartSongTask";
+	}
+
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(I)Z",
+		garbageValue = "1230726323"
+	)
+	public boolean vmethod8329() {
+		Iterator var1 = class329.musicSongs.iterator();
+
+		while (var1.hasNext()) {
+			MusicSong var2 = (MusicSong)var1.next();
+			if (var2 != null && !var2.field3694 && var2.midiPcmStream != null) {
+				try {
+					var2.midiPcmStream.method6259();
+					var2.midiPcmStream.setPcmStreamVolume(0);
+					if (var2.field3685 != null) {
+						var2.midiPcmStream.setMusicTrack(var2.field3685, var2.musicTrackBoolean);
+					}
+
+					var2.field3685 = null;
+					var2.field3695 = null;
+					var2.musicTrackArchive = null;
+					var2.field3694 = true;
+				} catch (Exception var4) {
+					BufferedSink.RunException_sendStackTrace((String)null, var4);
+					this.method8305(var4.getMessage());
+					return true;
+				}
+			}
 		}
+
+		super.field4798 = true;
+		return true;
 	}
 
-	public int compareTo(Object var1) {
-		return this.method8153((class440)var1);
-	}
-
-	public boolean equals(Object var1) {
-		if (var1 instanceof class440) {
-			return this.field4692.equals(((class440)var1).field4692);
+	@ObfuscatedName("jl")
+	@ObfuscatedSignature(
+		descriptor = "(B)I",
+		garbageValue = "-90"
+	)
+	static final int method8290() {
+		if (class459.clientPreferences.isRoofsHidden()) {
+			return class358.topLevelWorldView.plane;
 		} else {
-			throw new IllegalArgumentException();
+			int var0 = SoundSystem.getTileHeight(class358.topLevelWorldView, PlayerComposition.cameraX, UserComparator4.cameraZ, class358.topLevelWorldView.plane);
+			return var0 - class171.cameraY < 800 && (class358.topLevelWorldView.tileSettings[class358.topLevelWorldView.plane][PlayerComposition.cameraX >> 7][UserComparator4.cameraZ >> 7] & 4) != 0 ? class358.topLevelWorldView.plane : 3;
 		}
-	}
-
-	public int hashCode() {
-		return this.field4692.hashCode();
 	}
 }

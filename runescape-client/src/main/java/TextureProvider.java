@@ -4,51 +4,57 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("kj")
+@ObfuscatedName("jj")
 @Implements("TextureProvider")
 public class TextureProvider implements TextureLoader {
-	@ObfuscatedName("am")
+	@ObfuscatedName("lb")
+	@ObfuscatedGetter(
+		intValue = -940011597
+	)
+	@Export("oculusOrbFocalPointZ")
+	static int oculusOrbFocalPointZ;
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "[Lka;"
+		descriptor = "[Ljw;"
 	)
 	@Export("textures")
 	Texture[] textures;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "Lpu;"
+		descriptor = "Lpk;"
 	)
 	@Export("deque")
 	NodeDeque deque;
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -71155665
+		intValue = 1600177769
 	)
 	@Export("capacity")
 	int capacity;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		intValue = -1717553527
+		intValue = -173568361
 	)
 	@Export("remaining")
 	int remaining;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@Export("brightness")
 	double brightness;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = -1052170997
+		intValue = 560141227
 	)
 	@Export("textureSize")
 	int textureSize;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Low;"
+		descriptor = "Lor;"
 	)
 	@Export("archive")
 	AbstractArchive archive;
 
 	@ObfuscatedSignature(
-		descriptor = "(Low;Low;IDI)V"
+		descriptor = "(Lor;Lor;IDI)V"
 	)
 	public TextureProvider(AbstractArchive var1, AbstractArchive var2, int var3, double var4, int var6) {
 		this.deque = new NodeDeque();
@@ -75,10 +81,10 @@ public class TextureProvider implements TextureLoader {
 
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
 		descriptor = "(B)I",
-		garbageValue = "32"
+		garbageValue = "49"
 	)
 	@Export("getLoadedPercentage")
 	public int getLoadedPercentage() {
@@ -97,7 +103,7 @@ public class TextureProvider implements TextureLoader {
 
 					for (int var7 = 0; var7 < var6.length; ++var7) {
 						int var8 = var6[var7];
-						if (this.archive.method7033(var8)) {
+						if (this.archive.method7231(var8)) {
 							++var2;
 						}
 					}
@@ -112,17 +118,17 @@ public class TextureProvider implements TextureLoader {
 		}
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@Export("setBrightness")
 	public void setBrightness(double var1) {
 		this.brightness = var1;
 		this.clear();
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
 		descriptor = "(IB)[I",
-		garbageValue = "2"
+		garbageValue = "116"
 	)
 	@Export("getTexturePixels")
 	public int[] getTexturePixels(int var1) {
@@ -152,39 +158,39 @@ public class TextureProvider implements TextureLoader {
 		return null;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(IB)I",
-		garbageValue = "9"
+		descriptor = "(II)I",
+		garbageValue = "238689618"
 	)
 	@Export("getAverageTextureRGB")
 	public int getAverageTextureRGB(int var1) {
 		return this.textures[var1] != null ? this.textures[var1].averageRGB : 0;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@ObfuscatedSignature(
 		descriptor = "(II)Z",
-		garbageValue = "1046131319"
+		garbageValue = "402010172"
 	)
-	public boolean vmethod5900(int var1) {
-		return this.textures[var1].field2763;
+	public boolean vmethod5456(int var1) {
+		return this.textures[var1].field2618;
 	}
 
-	@ObfuscatedName("ar")
+	@ObfuscatedName("aa")
 	@ObfuscatedSignature(
 		descriptor = "(II)Z",
-		garbageValue = "-946358235"
+		garbageValue = "209141119"
 	)
 	@Export("isLowDetail")
 	public boolean isLowDetail(int var1) {
 		return this.textureSize == 64;
 	}
 
-	@ObfuscatedName("ag")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "2088252139"
+		garbageValue = "-598476332"
 	)
 	@Export("clear")
 	public void clear() {
@@ -198,10 +204,10 @@ public class TextureProvider implements TextureLoader {
 		this.remaining = this.capacity;
 	}
 
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
 		descriptor = "(II)V",
-		garbageValue = "2029631677"
+		garbageValue = "-89858524"
 	)
 	@Export("animate")
 	public void animate(int var1) {
@@ -215,30 +221,30 @@ public class TextureProvider implements TextureLoader {
 
 	}
 
-	@ObfuscatedName("mp")
+	@ObfuscatedName("ne")
 	@ObfuscatedSignature(
-		descriptor = "(IIIIIIIII)V",
-		garbageValue = "1937337021"
+		descriptor = "(IIIIII)V",
+		garbageValue = "-1864544323"
 	)
-	@Export("drawWidgets")
-	static final void drawWidgets(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
-		if (class380.widgetDefinition.loadInterface(var0)) {
-			AsyncHttpResponse.field78 = null;
-			UserComparator5.drawInterface(class380.widgetDefinition.Widget_interfaceComponents[var0], -1, var1, var2, var3, var4, var5, var6, var7);
-			if (AsyncHttpResponse.field78 != null) {
-				UserComparator5.drawInterface(AsyncHttpResponse.field78, -1412584499, var1, var2, var3, var4, class27.field135, class106.field1342, var7);
-				AsyncHttpResponse.field78 = null;
-			}
-
-		} else {
-			if (var7 != -1) {
-				Client.validRootWidgets[var7] = true;
-			} else {
-				for (int var8 = 0; var8 < 100; ++var8) {
-					Client.validRootWidgets[var8] = true;
-				}
-			}
-
+	@Export("drawScrollBar")
+	static final void drawScrollBar(int var0, int var1, int var2, int var3, int var4) {
+		UrlRequest.scrollBarSprites[0].drawAt(var0, var1);
+		UrlRequest.scrollBarSprites[1].drawAt(var0, var3 + var1 - 16);
+		Rasterizer2D.Rasterizer2D_fillRectangle(var0, var1 + 16, 16, var3 - 32, Client.field759);
+		int var5 = var3 * (var3 - 32) / var4;
+		if (var5 < 8) {
+			var5 = 8;
 		}
+
+		int var6 = (var3 - 32 - var5) * var2 / (var4 - var3);
+		Rasterizer2D.Rasterizer2D_fillRectangle(var0, var6 + var1 + 16, 16, var5, Client.field608);
+		Rasterizer2D.Rasterizer2D_drawVerticalLine(var0, var6 + var1 + 16, var5, Client.field662);
+		Rasterizer2D.Rasterizer2D_drawVerticalLine(var0 + 1, var6 + var1 + 16, var5, Client.field662);
+		Rasterizer2D.Rasterizer2D_drawHorizontalLine(var0, var6 + var1 + 16, 16, Client.field662);
+		Rasterizer2D.Rasterizer2D_drawHorizontalLine(var0, var6 + var1 + 17, 16, Client.field662);
+		Rasterizer2D.Rasterizer2D_drawVerticalLine(var0 + 15, var6 + var1 + 16, var5, Client.field526);
+		Rasterizer2D.Rasterizer2D_drawVerticalLine(var0 + 14, var6 + var1 + 17, var5 - 1, Client.field526);
+		Rasterizer2D.Rasterizer2D_drawHorizontalLine(var0, var5 + var6 + var1 + 15, 16, Client.field526);
+		Rasterizer2D.Rasterizer2D_drawHorizontalLine(var0 + 1, var5 + var6 + var1 + 14, 15, Client.field526);
 	}
 }

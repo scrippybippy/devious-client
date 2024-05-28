@@ -1,75 +1,49 @@
-import java.util.concurrent.Callable;
 import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fh")
-class class137 implements Callable {
-	@ObfuscatedName("id")
-	@ObfuscatedGetter(
-		longValue = 1288759571513827527L
-	)
-	static long field1594;
-	// $FF: synthetic field
+@ObfuscatedName("fe")
+public class class137 implements class127 {
+	@ObfuscatedName("tt")
 	@ObfuscatedSignature(
-		descriptor = "Lfu;"
+		descriptor = "Lbd;"
 	)
-	final class138 this$0;
-	// $FF: synthetic field
-	final int val$workStart;
-	// $FF: synthetic field
-	final int val$workEnd;
-	// $FF: synthetic field
-	@ObfuscatedSignature(
-		descriptor = "[Lfe;"
-	)
-	final class130[] val$curveLoadJobs;
+	@Export("pcmPlayer1")
+	static PcmPlayer pcmPlayer1;
 
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Lfu;II[Lfe;)V"
+		descriptor = "([BILjava/lang/CharSequence;I)I",
+		garbageValue = "-278060780"
 	)
-	class137(class138 var1, int var2, int var3, class130[] var4) {
-		this.this$0 = var1;
-		this.val$workStart = var2;
-		this.val$workEnd = var3;
-		this.val$curveLoadJobs = var4;
-	}
+	public static int method3130(byte[] var0, int var1, CharSequence var2) {
+		int var3 = var2.length();
+		int var4 = var1;
 
-	public Object call() {
-		for (int var1 = this.val$workStart; var1 < this.val$workEnd; ++var1) {
-			this.val$curveLoadJobs[var1].call();
+		for (int var5 = 0; var5 < var3; ++var5) {
+			char var6 = var2.charAt(var5);
+			if (var6 <= 127) {
+				var0[var4++] = (byte)var6;
+			} else if (var6 <= 2047) {
+				var0[var4++] = (byte)(192 | var6 >> 6);
+				var0[var4++] = (byte)(128 | var6 & '?');
+			} else {
+				var0[var4++] = (byte)(224 | var6 >> '\f');
+				var0[var4++] = (byte)(128 | var6 >> 6 & 63);
+				var0[var4++] = (byte)(128 | var6 & '?');
+			}
 		}
 
-		return null;
+		return var4 - var1;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ac")
 	@ObfuscatedSignature(
-		descriptor = "(II)Lhg;",
-		garbageValue = "-2120019112"
+		descriptor = "(I)Lcl;",
+		garbageValue = "680681545"
 	)
-	@Export("getObjectDefinition")
-	public static ObjectComposition getObjectDefinition(int var0) {
-		ObjectComposition var1 = (ObjectComposition)ObjectComposition.ObjectDefinition_cached.get((long)var0);
-		if (var1 != null) {
-			return var1;
-		} else {
-			byte[] var2 = ObjectComposition.ObjectDefinition_archive.takeFile(6, var0);
-			var1 = new ObjectComposition();
-			var1.id = var0;
-			if (var2 != null) {
-				var1.decode(new Buffer(var2));
-			}
-
-			var1.postDecode();
-			if (var1.isSolid) {
-				var1.interactType = 0;
-				var1.boolean1 = false;
-			}
-
-			ObjectComposition.ObjectDefinition_cached.put(var1, (long)var0);
-			return var1;
-		}
+	@Export("getNextWorldListWorld")
+	static World getNextWorldListWorld() {
+		return World.World_listCount < World.World_count ? class415.World_worlds[++World.World_listCount - 1] : null;
 	}
 }

@@ -4,113 +4,115 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dc")
+@ObfuscatedName("dr")
 @Implements("DynamicObject")
 public class DynamicObject extends Renderable {
-	@ObfuscatedName("ad")
-	@ObfuscatedGetter(
-		intValue = -2058281919
-	)
-	static int field998;
 	@ObfuscatedName("fp")
 	@ObfuscatedSignature(
-		descriptor = "Loz;"
+		descriptor = "Lot;"
 	)
-	static Archive field994;
-	@ObfuscatedName("am")
+	static Archive field1038;
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "Ldt;"
+	)
+	@Export("worldView")
+	WorldView worldView;
+	@ObfuscatedName("al")
 	@ObfuscatedGetter(
-		intValue = -1230540715
+		intValue = -221657491
 	)
 	@Export("id")
 	int id;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -1584482637
+		intValue = 361896199
 	)
 	@Export("type")
 	int type;
-	@ObfuscatedName("af")
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		intValue = -60332413
+		intValue = 2000434069
 	)
 	@Export("orientation")
 	int orientation;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("af")
 	@ObfuscatedGetter(
-		intValue = 1063921529
+		intValue = -415493371
 	)
 	@Export("plane")
 	int plane;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("aa")
 	@ObfuscatedGetter(
-		intValue = -110217485
+		intValue = -25327393
 	)
 	@Export("x")
 	int x;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = -1921192251
+		intValue = 743991919
 	)
 	@Export("y")
 	int y;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
-		descriptor = "Lhl;"
+		descriptor = "Lic;"
 	)
 	@Export("sequenceDefinition")
 	SequenceDefinition sequenceDefinition;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ac")
 	@ObfuscatedGetter(
-		intValue = 60061939
+		intValue = -440522477
 	)
 	@Export("frame")
 	int frame;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ao")
 	@ObfuscatedGetter(
-		intValue = -543320113
+		intValue = -212623117
 	)
 	@Export("cycleStart")
 	int cycleStart;
 
 	@ObfuscatedSignature(
-		descriptor = "(IIIIIIIZLkp;)V"
+		descriptor = "(Ldt;IIIIIIIZLju;)V"
 	)
-	DynamicObject(int var1, int var2, int var3, int var4, int var5, int var6, int var7, boolean var8, Renderable var9) {
-		this.id = var1;
-		this.type = var2;
-		this.orientation = var3;
-		this.plane = var4;
-		this.x = var5;
-		this.y = var6;
-		if (var7 != -1) {
-			this.sequenceDefinition = HttpMethod.SequenceDefinition_get(var7);
+	DynamicObject(WorldView var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, boolean var9, Renderable var10) {
+		this.worldView = var1;
+		this.id = var2;
+		this.type = var3;
+		this.orientation = var4;
+		this.plane = var5;
+		this.x = var6;
+		this.y = var7;
+		if (var8 != -1) {
+			this.sequenceDefinition = FaceNormal.SequenceDefinition_get(var8);
 			this.frame = 0;
 			this.cycleStart = Client.cycle - 1;
-			if (this.sequenceDefinition.restartMode == 0 && var9 != null && var9 instanceof DynamicObject) {
-				DynamicObject var10 = (DynamicObject)var9;
-				if (var10.sequenceDefinition == this.sequenceDefinition) {
-					this.frame = var10.frame;
-					this.cycleStart = var10.cycleStart;
+			if (this.sequenceDefinition.restartMode == 0 && var10 != null && var10 instanceof DynamicObject) {
+				DynamicObject var11 = (DynamicObject)var10;
+				if (this.sequenceDefinition == var11.sequenceDefinition) {
+					this.frame = var11.frame;
+					this.cycleStart = var11.cycleStart;
 					return;
 				}
 			}
 
-			if (var8 && this.sequenceDefinition.frameCount != -1) {
+			if (var9 && this.sequenceDefinition.frameCount != -1) {
 				if (!this.sequenceDefinition.isCachedModelIdSet()) {
 					this.frame = (int)(Math.random() * (double)this.sequenceDefinition.frameIds.length);
 					this.cycleStart -= (int)(Math.random() * (double)this.sequenceDefinition.frameLengths[this.frame]);
 				} else {
-					this.frame = (int)(Math.random() * (double)this.sequenceDefinition.method4106());
+					this.frame = (int)(Math.random() * (double)this.sequenceDefinition.method4326());
 				}
 			}
 		}
 
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(I)Lko;",
-		garbageValue = "-714420560"
+		descriptor = "(I)Lkb;",
+		garbageValue = "-852782106"
 	)
 	@Export("getModel")
 	protected final Model getModel() {
@@ -122,7 +124,7 @@ public class DynamicObject extends Renderable {
 			}
 
 			if (this.sequenceDefinition.isCachedModelIdSet()) {
-				var2 = this.sequenceDefinition.method4106();
+				var2 = this.sequenceDefinition.method4326();
 				this.frame += var1;
 				var1 = 0;
 				if (this.frame >= var2) {
@@ -132,11 +134,11 @@ public class DynamicObject extends Renderable {
 					}
 				}
 			} else {
-				label80: {
+				label83: {
 					do {
 						do {
 							if (var1 <= this.sequenceDefinition.frameLengths[this.frame]) {
-								break label80;
+								break label83;
 							}
 
 							var1 -= this.sequenceDefinition.frameLengths[this.frame];
@@ -153,7 +155,7 @@ public class DynamicObject extends Renderable {
 			this.cycleStart = Client.cycle - var1;
 		}
 
-		ObjectComposition var12 = class137.getObjectDefinition(this.id);
+		ObjectComposition var12 = HitSplatDefinition.getObjectDefinition(this.id);
 		if (var12.transforms != null) {
 			var12 = var12.transform();
 		}
@@ -174,7 +176,7 @@ public class DynamicObject extends Renderable {
 			int var5 = (var2 + 1 >> 1) + this.x;
 			int var6 = (var3 >> 1) + this.y;
 			int var7 = (var3 + 1 >> 1) + this.y;
-			int[][] var8 = Tiles.Tiles_heights[this.plane];
+			int[][] var8 = this.worldView.tileHeights[this.plane];
 			int var9 = var8[var4][var7] + var8[var5][var6] + var8[var4][var6] + var8[var5][var7] >> 2;
 			int var10 = (this.x << 7) + (var2 << 6);
 			int var11 = (this.y << 7) + (var3 << 6);
@@ -182,100 +184,40 @@ public class DynamicObject extends Renderable {
 		}
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(Low;I)V",
-		garbageValue = "410657655"
+		descriptor = "(III)V",
+		garbageValue = "295501002"
 	)
-	public static void method2255(AbstractArchive var0) {
-		VarpDefinition.VarpDefinition_archive = var0;
-		AbstractByteArrayCopier.field3856 = VarpDefinition.VarpDefinition_archive.getGroupFileCount(16);
+	public static void method2224(int var0, int var1) {
+		VarbitComposition var2 = MouseHandler.method689(var0);
+		int var3 = var2.baseVar;
+		int var4 = var2.startBit;
+		int var5 = var2.endBit;
+		int var6 = Varps.Varps_masks[var5 - var4];
+		if (var1 < 0 || var1 > var6) {
+			var1 = 0;
+		}
+
+		var6 <<= var4;
+		Varps.Varps_main[var3] = Varps.Varps_main[var3] & ~var6 | var1 << var4 & var6;
 	}
 
-	@ObfuscatedName("ao")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(IIIZIB)J",
-		garbageValue = "36"
+		descriptor = "(Lnb;II)V",
+		garbageValue = "-1992565034"
 	)
-	@Export("calculateTag")
-	public static long calculateTag(int var0, int var1, int var2, boolean var3, int var4) {
-		long var5 = (long)((var0 & 127) << 0 | (var1 & 127) << 7 | (var2 & 3) << 14) | ((long)var4 & 4294967295L) << 17;
-		if (var3) {
-			var5 |= 65536L;
-		}
-
-		return var5;
-	}
-
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "([BB)V",
-		garbageValue = "2"
-	)
-	@Export("SpriteBuffer_decode")
-	static void SpriteBuffer_decode(byte[] var0) {
-		Buffer var1 = new Buffer(var0);
-		var1.offset = var0.length - 2;
-		SpriteBufferProperties.SpriteBuffer_spriteCount = var1.readUnsignedShort();
-		SpriteBufferProperties.SpriteBuffer_xOffsets = new int[SpriteBufferProperties.SpriteBuffer_spriteCount];
-		class388.SpriteBuffer_yOffsets = new int[SpriteBufferProperties.SpriteBuffer_spriteCount];
-		FriendsList.SpriteBuffer_spriteWidths = new int[SpriteBufferProperties.SpriteBuffer_spriteCount];
-		GrandExchangeOfferOwnWorldComparator.SpriteBuffer_spriteHeights = new int[SpriteBufferProperties.SpriteBuffer_spriteCount];
-		class230.SpriteBuffer_pixels = new byte[SpriteBufferProperties.SpriteBuffer_spriteCount][];
-		var1.offset = var0.length - 7 - SpriteBufferProperties.SpriteBuffer_spriteCount * 8;
-		SpriteBufferProperties.SpriteBuffer_spriteWidth = var1.readUnsignedShort();
-		SpriteBufferProperties.SpriteBuffer_spriteHeight = var1.readUnsignedShort();
-		int var2 = (var1.readUnsignedByte() & 255) + 1;
-
-		int var3;
-		for (var3 = 0; var3 < SpriteBufferProperties.SpriteBuffer_spriteCount; ++var3) {
-			SpriteBufferProperties.SpriteBuffer_xOffsets[var3] = var1.readUnsignedShort();
-		}
-
-		for (var3 = 0; var3 < SpriteBufferProperties.SpriteBuffer_spriteCount; ++var3) {
-			class388.SpriteBuffer_yOffsets[var3] = var1.readUnsignedShort();
-		}
-
-		for (var3 = 0; var3 < SpriteBufferProperties.SpriteBuffer_spriteCount; ++var3) {
-			FriendsList.SpriteBuffer_spriteWidths[var3] = var1.readUnsignedShort();
-		}
-
-		for (var3 = 0; var3 < SpriteBufferProperties.SpriteBuffer_spriteCount; ++var3) {
-			GrandExchangeOfferOwnWorldComparator.SpriteBuffer_spriteHeights[var3] = var1.readUnsignedShort();
-		}
-
-		var1.offset = var0.length - 7 - SpriteBufferProperties.SpriteBuffer_spriteCount * 8 - (var2 - 1) * 3;
-		SecureUrlRequester.SpriteBuffer_spritePalette = new int[var2];
-
-		for (var3 = 1; var3 < var2; ++var3) {
-			SecureUrlRequester.SpriteBuffer_spritePalette[var3] = var1.readMedium();
-			if (SecureUrlRequester.SpriteBuffer_spritePalette[var3] == 0) {
-				SecureUrlRequester.SpriteBuffer_spritePalette[var3] = 1;
+	@Export("Widget_setKeyIgnoreHeld")
+	static final void Widget_setKeyIgnoreHeld(Widget var0, int var1) {
+		if (var0.field3891 == null) {
+			throw new RuntimeException();
+		} else {
+			if (var0.field3822 == null) {
+				var0.field3822 = new int[var0.field3891.length];
 			}
+
+			var0.field3822[var1] = Integer.MAX_VALUE;
 		}
-
-		var1.offset = 0;
-
-		for (var3 = 0; var3 < SpriteBufferProperties.SpriteBuffer_spriteCount; ++var3) {
-			int var4 = FriendsList.SpriteBuffer_spriteWidths[var3];
-			int var5 = GrandExchangeOfferOwnWorldComparator.SpriteBuffer_spriteHeights[var3];
-			int var6 = var5 * var4;
-			byte[] var7 = new byte[var6];
-			class230.SpriteBuffer_pixels[var3] = var7;
-			int var8 = var1.readUnsignedByte();
-			int var9;
-			if (var8 == 0) {
-				for (var9 = 0; var9 < var6; ++var9) {
-					var7[var9] = var1.readByte();
-				}
-			} else if (var8 == 1) {
-				for (var9 = 0; var9 < var4; ++var9) {
-					for (int var10 = 0; var10 < var5; ++var10) {
-						var7[var9 + var4 * var10] = var1.readByte();
-					}
-				}
-			}
-		}
-
 	}
 }

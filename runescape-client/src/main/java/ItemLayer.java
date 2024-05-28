@@ -4,58 +4,81 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("kz")
+@ObfuscatedName("jh")
 @Implements("ItemLayer")
 public final class ItemLayer {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = -612752779
+		intValue = 1738797291
 	)
 	@Export("z")
 	int z;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedGetter(
-		intValue = -235929600
+		intValue = -1428347469
 	)
 	@Export("x")
 	int x;
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = 1448069827
+		intValue = -1795281107
 	)
 	@Export("y")
 	int y;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "Lkp;"
+		descriptor = "Lju;"
 	)
 	@Export("first")
 	Renderable first;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("af")
 	@ObfuscatedSignature(
-		descriptor = "Lkp;"
+		descriptor = "Lju;"
 	)
 	@Export("second")
 	Renderable second;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("aa")
 	@ObfuscatedSignature(
-		descriptor = "Lkp;"
+		descriptor = "Lju;"
 	)
 	@Export("third")
 	Renderable third;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		longValue = -5128273485840900591L
+		longValue = -8933060122100064223L
 	)
 	@Export("tag")
 	long tag;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = 1921801005
+		intValue = 1853806987
 	)
 	@Export("height")
 	int height;
 
 	ItemLayer() {
+	}
+
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(Lor;I)V",
+		garbageValue = "1856605907"
+	)
+	public static void method4586(AbstractArchive var0) {
+	}
+
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "(CII)Ljava/lang/String;",
+		garbageValue = "-439952169"
+	)
+	public static String method4585(char var0, int var1) {
+		char[] var2 = new char[var1];
+
+		for (int var3 = 0; var3 < var1; ++var3) {
+			var2[var3] = var0;
+		}
+
+		return new String(var2);
 	}
 }

@@ -23,16 +23,6 @@ public abstract class DRSCachedDeviceIdMixin implements RSPlatformInfo
 	@Shadow("client")
 	private static RSClient client;
 
-	@net.runelite.api.mixins.Inject
-	@javax.inject.Inject
-	@javax.inject.Named("cachedUUID")
-	private boolean cachedUUID;
-
-	@net.runelite.api.mixins.Inject
-	@javax.inject.Inject
-	@javax.inject.Named("runeLiteDir")
-	private File oprsDir;
-
 	@Inject
 	private File cachedUUIDFile;
 
@@ -43,29 +33,27 @@ public abstract class DRSCachedDeviceIdMixin implements RSPlatformInfo
 	@Replace("getDeviceId")
 	public String copy$getDeviceId(int os)
 	{
-		String deviceId = copy$getDeviceId(os);
-		if (!cachedUUID)
+		if (!client.useCachedUUID())
 		{
-			return deviceId;
+			return copy$getDeviceId(os);
 		}
 
-		client.getLogger().warn("Found deviceId (UUID): {}", deviceId);
-		String cachedDeviceId = getCachedUUID(client.getUserId());
+		String cachedDeviceId = getCachedUUID(client.getUsername() != null && !client.getUsername().isEmpty() ? client.getUsername() : client.getCharacterId());
 		if (cachedDeviceId == null)
 		{
 			cachedDeviceId = UUID.randomUUID().toString();
-			writeCachedUUID(client.getUserId(), cachedDeviceId);
+			writeCachedUUID(client.getUsername() != null && !client.getUsername().isEmpty() ? client.getUsername() : client.getCharacterId(), cachedDeviceId);
 		}
 		client.getLogger().info("Using cached deviceId (UUID): {}", cachedDeviceId);
 		return cachedDeviceId;
 	}
 
 	@Inject
-	private String getCachedUUID(long userId)
+	private String getCachedUUID(String username)
 	{
 		if (cachedUUIDProperties == null)
 		{
-			cachedUUIDFile = new File(oprsDir, "uuid-cached.properties");
+			cachedUUIDFile = new File(System.getProperty("user.home") + File.separator + ".openosrs", "uuid-cached.properties");
 			cachedUUIDProperties = new Properties();
 
 			if (cachedUUIDProperties.isEmpty() && cachedUUIDFile.exists())
@@ -86,14 +74,14 @@ public abstract class DRSCachedDeviceIdMixin implements RSPlatformInfo
 			}
 		}
 
-		String uuid = cachedUUIDProperties.getProperty(String.valueOf(userId));
+		String uuid = cachedUUIDProperties.getProperty(client.getUsername() != null && !client.getUsername().isEmpty() ? client.getUsername() : client.getCharacterId());
 		return uuid != null ? uuid : null;
 	}
 
 	@Inject
-	private void writeCachedUUID(long userId, String UUID)
+	private void writeCachedUUID(String username, String UUID)
 	{
-		cachedUUIDProperties.setProperty(String.valueOf(userId), UUID);
+		cachedUUIDProperties.setProperty(client.getUsername() != null && !client.getUsername().isEmpty() ? client.getUsername() : client.getCharacterId(), UUID);
 		try (OutputStreamWriter outputStreamWriter = new OutputStreamWriter(Files.newOutputStream(cachedUUIDFile.toPath()), StandardCharsets.UTF_8))
 		{
 			cachedUUIDProperties.store(outputStreamWriter, "Cached UUID");

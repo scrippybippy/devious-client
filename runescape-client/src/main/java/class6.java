@@ -3,77 +3,53 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ag")
+@ObfuscatedName("at")
 public enum class6 implements Enum {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Lag;"
+		descriptor = "Lat;"
 	)
-	field8(0, 0);
+	field15(0, 0);
 
-	@ObfuscatedName("ap")
-	@ObfuscatedGetter(
-		intValue = 1652758699
+	@ObfuscatedName("wm")
+	@ObfuscatedSignature(
+		descriptor = "Ltb;"
 	)
-	public final int field9;
-	@ObfuscatedName("af")
+	@Export("worldMap")
+	static WorldMap worldMap;
+	@ObfuscatedName("al")
 	@ObfuscatedGetter(
-		intValue = -1203425959
+		intValue = -504213815
 	)
-	final int field7;
+	final int field12;
+	@ObfuscatedName("aj")
+	@ObfuscatedGetter(
+		intValue = 234575775
+	)
+	final int field13;
 
 	class6(int var3, int var4) {
-		this.field9 = var3;
-		this.field7 = var4;
+		this.field12 = var3;
+		this.field13 = var4;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "-884190501"
+		garbageValue = "-311400525"
 	)
 	@Export("rsOrdinal")
 	public int rsOrdinal() {
-		return this.field7;
+		return this.field13;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ac")
 	@ObfuscatedSignature(
-		descriptor = "(II)Lhc;",
-		garbageValue = "993535951"
+		descriptor = "(CB)Z",
+		garbageValue = "66"
 	)
-	@Export("getParamDefinition")
-	public static ParamComposition getParamDefinition(int var0) {
-		ParamComposition var1 = (ParamComposition)ParamComposition.ParamDefinition_cached.get((long)var0);
-		if (var1 != null) {
-			return var1;
-		} else {
-			byte[] var2 = ParamComposition.ParamDefinition_archive.takeFile(11, var0);
-			var1 = new ParamComposition();
-			if (var2 != null) {
-				var1.decode(new Buffer(var2));
-			}
-
-			var1.postDecode();
-			ParamComposition.ParamDefinition_cached.put(var1, (long)var0);
-			return var1;
-		}
-	}
-
-	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/CharSequence;S)I",
-		garbageValue = "-10898"
-	)
-	@Export("hashString")
-	public static int hashString(CharSequence var0) {
-		int var1 = var0.length();
-		int var2 = 0;
-
-		for (int var3 = 0; var3 < var1; ++var3) {
-			var2 = (var2 << 5) - var2 + class147.charToByteCp1252(var0.charAt(var3));
-		}
-
-		return var2;
+	@Export("isDigit")
+	public static boolean isDigit(char var0) {
+		return var0 >= '0' && var0 <= '9';
 	}
 }

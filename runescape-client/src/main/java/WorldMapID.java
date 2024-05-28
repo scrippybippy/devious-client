@@ -4,97 +4,122 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("js")
+@ObfuscatedName("ln")
 @Implements("WorldMapID")
 public class WorldMapID {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Ljs;"
+		descriptor = "Lln;"
 	)
-	static final WorldMapID field2653;
-	@ObfuscatedName("ap")
+	static final WorldMapID field3212;
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "Ljs;"
+		descriptor = "Lln;"
 	)
-	static final WorldMapID field2649;
-	@ObfuscatedName("af")
+	static final WorldMapID field3213;
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -1939518077
+		intValue = -938647203
 	)
 	@Export("value")
 	final int value;
 
 	static {
-		field2653 = new WorldMapID(0);
-		field2649 = new WorldMapID(1);
+		field3212 = new WorldMapID(0);
+		field3213 = new WorldMapID(1);
 	}
 
 	WorldMapID(int var1) {
 		this.value = var1;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1734459633"
+		descriptor = "(II)I",
+		garbageValue = "-1602380825"
 	)
-	static void method5029() {
-		TaskHandler.field2295 = new int[2000];
-		int var0 = 0;
-		int var1 = 240;
-
-		int var3;
-		for (byte var2 = 12; var0 < 16; var1 -= var2) {
-			var3 = MilliClock.method4269((double)((float)var1 / 360.0F), 0.9998999834060669D, (double)((float)var0 * 0.425F / 16.0F + 0.075F));
-			TaskHandler.field2295[var0] = var3;
-			++var0;
-		}
-
-		var1 = 48;
-
-		for (int var5 = var1 / 6; var0 < TaskHandler.field2295.length; var1 -= var5) {
-			var3 = var0 * 2;
-
-			for (int var4 = MilliClock.method4269((double)((float)var1 / 360.0F), 0.9998999834060669D, 0.5D); var0 < var3 && var0 < TaskHandler.field2295.length; ++var0) {
-				TaskHandler.field2295[var0] = var4;
-			}
-		}
-
+	public static int method5942(int var0) {
+		return class327.field3565[var0];
 	}
 
-	@ObfuscatedName("mu")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(Lnn;III)V",
-		garbageValue = "-425673760"
+		descriptor = "(FB)F",
+		garbageValue = "41"
 	)
-	@Export("alignWidgetPosition")
-	static void alignWidgetPosition(Widget var0, int var1, int var2) {
-		if (var0.xAlignment == 0) {
-			var0.x = var0.rawX;
-		} else if (var0.xAlignment == 1) {
-			var0.x = var0.rawX + (var1 - var0.width) / 2;
-		} else if (var0.xAlignment == 2) {
-			var0.x = var1 - var0.width - var0.rawX;
-		} else if (var0.xAlignment == 3) {
-			var0.x = var0.rawX * var1 >> 14;
-		} else if (var0.xAlignment == 4) {
-			var0.x = (var1 - var0.width) / 2 + (var0.rawX * var1 >> 14);
-		} else {
-			var0.x = var1 - var0.width - (var0.rawX * var1 >> 14);
+	public static final float method5944(float var0) {
+		float var1 = 75.0F;
+		float var2 = 10000.0F;
+		float var3 = 750000.0F / (10000.0F - var0 * 9925.0F);
+		return (var3 - 75.0F) / 9925.0F;
+	}
+
+	@ObfuscatedName("kh")
+	@ObfuscatedSignature(
+		descriptor = "(IIIIIIIIIZB)V",
+		garbageValue = "-120"
+	)
+	@Export("addTileItemToGroundItems")
+	static void addTileItemToGroundItems(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, boolean var9) {
+		TileItem var10 = new TileItem();
+		var10.id = var3;
+		var10.quantity = var4;
+		var10.setFlag(var5);
+		var10.visibileTime = Client.serverCycle + var6;
+		var10.despawnTime = var7 + Client.serverCycle;
+		var10.ownership = var8;
+		var10.isPrivate = var9;
+		if (ModeWhere.worldView.groundItems[var0][var1][var2] == null) {
+			ModeWhere.worldView.groundItems[var0][var1][var2] = new NodeDeque();
 		}
 
-		if (var0.yAlignment == 0) {
-			var0.y = var0.rawY;
-		} else if (var0.yAlignment == 1) {
-			var0.y = (var2 - var0.height) / 2 + var0.rawY;
-		} else if (var0.yAlignment == 2) {
-			var0.y = var2 - var0.height - var0.rawY;
-		} else if (var0.yAlignment == 3) {
-			var0.y = var2 * var0.rawY >> 14;
-		} else if (var0.yAlignment == 4) {
-			var0.y = (var2 - var0.height) / 2 + (var2 * var0.rawY >> 14);
-		} else {
-			var0.y = var2 - var0.height - (var2 * var0.rawY >> 14);
+		ModeWhere.worldView.groundItems[var0][var1][var2].addFirst(var10);
+		class349.updateItemPile(var0, var1, var2);
+	}
+
+	@ObfuscatedName("mc")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "809007645"
+	)
+	static final void method5941() {
+		boolean var0 = false;
+
+		while (!var0) {
+			var0 = true;
+
+			for (int var1 = 0; var1 < Client.menuOptionsCount - 1; ++var1) {
+				if (Client.menuOpcodes[var1] < 1000 && Client.menuOpcodes[var1 + 1] > 1000) {
+					String var2 = Client.menuTargets[var1];
+					Client.menuTargets[var1] = Client.menuTargets[var1 + 1];
+					Client.menuTargets[var1 + 1] = var2;
+					String var3 = Client.menuActions[var1];
+					Client.menuActions[var1] = Client.menuActions[var1 + 1];
+					Client.menuActions[var1 + 1] = var3;
+					int var4 = Client.menuOpcodes[var1];
+					Client.menuOpcodes[var1] = Client.menuOpcodes[var1 + 1];
+					Client.menuOpcodes[var1 + 1] = var4;
+					var4 = Client.menuArguments1[var1];
+					Client.menuArguments1[var1] = Client.menuArguments1[var1 + 1];
+					Client.menuArguments1[var1 + 1] = var4;
+					var4 = Client.menuArguments2[var1];
+					Client.menuArguments2[var1] = Client.menuArguments2[var1 + 1];
+					Client.menuArguments2[var1 + 1] = var4;
+					var4 = Client.menuIdentifiers[var1];
+					Client.menuIdentifiers[var1] = Client.menuIdentifiers[var1 + 1];
+					Client.menuIdentifiers[var1 + 1] = var4;
+					var4 = Client.menuItemIds[var1];
+					Client.menuItemIds[var1] = Client.menuItemIds[var1 + 1];
+					Client.menuItemIds[var1 + 1] = var4;
+					var4 = Client.menuWorldViewIds[var1];
+					Client.menuWorldViewIds[var1] = Client.menuWorldViewIds[var1 + 1];
+					Client.menuWorldViewIds[var1 + 1] = var4;
+					boolean var5 = Client.menuShiftClick[var1];
+					Client.menuShiftClick[var1] = Client.menuShiftClick[var1 + 1];
+					Client.menuShiftClick[var1 + 1] = var5;
+					var0 = false;
+				}
+			}
 		}
 
 	}

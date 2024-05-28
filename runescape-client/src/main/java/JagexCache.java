@@ -1,41 +1,43 @@
+import java.io.File;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("ic")
+@ObfuscatedName("gw")
 @Implements("JagexCache")
 public class JagexCache {
-	@ObfuscatedName("ar")
-	@ObfuscatedGetter(
-		intValue = 1245026205
-	)
-	static int field2303;
-	@ObfuscatedName("an")
+	@ObfuscatedName("az")
+	static File field1889;
+	@ObfuscatedName("aa")
+	@Export("PcmPlayer_stereo")
+	public static boolean PcmPlayer_stereo;
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "Lte;"
+		descriptor = "Luh;"
 	)
 	@Export("JagexCache_randomDat")
-	public static BufferedFile JagexCache_randomDat;
-	@ObfuscatedName("ad")
+	static BufferedFile JagexCache_randomDat;
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
-		descriptor = "Lte;"
+		descriptor = "Luh;"
 	)
 	@Export("JagexCache_dat2File")
 	public static BufferedFile JagexCache_dat2File;
-	@ObfuscatedName("ax")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lte;"
+		descriptor = "Luh;"
 	)
 	@Export("JagexCache_idx255File")
 	public static BufferedFile JagexCache_idx255File;
-	@ObfuscatedName("aw")
-	@ObfuscatedSignature(
-		descriptor = "[Lte;"
+	@ObfuscatedName("ax")
+	@ObfuscatedGetter(
+		intValue = -1969802501
 	)
-	@Export("JagexCache_idxFiles")
-	public static BufferedFile[] JagexCache_idxFiles;
+	@Export("cacheGamebuild")
+	static int cacheGamebuild;
 
 	static {
 		JagexCache_randomDat = null;
@@ -43,76 +45,75 @@ public class JagexCache {
 		JagexCache_idx255File = null;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("bk")
 	@ObfuscatedSignature(
-		descriptor = "(II)I",
-		garbageValue = "-831338467"
+		descriptor = "(ILdm;ZI)I",
+		garbageValue = "-1177265475"
 	)
-	public static int method4249(int var0) {
-		return var0 >>> 4 & class524.field5129;
-	}
-
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "([BIILkn;[Lii;B)V",
-		garbageValue = "121"
-	)
-	static final void method4247(byte[] var0, int var1, int var2, Scene var3, CollisionMap[] var4) {
-		Buffer var5 = new Buffer(var0);
-		int var6 = -1;
-
-		while (true) {
-			int var7 = var5.readIncrSmallSmart();
-			if (var7 == 0) {
-				return;
+	static int method3622(int var0, Script var1, boolean var2) {
+		int var3;
+		if (var0 == ScriptOpcodes.CAM_FORCEANGLE) {
+			class13.Interpreter_intStackSize -= 2;
+			var3 = Interpreter.Interpreter_intStack[class13.Interpreter_intStackSize];
+			int var4 = Interpreter.Interpreter_intStack[class13.Interpreter_intStackSize + 1];
+			if (!Client.isCameraLocked) {
+				Client.camAngleX = var3;
+				Client.camAngleY = var4;
 			}
 
-			var6 += var7;
-			int var8 = 0;
-
-			while (true) {
-				int var9 = var5.readUShortSmart();
-				if (var9 == 0) {
-					break;
-				}
-
-				var8 += var9 - 1;
-				int var10 = var8 & 63;
-				int var11 = var8 >> 6 & 63;
-				int var12 = var8 >> 12;
-				int var13 = var5.readUnsignedByte();
-				int var14 = var13 >> 2;
-				int var15 = var13 & 3;
-				int var16 = var11 + var1;
-				int var17 = var10 + var2;
-				if (var16 > 0 && var17 > 0 && var16 < 103 && var17 < 103) {
-					int var18 = var12;
-					if ((Tiles.Tiles_renderFlags[1][var16][var17] & 2) == 2) {
-						var18 = var12 - 1;
-					}
-
-					CollisionMap var19 = null;
-					if (var18 >= 0) {
-						var19 = var4[var18];
-					}
-
-					class59.addObjects(var12, var16, var17, var6, var15, var14, var3, var19);
-				}
+			return 1;
+		} else if (var0 == ScriptOpcodes.CAM_GETANGLE_XA) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = Client.camAngleX;
+			return 1;
+		} else if (var0 == ScriptOpcodes.CAM_GETANGLE_YA) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = Client.camAngleY;
+			return 1;
+		} else if (var0 == ScriptOpcodes.CAM_SETFOLLOWHEIGHT) {
+			var3 = Interpreter.Interpreter_intStack[--class13.Interpreter_intStackSize];
+			if (var3 < 0) {
+				var3 = 0;
 			}
+
+			Client.camFollowHeight = var3;
+			return 1;
+		} else if (var0 == ScriptOpcodes.CAM_GETFOLLOWHEIGHT) {
+			Interpreter.Interpreter_intStack[++class13.Interpreter_intStackSize - 1] = Client.camFollowHeight;
+			return 1;
+		} else {
+			return 2;
 		}
 	}
 
-	@ObfuscatedName("pv")
+	@ObfuscatedName("ct")
 	@ObfuscatedSignature(
-		descriptor = "(II)Luq;",
-		garbageValue = "-2093769128"
+		descriptor = "([BI)[B",
+		garbageValue = "518411508"
 	)
-	static DbTable method4248(int var0) {
-		DbTable var1 = (DbTable)Client.archive11.get((long)var0);
-		if (var1 == null) {
-			var1 = new DbTable(AsyncHttpResponse.field80, var0);
-		}
+	@Export("decompressBytes")
+	static final byte[] decompressBytes(byte[] var0) {
+		Buffer var1 = new Buffer(var0);
+		int var2 = var1.readUnsignedByte();
+		int var3 = var1.readInt();
+		if (var3 < 0 || AbstractArchive.field4515 != 0 && var3 > AbstractArchive.field4515) {
+			throw new RuntimeException();
+		} else if (var2 == 0) {
+			byte[] var6 = new byte[var3];
+			var1.readBytes(var6, 0, var3);
+			return var6;
+		} else {
+			int var4 = var1.readInt();
+			if (var4 >= 0 && (AbstractArchive.field4515 == 0 || var4 <= AbstractArchive.field4515)) {
+				byte[] var5 = new byte[var4];
+				if (var2 == 1) {
+					BZip2Decompressor.BZip2Decompressor_decompress(var5, var4, var0, var3, 9);
+				} else {
+					AbstractArchive.gzipDecompressor.decompress(var1, var5);
+				}
 
-		return var1;
+				return var5;
+			} else {
+				throw new RuntimeException();
+			}
+		}
 	}
 }

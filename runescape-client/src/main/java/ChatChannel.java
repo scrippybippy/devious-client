@@ -4,18 +4,18 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dg")
+@ObfuscatedName("db")
 @Implements("ChatChannel")
 public class ChatChannel {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
 		descriptor = "[Lco;"
 	)
 	@Export("messages")
 	Message[] messages;
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = 1778194045
+		intValue = -1975266977
 	)
 	@Export("count")
 	int count;
@@ -24,10 +24,10 @@ public class ChatChannel {
 		this.messages = new Message[100];
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
 		descriptor = "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Lco;",
-		garbageValue = "-1048847544"
+		garbageValue = "-411117179"
 	)
 	@Export("addMessage")
 	Message addMessage(int var1, String var2, String var3, String var4) {
@@ -55,65 +55,127 @@ public class ChatChannel {
 		return var5;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
 		descriptor = "(II)Lco;",
-		garbageValue = "-1849782828"
+		garbageValue = "1382132932"
 	)
 	@Export("getMessage")
 	Message getMessage(int var1) {
 		return var1 >= 0 && var1 < this.count ? this.messages[var1] : null;
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "-2082470699"
+		garbageValue = "1557589062"
 	)
 	@Export("size")
 	int size() {
 		return this.count;
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(I)[Ldw;",
-		garbageValue = "1161731681"
+		descriptor = "(IZB)[B",
+		garbageValue = "-36"
 	)
-	static class89[] method2271() {
-		return new class89[]{class89.field1082, class89.field1079, class89.field1080, class89.field1085, class89.field1078};
-	}
-
-	@ObfuscatedName("an")
-	@ObfuscatedSignature(
-		descriptor = "(Lnn;II)V",
-		garbageValue = "-2075138403"
-	)
-	@Export("Widget_setKeyIgnoreHeld")
-	static final void Widget_setKeyIgnoreHeld(Widget var0, int var1) {
-		if (var0.field3775 == null) {
-			throw new RuntimeException();
-		} else {
-			if (var0.field3847 == null) {
-				var0.field3847 = new int[var0.field3775.length];
+	@Export("ByteArrayPool_getArrayBool")
+	public static byte[] ByteArrayPool_getArrayBool(int var0, boolean var1) {
+		synchronized(ByteArrayPool.field4816) {
+			byte[] var3;
+			if ((var0 == 100 || var0 < 100 && var1) && ByteArrayPool.ByteArrayPool_smallCount > 0) {
+				var3 = ByteArrayPool.ByteArrayPool_small[--ByteArrayPool.ByteArrayPool_smallCount];
+				ByteArrayPool.ByteArrayPool_small[ByteArrayPool.ByteArrayPool_smallCount] = null;
+				return var3;
 			}
 
-			var0.field3847[var1] = Integer.MAX_VALUE;
+			if ((var0 == 5000 || var0 < 5000 && var1) && ByteArrayPool.ByteArrayPool_mediumCount > 0) {
+				var3 = ByteArrayPool.ByteArrayPool_medium[--ByteArrayPool.ByteArrayPool_mediumCount];
+				ByteArrayPool.ByteArrayPool_medium[ByteArrayPool.ByteArrayPool_mediumCount] = null;
+				return var3;
+			}
+
+			if ((var0 == 10000 || var0 < 10000 && var1) && ByteArrayPool.ByteArrayPool_largeCount > 0) {
+				var3 = ByteArrayPool.ByteArrayPool_large[--ByteArrayPool.ByteArrayPool_largeCount];
+				ByteArrayPool.ByteArrayPool_large[ByteArrayPool.ByteArrayPool_largeCount] = null;
+				return var3;
+			}
+
+			if ((var0 == 30000 || var0 < 30000 && var1) && ByteArrayPool.field4818 > 0) {
+				var3 = ByteArrayPool.field4826[--ByteArrayPool.field4818];
+				ByteArrayPool.field4826[ByteArrayPool.field4818] = null;
+				return var3;
+			}
+
+			int var6;
+			if (class202.ByteArrayPool_arrays != null) {
+				for (var6 = 0; var6 < class47.ByteArrayPool_alternativeSizes.length; ++var6) {
+					if ((class47.ByteArrayPool_alternativeSizes[var6] == var0 || var0 < class47.ByteArrayPool_alternativeSizes[var6] && var1) && ByteArrayPool.ByteArrayPool_altSizeArrayCounts[var6] > 0) {
+						byte[] var4 = class202.ByteArrayPool_arrays[var6][--ByteArrayPool.ByteArrayPool_altSizeArrayCounts[var6]];
+						class202.ByteArrayPool_arrays[var6][ByteArrayPool.ByteArrayPool_altSizeArrayCounts[var6]] = null;
+						return var4;
+					}
+				}
+			}
+
+			if (var1 && class47.ByteArrayPool_alternativeSizes != null) {
+				for (var6 = 0; var6 < class47.ByteArrayPool_alternativeSizes.length; ++var6) {
+					if (var0 <= class47.ByteArrayPool_alternativeSizes[var6] && ByteArrayPool.ByteArrayPool_altSizeArrayCounts[var6] < class202.ByteArrayPool_arrays[var6].length) {
+						return new byte[class47.ByteArrayPool_alternativeSizes[var6]];
+					}
+				}
+			}
 		}
+
+		return new byte[var0];
 	}
 
-	@ObfuscatedName("ij")
+	@ObfuscatedName("mh")
 	@ObfuscatedSignature(
-		descriptor = "(IZZZZB)Loz;",
-		garbageValue = "111"
+		descriptor = "(ILjava/lang/String;I)V",
+		garbageValue = "-1022757602"
 	)
-	@Export("newArchive")
-	static Archive newArchive(int var0, boolean var1, boolean var2, boolean var3, boolean var4) {
-		ArchiveDisk var5 = null;
-		if (JagexCache.JagexCache_dat2File != null) {
-			var5 = new ArchiveDisk(var0, JagexCache.JagexCache_dat2File, JagexCache.JagexCache_idxFiles[var0], 1000000);
+	static void method2226(int var0, String var1) {
+		int var2 = class17.localPlayer.worldView.playerUpdateManager.playerCount;
+		int[] var3 = class17.localPlayer.worldView.playerUpdateManager.playerIndices;
+		boolean var4 = false;
+		Username var5 = new Username(var1, class236.loginType);
+
+		for (int var6 = 0; var6 < var2; ++var6) {
+			Player var7 = class17.localPlayer.worldView.players[var3[var6]];
+			if (var7 != null && var7 != class17.localPlayer && var7.username != null && var7.username.equals(var5)) {
+				PacketBufferNode var8;
+				if (var0 == 1) {
+					var8 = WorldMapElement.getPacketBufferNode(ClientPacket.field3274, Client.packetWriter.isaacCipher);
+					var8.packetBuffer.writeByteSub(0);
+					var8.packetBuffer.writeShortAddLE(var3[var6]);
+					Client.packetWriter.addNode(var8);
+				} else if (var0 == 4) {
+					var8 = WorldMapElement.getPacketBufferNode(ClientPacket.field3307, Client.packetWriter.isaacCipher);
+					var8.packetBuffer.writeByteNeg(0);
+					var8.packetBuffer.writeShort(var3[var6]);
+					Client.packetWriter.addNode(var8);
+				} else if (var0 == 6) {
+					var8 = WorldMapElement.getPacketBufferNode(ClientPacket.field3297, Client.packetWriter.isaacCipher);
+					var8.packetBuffer.writeByte(0);
+					var8.packetBuffer.writeShortAdd(var3[var6]);
+					Client.packetWriter.addNode(var8);
+				} else if (var0 == 7) {
+					var8 = WorldMapElement.getPacketBufferNode(ClientPacket.field3278, Client.packetWriter.isaacCipher);
+					var8.packetBuffer.writeByteNeg(0);
+					var8.packetBuffer.writeShortLE(var3[var6]);
+					Client.packetWriter.addNode(var8);
+				}
+
+				var4 = true;
+				break;
+			}
 		}
 
-		return new Archive(var5, class357.masterDisk, UrlRequester.field1418, var0, var1, var2, var3, var4, false);
+		if (!var4) {
+			UrlRequest.addGameMessage(4, "", "Unable to find " + var1);
+		}
+
 	}
 }
