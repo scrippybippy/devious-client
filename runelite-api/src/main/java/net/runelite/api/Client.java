@@ -2528,7 +2528,8 @@ public interface Client extends OAuthApi, GameEngine
 	@Deprecated
 	default Scene getScene()
 	{
-		return getTopLevelWorldView().getScene();
+		var wv = getTopLevelWorldView();
+		return wv == null ? null : wv.getScene();
 	}
 
 	/**
@@ -2650,7 +2651,8 @@ public interface Client extends OAuthApi, GameEngine
 	@Deprecated
 	default int getBaseX()
 	{
-		return getTopLevelWorldView().getBaseX();
+		var wv = getTopLevelWorldView();
+		return wv == null ? 0 : wv.getBaseX();
 	}
 
 	/**
@@ -2664,7 +2666,8 @@ public interface Client extends OAuthApi, GameEngine
 	@Deprecated
 	default int getBaseY()
 	{
-		return getTopLevelWorldView().getBaseY();
+		var wv = getTopLevelWorldView();
+		return wv == null ? 0 : wv.getBaseY();
 	}
 
 	/**
@@ -2729,6 +2732,24 @@ public interface Client extends OAuthApi, GameEngine
 	 * Unethical
 	 */
 
+	@Deprecated
+	default void setSelectedSceneTileX(int sceneX)
+	{
+		getTopLevelWorldView().getScene().setBaseX(sceneX);
+	}
+
+	@Deprecated
+	default void setSelectedSceneTileY(int sceneY)
+	{
+		getTopLevelWorldView().getScene().setBaseY(sceneY);
+	}
+
+	@Deprecated
+	default void setViewportWalking(boolean enabled)
+	{
+		getTopLevelWorldView().getScene().setViewportWalking(enabled);
+	}
+
 	default void interact(int identifier, int opcode, int param0, int param1)
 	{
 		interact(identifier, opcode, param0, param1, -1, -1);
@@ -2782,12 +2803,6 @@ public interface Client extends OAuthApi, GameEngine
 	PacketBufferNode preparePacket(ClientPacket packet, IsaacCipher isaac);
 
 	PacketBufferNode preparePacket(ClientPacket packet);
-
-	//void setSelectedSceneTileX(int sceneX);
-
-	//void setSelectedSceneTileY(int sceneY);
-
-	//void setViewportWalking(boolean enabled);
 
 	void setCheckClick(boolean enabled);
 
